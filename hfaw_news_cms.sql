@@ -20,4 +20,4 @@ CREATE TABLE IF NOT EXISTS `cms_admin` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 insert into `cms_admin` values
-(1, 'admin', 'd099d126030d3207ba102efa8e60630a', '0', 1461135752, 'iamzhouj@163.com', '张三', 1);
+(1, 'admin', '4ef3d351448d0bdbe441d79f747231aa', '0', 1461135752, 'iamzhouj@163.com', '张三', 1);
