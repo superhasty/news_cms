@@ -1,0 +1,18 @@
+html,body,h1,h2,h3,h4,h5,h6,p,span,img,ul,ol,li,form,input,button,label{
+	margin: 0;
+	padding: 0;
+}
+html{
+	font-size: 100%;
+}
+body{
+	font-size: 16px;
+	font-family: "Microsoft YaHei";
+	color: #000;
+}
+ul,ol,li{
+	list-style: none;
+}
+a{
+	list-style: none;
+}
