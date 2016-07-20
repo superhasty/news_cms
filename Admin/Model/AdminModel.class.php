@@ -35,6 +35,23 @@ class AdminModel extends Model{
 	}
 
 	public function getAdminByUserName($username){
+		if(!isset($username)||empty($username)){
+			return false;
+		}
 		return $this->where("username = '$username'")->find();
+	}
+
+	/**
+	 * 通过用户ID获取用户真实姓名
+	 * @param  [type] $userId [description]
+	 * @return [type]         [description]
+	 */
+	public function getRealNameByUserId($userId){
+		$condition["admin_id"]=$userId;
+		if(FALSE !== ($realname = $this->where($condition)->getField("realname"))){
+			return $realname;
+		}else{
+			return $this->getError();
+		}
 	}
 }

@@ -9,7 +9,7 @@ admin_id, username,   password,   lastloginIP, lastloginTime, email, realName, s
 管理员ID，管理员账号，管理员密码，最近登陆IP， 最近登陆时间，  邮箱，真实姓名，登陆状态
 
 2. cms_menu          网站后台菜单管理表
-menu_id,name,     parentid, m,      c,        a,          data,     order,        status,   type
+menu_id,name,     parentid, module, controller, action,   description, order,     status,   type
 菜单ID, 菜单名称, 父菜单ID, 模块名, 控制器名, 操作方法名, 菜单描述, 菜单排列规则, 菜单状态, 菜单类型
 
 3. cms_news          网站新闻文章摘要信息表

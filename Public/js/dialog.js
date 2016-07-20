@@ -1,19 +1,25 @@
 var hfaw_dialog={
-	error: function(result){
+	error: function(content,url){
 		layer.open({
-			type: 1,
-			area: ['200px','200px'],
-			shadeClose: true,
-			content: result,
+			// type: 1,
+			// area: ['200px','200px'],
+			// shadeClose: true,
+			content: content,
+			yes: function(){
+				window.location.href=url;
+			},
 		})
 	},
 
-	success: function(result){
+	success: function(content,url){
 		layer.open({
-			type: 1,
-			area: ['200px','200px'],
-			shadeClose: true,
-			content: result,
+			// type: 1,
+			// area: ['200px','200px'],
+			// shadeClose: true,
+			content: content,
+			yes: function(){
+				window.location.href=url;
+			},
 		})
 	}
 }

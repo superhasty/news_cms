@@ -17,7 +17,40 @@ CREATE TABLE IF NOT EXISTS `cms_admin` (
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`admin_id`),
   KEY `username` (`username`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+)ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 insert into `cms_admin` values
 (1, 'admin', '4ef3d351448d0bdbe441d79f747231aa', '0', 1461135752, 'iamzhouj@163.com', '张三', 1);
+
+-- 网站后台管理员信息表
+CREATE TABLE IF NOT EXISTS `cms_menu` (
+  `menu_id` smallint(6) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(40) NOT NULL DEFAULT '',
+  `parentid` smallint(6) NOT NULL DEFAULT '0',
+  `module` varchar(20) NOT NULL DEFAULT '',
+  `controller` varchar(20) NOT NULL DEFAULT '',
+  `action` varchar(20) NOT NULL DEFAULT '',
+  `description` varchar(100) NOT NULL DEFAULT '',
+  `order` smallint(6) unsigned NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  `type` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`menu_id`),
+  KEY `order` (`order`),
+  KEY `parentid` (`parentid`),
+  KEY `route` (`module`,`controller`,`action`)
+)ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+INSERT INTO `cms_menu` VALUES
+(1, '菜单管理', 0, 'admin', 'menu', 'index', '', 10, 1, 1),
+(2, '文章管理', 0, 'admin', 'Content', 'index', '', 0, -1, 1),
+(3, '体育', 0, 'home', 'cat', 'index', '', 3, 1, 0),
+(4, '科技', 0, 'home', 'cat ', 'index', '', 0, -1, 0),
+(5, '汽车', 0, 'home', 'cat', 'index', '', 0, -1, 0),
+(6, '文章管理', 0, 'admin', 'content', 'index', '', 9, 1, 1),
+(7, '用户管理', 0, 'admin', 'user', 'index', '', 0, -1, 1),
+(8, '科技', 0, 'home', 'cat', 'index', '', 0, 1, 0),
+(9, '推荐位管理', 0, 'admin', 'position', 'index', '', 4, 1, 1),
+(10, '推荐位内容管理', 0, 'admin', 'positioncontent', 'index', '', 1, 1, 1),
+(11, '基本管理', 0, 'admin', 'basic', 'index', '', 0, 1, 1),
+(12, '新闻', 0, 'home', 'cat', 'index', '', 0, 1, 0),
+(13, '用户管理', 0, 'admin', 'admin', 'index', '', 0, 1, 1);

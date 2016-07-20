@@ -7,48 +7,43 @@ use Think\Controller;
 */
 class IndexController extends Controller
 {
-	public function login(){
-		/*if(IS_POST){
-			$User = D("User");
-			$username = I("post.username");
-			$password = I("post.password");
-			if($User->isValidUser($username,$password)){
-				$this->redirect("Index/index");
-			}else{
-				$func = __FUNCTION__;
-				$this->redirect($func);
-			}
-		}else{
-			$this->display();
-		}*/
-
-		$this->display();
-	}
-
-	//登陆后的首页
+	//首页
 	public function index(){
+		//检查session判断直接是否登陆
+		//如果登陆账号则进入首页，否则跳转到登陆页面
+		if(session("username")){
+			$Admin = D("Admin");
+			$realName = $Admin->getRealNameByUserId(session("userid"));
+			$this->assign("adminName", $realName);
+			$this->display();
+		}else{
+			$this->redirect("login");
+		}
+	}
+
+	public function login(){
 		$this->display();
 	}
 
+	public function logout(){
+		session(null);
+		$this->redirect("login");
+	}
+
+	//ajax接口
 	public function check(){
 		$result=array();
 		$username = I("post.username");
 		$password = I("post.password");
-		// simulate login success or fail
-		/*if($username && $password){
-			$result["msg"]=true;
-		}else{
-			$result["msg"]=false;
-		}
-		echo json_encode($result);*/
-
-		// real validate with database
 		$Admin = D("Admin");
 		$result = $Admin->isValidUser($username,$password);
 		if($result["status"]==0){
 			session("username",$result["data"]["username"]);
 			session("userid",$result["data"]["admin_id"]);
+			$url=__CONTROLLER__."/index";
+		}else{
+			$url=__CONTROLLER__."/login";
 		}
-		echo AJAXResult($result["status"],$result["msg"]);
+		echo AJAXResult($result["status"],$result["msg"],array("url"=>$url));
 	}
 }

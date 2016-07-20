@@ -4,4 +4,5 @@ return array(
 	"LOAD_EXT_CONFIG"	=>	"db", //"db,url,...."
 	"MD5_KEY"	=>	"news_cms",
 	"SHOW_PAGE_TRACE"	=>	true,
+	"PAGE_ROWS" => 5,
 );

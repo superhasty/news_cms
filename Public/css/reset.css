@@ -4,6 +4,7 @@ html,body,h1,h2,h3,h4,h5,h6,p,span,img,ul,ol,li,form,input,button,label{
 }
 html{
 	font-size: 100%;
+	cursor: default;
 }
 body{
 	font-size: 16px;
