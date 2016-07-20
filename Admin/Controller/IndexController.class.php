@@ -11,10 +11,11 @@ class IndexController extends Controller
 	public function index(){
 		//检查session判断直接是否登陆
 		//如果登陆账号则进入首页，否则跳转到登陆页面
-		if(session("username")){
+		if($userName = session("username")){
 			$Admin = D("Admin");
 			$realName = $Admin->getRealNameByUserId(session("userid"));
-			$this->assign("adminName", $realName);
+			$this->assign("realName", $realName);
+			$this->assign("userName", $userName);
 			$this->display();
 		}else{
 			$this->redirect("login");
@@ -45,5 +46,32 @@ class IndexController extends Controller
 			$url=__CONTROLLER__."/login";
 		}
 		echo AJAXResult($result["status"],$result["msg"],array("url"=>$url));
+	}
+
+	/**
+	 * [getPersonInfo description]
+	 * @param  [type] $username [description]
+	 * @return [type]           [description]
+	 */
+	public function getPersonInfo($username){
+		$Admin=D("Admin");
+		if(IS_GET){
+			$username = I("get.username","");
+			$PersonInfo = $Admin->getAdminByUserName($username);
+			$this->assign("PersonInfo",$PersonInfo);
+			$this->display();
+		}
+	}
+
+	/**
+	 * [modifyUser description]
+	 * @return [type] [description]
+	 */
+	public function modifyUser(){
+		if(IS_POST){
+			
+		}else{
+			$this->display();
+		}
 	}
 }

@@ -61,16 +61,16 @@
 	            </form> -->
 	        </div>
 	        <div>
-	          <button id="button-add" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-url="__CONTROLLER__/addMenu">
+	          <button id="menu_add_link" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-url="__CONTROLLER__/addMenu">
 	          	<span class="icon icon-plus" aria-hidden="true"></span>&nbsp;添加
 	          </button>
 	        </div>
 	        <div class="row">
-	            <div class="col-lg-6">
+	            <div class="col-lg-10">
 	                <h3></h3>
 	                <div class="table-responsive">
 	                    <form id="singcms-listorder">
-	                    <table class="table table-bordered table-hover singcms-table">
+	                    <table class="table table-bordered table-hover news-cms-table">
 	                        <thead>
 	                        <tr>
 	                            <th>排序</th>
@@ -96,10 +96,10 @@
 		                        	    <td>{$menu.type|getMenuStatus}</td>
 		                        	    <td>{$menu.status|getMenuStatus}</td>
 		                        	    <td>
-		                        	    	<a href="javascript:void(0)" attr-id="{$menu.menu_id}" id="singcms-edit" data-url="__CONTROLLER__/modifyMenu/{$menu.menu_id}" attr-message="编辑">
+		                        	    	<a href="javascript:void(0)" attr-id="{$menu.menu_id}" class="menu_modify_link" data-url="__CONTROLLER__/modifyMenu/id/{$menu.menu_id}" attr-message="编辑">
 		                        	    		<span class="icon icon-edit" aria-hidden="true"></span>
 		                        	    	</a>
-		                        	    	<a href="javascript:void(0)" attr-id="{$menu.menu_id}" id="singcms-delete" attr-url="__CONTROLLER__/deleteMenu/{$menu.menu_id}" attr-message="删除">
+		                        	    	<a href="javascript:void(0)" attr-id="{$menu.menu_id}" class="menu_delete_link" data-url="__CONTROLLER__/deleteMenu/id/{$menu.menu_id}" success-url="__CONTROLLER__/index" error-url="__SELF__" attr-message="删除">
 		                        	    		<span class="icon icon-remove-circle" aria-hidden="true"></span>
 		                        	    	</a>
 		                        	    </td>

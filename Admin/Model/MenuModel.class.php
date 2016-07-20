@@ -9,9 +9,15 @@ class MenuModel extends Model{
 	protected $_validate = array(
 		array("name","require","菜单名必须存在"),
 		array('type','require','菜单类型必须存在'),
-		array('status','require','菜单状态必须存在')
+		array('type','array(0,1)','菜单类型值不符合要求',"2","in"),
+		array('status','require','菜单状态必须存在'),
+		array('status','array(0,1,-1)','菜单状态值不符合要求',"2","in"),
 	);
 
+	/**
+	 * [addMenu description]
+	 * @param [type] $menuInfo [description]
+	 */
 	public function addMenu($menuInfo){
 		$data=null;
 		if($this->create($menuInfo)){
@@ -32,7 +38,7 @@ class MenuModel extends Model{
 	 */
 	public function modifyMenu($menuInfo){
 		$data=null;
-		if($this->data($data)){
+		if($this->data($menuInfo)){
 			$this->save();
 			$status=0;
 			$msg="修改菜单成功";
@@ -43,6 +49,10 @@ class MenuModel extends Model{
 		return array("status"=>$status,"msg"=>$msg,"data"=>$data);
 	}
 
+	/**
+	 * [showlist description]
+	 * @return [type] [description]
+	 */
 	public function showlist(){
 		$count = $this->count();
 		$page = new Page($count,C("PAGE_ROWS"));
@@ -55,13 +65,12 @@ class MenuModel extends Model{
 		return array("list"=>$list,"show"=>$show);
 	}
 
-
 	/**
 	 * [delteMenu description]
 	 * @param  [type] $menuId [description]
 	 * @return [type]         [description]
 	 */
-	public function delteMenu($menuId){
+	public function deleteMenu($menuId){
 		$data = null;
 		$condition["menu_id"] = $menuId;
 		$data["status"]= -1;
@@ -73,5 +82,10 @@ class MenuModel extends Model{
 			$msg = $this->getError();
 		}
 		return array("status"=>$status,"msg"=>$msg,"data"=>$data);
+	}
+
+	public function getMenuInfoById($menuId){
+		$condition["menu_id"]=$menuId;
+		return $this->where($condition)->find();
 	}
 }

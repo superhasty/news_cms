@@ -34,11 +34,14 @@ class AdminModel extends Model{
 		return array("status"=>$status,"msg"=>$msg,"data"=>$data);
 	}
 
+	/**
+	 * 通过用户名获取个人中心信息
+	 * @param  [type] $username [description]
+	 * @return [type]           [description]
+	 */
 	public function getAdminByUserName($username){
-		if(!isset($username)||empty($username)){
-			return false;
-		}
-		return $this->where("username = '$username'")->find();
+		$condition["username"]=$username;
+		return $this->where($condition)->find();
 	}
 
 	/**

@@ -55,9 +55,15 @@ class MenuController extends CommonController{
 	 * [editMenu description]
 	 * @return [type] [description]
 	 */
-	public function modifyMenu($menuId){
+	public function modifyMenu($menuId = -1){
+		$Menu = D("Menu");
 		$this->assign("nav_title","修改");
-		if(IS_POST){
+		if(IS_GET){
+			$menuId=I("get.id",$menuId);
+			$menuInfo=$Menu->getMenuInfoById($menuId);
+			$this->assign("menuInfo",$menuInfo);
+			$this->display();
+		}else if(IS_POST){
 			$menuId=I("post.menuId");
 			$menuName=I("post.menuName");
 			$menuType=I("post.menuType");
@@ -76,7 +82,6 @@ class MenuController extends CommonController{
 				"status"=>$menustatus,
 				"description"=>$menuDesp
 			);
-			$Menu = D("Menu");
 			$result = $Menu->modifyMenu($menuInfo);
 			if($result["status"]==0){
 				$url=__CONTROLLER__."/index";
@@ -84,8 +89,6 @@ class MenuController extends CommonController{
 				$url=__CONTROLLER__."/".__FUNCTION__;
 			}
 			return AJAXResult($result["status"],$result["msg"],array("url"=>$url));
-		}else{
-			$this->display();
 		}
 	}
 
@@ -94,37 +97,20 @@ class MenuController extends CommonController{
 	 * @param  [type] $menuId [description]
 	 * @return [type]         [description]
 	 */
-	public function deleteMenu($menuId = -1){
-		// if(IS_POST || (IS_GET && !empty(I("get.id")))){
-		// 	$this->assign("nav_title","删除");
-		// 	//修改状态
-		// 	$Menu = D("Menu");
-		// 	$result = $Menu->delteMenu($menuId);
-		// 	if($result["status"]==0){
-		// 		$url=__CONTROLLER__."/index";
-		// 	}else{
-		// 		$url=__CONTROLLER__."/".__FUNCTION__;
-		// 	}
-		// 	return AJAXResult($result["status"],$status["msg"],array("url"=>$url));
-		// }else{
-		// 	$this->redirect("index");
-		// }
-		
-		if(IS_GET){
-			if(!empty(I("get.id"))){
-				$this->assign("nav_title","删除");
-				$Menu = D("Menu");
-				$menuId = I("get.id");
-				$result = $Menu->delteMenu($menuId);
-				if($result["status"]==0){
-					$url=__CONTROLLER__."/index";
-				}else{
-					$url=__CONTROLLER__."/".__FUNCTION__;
-				}
-				return AJAXResult($result["status"],$status["msg"],array("url"=>$url));
+	public function deleteMenu($menuId = -1){	
+		if(IS_POST){
+			$this->assign("nav_title","删除");
+			$Menu = D("Menu");
+			$menuId = I("get.id",$menuId);
+			$result = $Menu->deleteMenu($menuId);
+			if($result["status"]==0){
+				$url=__CONTROLLER__."/index";
 			}else{
-				$this->redirect("index");
+				$url=__CONTROLLER__."/".__FUNCTION__;
 			}
+			return AJAXResult($result["status"],$status["msg"],array("url"=>$url));
+		}else{
+			$this->redirect("index");
 		}
 	}
 }
