@@ -20,13 +20,12 @@
 </head>
 <body>
 	<div id="wrapper">
-	    <include file="Index/nav"/>
 	    <div id="page-wrapper">
+	    	<include file="Index/nav"/>
 	    <div class="container-fluid" >
 	        <!-- Page Heading -->
 	        <div class="row">
 	            <div class="col-lg-12">
-
 	                <ol class="breadcrumb">
 	                    <li>
 	                        <i class="icon icon-dashboard"></i>
@@ -40,25 +39,21 @@
 	        </div>
 	        <!-- /.row -->
 	        <div class="row">
-	            <!-- <form action="/admin.php" method="get">
-
+	            <form action="__ACTION__" method="POST">
 	                <div class="input-group">
 	                    <span class="input-group-addon">类型</span>
-	                    <select class="form-control" name="type">
-	                        <option value='' >请选择类型</option>
-
-	                        <option value="1" <if condition="$type eq 1">selected="selected"</if>>后台菜单</option>
-	                        <option value="0" <if condition="$type eq 0">selected="selected"</if>>前端导航</option>
-	                    <lect>
+	                    <select class="form-control" name="searchMenuType">
+	                        <option value="-1" <if condition="$curMenuType eq -1">selected="selected"</if>>请选择类型</option>
+	                        <option value="1" <if condition="$curMenuType eq 1">selected="selected"</if> >后台菜单</option>
+	                        <option value="0" <if condition="$curMenuType eq 0">selected="selected"</if> >前端导航</option>
+	                    <select>
 	                </div>
-
-	                <input type="hidden" name="c" value="menu"/>
-	                <input type="hidden" name="a" value="index"/>
 	                <span class="input-group-btn">
-	                  <button id="sub_data" type="submit" class="btn btn-primary"><i class="icon icon-search"></i><tton>
+	                  <button id="menu_type_search" type="submit" class="btn btn-primary">
+	                  	<i class="icon icon-search"></i>
+	                  </button>
 	                </span>
-
-	            </form> -->
+	            </form>
 	        </div>
 	        <div>
 	          <button id="menu_add_link" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-url="__CONTROLLER__/addMenu">
@@ -93,7 +88,7 @@
 		                        	    <td>{$menu.module}</td>
 		                        	    <td>{$menu.controller}</td>
 		                        	    <td>{$menu.action}</td>
-		                        	    <td>{$menu.type|getMenuStatus}</td>
+		                        	    <td>{$menu.type|getMenuTypeName}</td>
 		                        	    <td>{$menu.status|getMenuStatus}</td>
 		                        	    <td>
 		                        	    	<a href="javascript:void(0)" attr-id="{$menu.menu_id}" class="menu_modify_link" data-url="__CONTROLLER__/modifyMenu/id/{$menu.menu_id}" attr-message="编辑">

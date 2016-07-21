@@ -15,11 +15,29 @@ $(function(){
 		event.preventDefault();
 		// window.location.href=$(this).attr('data-url');
 		// 弹窗进行确认
-		var dataUrl=$(this).attr("data-url");
-		var successUrl=$(this).attr("success-url");
-		var errorUrl=$(this).attr("error-url");
+		var url=$(this).attr("data-url");
+		// var successUrl=$(this).attr("success-url");
+		// var errorUrl=$(this).attr("error-url");
 		var data={id: $(this).attr("attr-id")};
-		// hfaw_dialog.confirm("是否删除",dataUrl,data,successUrl,errorUrl);
+		hfaw_dialog.confirm("是否删除", doDeleteMenu);
+		function doDeleteMenu(){
+			$.ajax({
+				url: url,
+				type: 'POST',
+				dataType: 'json',
+				data: data,
+			})
+			.done(function(){
+				if(result.status==0){
+					hfaw_dialog.success("删除菜单成功", result.url);
+				}else{
+					hfaw_dialog.error("删除菜单失败,原因是"+result.msg, result.url);
+				}
+			})
+			.fail(function(){
+				hfaw_dialog.error("网络连接错误");
+			});
+		}
 	});
 
 	// 发送表单完成添加菜单
@@ -75,5 +93,10 @@ $(function(){
 			hfaw_dialog.error("网络连接错误");
 		});
 	});
+
+	// $("#menu_type_search").on('click', function(event){
+	// 	event.preventDefault();
+		
+	// });
 
 });

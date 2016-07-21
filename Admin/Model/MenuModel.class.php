@@ -50,18 +50,23 @@ class MenuModel extends Model{
 	}
 
 	/**
-	 * [showlist description]
+	 * 分页展示菜单信息
 	 * @return [type] [description]
 	 */
-	public function showlist(){
-		$count = $this->count();
+	public function showlist($menutype){
+		if(!isset($menutype) || !in_array(intval($menutype), array(0,1))){
+			$count = $this->count();
+		}else{
+			$condition["type"]=array("eq",$menutype);
+			$count = $this->where($condition)->count();
+		}
 		$page = new Page($count,C("PAGE_ROWS"));
 		//'%HEADER%', '%NOW_PAGE%', '%UP_PAGE%', '%DOWN_PAGE%', '%FIRST%', '%LINK_PAGE%', '%END%', '%TOTAL_ROW%', '%TOTAL_PAGE%'
 		$page->setConfig("theme",'%HEADER%&nbsp;当前第%NOW_PAGE%页&nbsp;&nbsp;%FIRST%&nbsp;%UP_PAGE%&nbsp;%LINK_PAGE%&nbsp;%DOWN_PAGE%&nbsp;%END%&nbsp;总共%TOTAL_PAGE%页');
 		$page->setConfig("prev","上一页");
 		$page->setConfig("next","下一页");
 		$show = $page->show();
-		$list = $this->order("`order` desc")->limit($page->firstRow,$page->listRows)->select();
+		$list = $this->where($condition)->order("`order` desc")->limit($page->firstRow,$page->listRows)->select();
 		return array("list"=>$list,"show"=>$show);
 	}
 
@@ -87,5 +92,17 @@ class MenuModel extends Model{
 	public function getMenuInfoById($menuId){
 		$condition["menu_id"]=$menuId;
 		return $this->where($condition)->find();
+	}
+
+	/**
+	 * 获取所有的菜单信息
+	 * @return [type] [description]
+	 */
+	public function getMenuInfoList(){
+		$condition=array(
+			"type" => array("eq", 1),
+			"status"=> array("neq", -1),
+		);
+		return $this->where($condition)->select();
 	}
 }

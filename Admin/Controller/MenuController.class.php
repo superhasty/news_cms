@@ -3,15 +3,23 @@ namespace Admin\Controller;
 use Think\Controller;
 
 class MenuController extends CommonController{
-	public function showlist(){
+	public function showlist($menutype){
 		$Menu = D("Menu");
-		return $Menu->showlist();
+		return $Menu->showlist($menutype);
 	}
 
 	public function index(){
-		$data = $this->showlist();
+		//获取菜单类型
+		$menutype=null;
+		if(IS_POST){
+			$menutype=I("post.searchMenuType/d",-1);
+		}
+		$data = $this->showlist($menutype);
 		$this->assign("menulist",$data["list"]);
 		$this->assign("menushow",$data["show"]);
+		// dump($data["list"]);
+		// dump($data["show"]);
+		$this->assign("curMenuType",isset($menutype)?$menutype:-1);
 		$this->assign("nav_title","预览");
 		$this->display();
 	}

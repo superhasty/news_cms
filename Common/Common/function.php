@@ -61,3 +61,12 @@ function getMenuTypeName($type){
 	}
 	return $name;
 }
+
+function isActive($navController){
+	$cur = CONTROLLER_NAME;
+	if(strtolower($navController) == strtolower($cur)){
+		return "active";		
+	}else{
+		return "";
+	}
+}
