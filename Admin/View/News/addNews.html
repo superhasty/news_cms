@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="__PUBLIC__/js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/layer/layer.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/dialog.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/jquery.uploadify.min.js"></script>
+</head>
+<body>
+	<!-- <form action="__MODULE__/Image/uploadImage" method="post" enctype="multipart/form-data">
+		<label for="newsimage">上传文件</label>
+		<input type="file" id="newsimage" name="newsimage">
+		<button type="submit" id="btn_upload_image">开始提交</button>
+	</form> -->
+
+	<form enctype="multipart/form-data" data-url="__MODULE__/Image/uploadImage" id="imageform" swf-url="__PUBLIC__/js/uploadify.swf">
+		<label for="newsimage">上传文件</label>
+		<input type="file" id="newsimage" name="newsimage">
+		<button type="submit" id="btn_upload_image">开始提交</button>
+	</form>
+</body>
+<script type="text/javascript">
+	$(function() {
+    	$("#newsimage").uploadify({
+        	'swf'      : $("#imageform").attr('swf-url'),
+        	'uploader' : $("#imageform").attr('data-url')
+    	});
+	});
+</script>
+</html>

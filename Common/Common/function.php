@@ -1,6 +1,9 @@
 <?php
 /* 系统公共函数库*/
 
+
+use Think\Upload;
+
 /**
  * 公共函数：返回 ajax请求的结果
  * @param  [integer] $status [错误码]
@@ -69,4 +72,21 @@ function isActive($navController){
 	}else{
 		return "";
 	}
+}
+
+function uploadImage(){
+	$upload = new Upload();
+	$upload->exts=array("jpg","jpeg","png","gif","bmp");
+	$upload->rootPath="./Public/image/Uploads/";
+
+	if(($res=$upload->upload())){
+		$data["status"]=0;
+		$data["error"]="";
+		$data["data"]=$res;
+	}else{
+		$data["status"]=1;
+		$data["error"]=$upload->getError();
+		$data["data"]=null;
+	}
+	return $data;
 }
