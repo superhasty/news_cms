@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>内容管理平台--个人中心</title>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap-switch.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/index.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/morris.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/global.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/upload.css">
+	<!-- javascript -->
+	<script type="text/javascript" src="__PUBLIC__/js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/layer/layer.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/dialog.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/admin/news.js"></script>
+</head>
+<body>
+	<div id="wrapper">
+	   <include file="Index/nav"/>
+	<div id="page-wrapper">
+	<div class="container-fluid" >
+
+	    <!-- Page Heading -->
+	    <div class="row">
+	        <div class="col-lg-12">
+
+	          <ol class="breadcrumb">
+	            <li>
+	              <i class="icon icon-dashboard"></i>
+	              <a href="__CONTROLLER__/index">&nbsp;文章管理</a>
+	            </li>
+	            <li class="active">
+	              <i class="icon icon-table"></i>&nbsp;&nbsp;{$nav_title}
+	            </li>
+	          </ol>
+	        </div>
+	    </div>
+	    <!-- /.row -->
+	    <div>
+	        <button id="news_add_link" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-url="__CONTROLLER__/addNews">
+	        	<span class="icon icon-plus" aria-hidden="true"></span>&nbsp;添加
+	        </button>
+	    </div>
+	      <div class="row">
+	        <form action="__ACTION__" method="GET">
+	          <div class="col-md-3">
+	            <div class="input-group">
+	              	<span class="input-group-addon">栏目</span>
+	              	<select class="form-control" name="searchNewsProgram">
+		               	<option value='-1' >全部分类</option>
+		                <foreach name="programs" item="program">
+		                <option value="{$program.menu_id}" 
+		                	<if condition="$curProgramId eq $program['menu_id']">
+		                		selected
+		                	<else />
+		                	</if>
+		                >{$program.name}</option>
+		                </foreach>
+	              	</select>
+	            </div>
+	          </div>    
+	          <div class="col-md-3">
+	            <div class="input-group">
+	              	<input class="form-control" name="searchNewsTitle" type="text" value="" placeholder="文章标题" />
+	                <span class="input-group-btn">
+	                  	<button id="sub_data" type="submit" class="btn btn-primary"><i class="icon icon-search"></i></button>
+	                </span>
+	            </div>
+	          </div>
+	        </form>
+	      </div>
+	      <div class="row">
+	        <div class="col-lg-12">
+	          <h3></h3>
+	          <div class="table-responsive">
+	            <form id="singcms-listorder">
+	            <table class="table table-bordered table-hover singcms-table">
+	                <thead>
+	                <tr>
+					<!-- <th id="singcms-checkbox-all" width="10">
+						<input type="checkbox"/>
+					</th> -->
+					<!--  <th width="14">排序</th> --><!--6.7 -->
+					<th>id</th>
+					<th>标题</th>
+					<th>栏目</th>
+					<th>来源</th>
+					<th>封面图</th>
+					<th>创建时间</th>
+					<th>更新时间</th>
+					<th>状态</th>
+					<th>操作</th>
+	                </tr>
+	                </thead>
+	                <tbody>
+	                <foreach name="newslist" item="news">
+	                <tr>
+	                    <!-- <td><input type="checkbox" name="pushcheck" value="{$news.news_id}"></td> -->
+	                    <!-- <td><input size=4 type='text' name='listorder[{$new.news_id}]' value="{$new.listorder}"/></td> --><!--6.7-->
+	                    <td>{$news.news_id}</td>
+	                    <td>{$news.title}</td>
+	                    <td>{$news.program_id|getProgramName}</td>
+	                    <td>{$news.copyfrom|getCopyFromName}</td>
+	                    <td>
+	                      {$news.thumb|hasthumb}
+	                    </td>
+	                    <td>{$news.createtime|date="Y-m-d H:i:s",###}</td>
+	                    <td>{$news.updatetime|date="Y-m-d H:i:s",###}</td>
+	                    <td>
+	                    	<span attr-id="{$news.news_id}" class="sing_cursor singcms-on-off" id="singcms-on-off">{$news.status|getNewsStatus}</span>
+	                    </td>
+	                    <td>
+		                    <a href="javascript:void(0)" attr-id="{$news.news_id}" class="news_edit_link" data-url="__CONTROLLER__/editNews/id/{$news.news_id}" attr-message="编辑">
+		                    	<span class="icon icon-edit" aria-hidden="true"></span>
+		                    </a>
+                      		<a href="javascript:void(0)" attr-id="{$news.news_id}" class="news_delete_link" data-url="__CONTROLLER__/deleteNews/id/{$news.news_id}" success-url="__CONTROLLER__/index" error-url="__SELF__" attr-message="删除">
+                        		<span class="icon icon-remove-circle" aria-hidden="true"></span>
+                      		</a>
+              				<a href="javascript:void(0)" attr-id="{$news.news_id}" class="news_show_link" data-url="" success-url="" error-url="" attr-message="删除">
+              		  		<span class="icon icon-remove-circle" aria-hidden="true"></span>
+              				</a>
+	                      	<!-- <a target="_blank" href="/index.php?c=detail&a=view&id={$new.news_id}" class="sing_cursor icon icon-eye-open" aria-hidden="true" ></a> -->
+	                    </td>
+	                </tr>
+	                </foreach>
+	                </tbody>
+	            </table>
+	            <nav>
+	              	<ul>
+	                	{$newsshow}
+	              	</ul>
+	            </nav>
+	            <div>
+	                <button  id="button-listorder" type="button" class="btn btn-primary dropdown-toggle" >
+	                	<span class="icon icon-resize-vertical" aria-hidden="true"></span>&nbsp;更新排序
+	                </button>
+	            </div>
+	            </form>
+	            <div class="input-group">
+	              <select class="form-control" name="position_id" id="select-push">
+	                <option value="0">请选择推荐位进行推送</option>
+	                <foreach name="positions" item="position">
+	                  <option value="{$position.id}">{$position.name}</option>
+	                </foreach>
+	              </select>
+	              <button id="singcms-push" type="button" class="btn btn-primary">推送</button>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	      <!-- /.row -->
+	    </div>
+	    <!-- /.container-fluid -->
+	  </div>
+	  <!-- /#page-wrapper -->
+	</div>
+</body>
+</html>

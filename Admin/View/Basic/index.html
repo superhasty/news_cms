@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{$basicWebConfig.title}</title>
+	<meta name="keywords" content="{$basicWebConfig.keywords}">
+	<meta name="description" content="{$basicWebConfig.description}">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap-switch.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/index.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/morris.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/global.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/upload.css">
+	<!-- javascript -->
+	<script type="text/javascript" src="__PUBLIC__/js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/layer/layer.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/dialog.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/admin/basic.js"></script>
+</head>
+<body>
+	<div id="wrapper">
+		<include file="Index/nav"/>
+		<div id="page-wrapper">
+			<div class="container-fluid">
+				<!-- Page Heading -->
+				<include file="Basic/button"/>
+				<!-- /.row -->
+				<div class="row">
+					<div class="col-lg-6">
+						<form class="form-horizontal" id="singcms-form">
+							<div class="form-group">
+								<label for="title" class="col-sm-2 control-label">站点标题:</label>
+								<div class="col-sm-5">
+									<input type="text" name="title" value="{$basicWebConfig.title}" class="form-control" id="title" placeholder="请填写站点标题">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="keywords" class="col-sm-2 control-label">站点关键词:</label>
+								<div class="col-sm-5">
+									<input type="text" class="form-control" value="{$basicWebConfig.keywords}" name="keywords" id="keywords" placeholder="请填写站点关键词">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="description" class="col-sm-2 control-label">站点描述:</label>
+								<div class="col-sm-5">
+									<textarea class="form-control" rows="3" name="description" id="description">{$basicWebConfig.description}</textarea>
+								</div>
+							</div>
+							<!-- <div class="form-group">
+								<label for="inputPassword3" class="col-sm-2 control-label">是否自动备份数据库:</label>
+								<div class="col-sm-5">
+									<input type="radio" name="dumpmysql" id="optionsRadiosInline1" value="1" <if condition="$vo['dumpmysql'] eq 1">checked</if>> 是
+		                            <input type="radio" name="dumpmysql" id="optionsRadiosInline2" value="0" <if condition="$vo['dumpmysql'] eq 0">checked</if>> 否
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputPassword3" class="col-sm-2 control-label">是否自动生成首页缓存:</label>
+								<div class="col-sm-5">
+									<input type="radio" name="cacheindex" id="optionsRadiosInline1" value="1" <if condition="$vo['cacheindex'] eq 1">checked</if>> 是
+		                            <input type="radio" name="cacheindex" id="optionsRadiosInline2" value="0" <if condition="$vo['cacheindex'] eq 0">checked</if>> 否
+								</div>
+							</div> -->
+							<div class="form-group">
+								<div class="col-sm-offset-2 col-sm-10">
+									<button type="button" class="btn btn-default" id="btn_config_submit" data-url="__SELF__">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- /.row -->
+			</div>
+			<!-- /.container-fluid -->
+		</div>
+		<!-- /#page-wrapper -->
+	</div>
+	<!-- /#wrapper -->
+</body>
+</html>

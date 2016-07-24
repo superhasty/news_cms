@@ -3,22 +3,30 @@ namespace Admin\Controller;
 use Think\Controller;
 
 class MenuController extends CommonController{
-	public function showlist($menutype){
-		$Menu = D("Menu");
-		return $Menu->showlist($menutype);
-	}
-
 	public function index(){
 		//获取菜单类型
 		$menutype=null;
 		if(IS_POST){
 			$menutype=I("post.searchMenuType/d",-1);
 		}
-		$data = $this->showlist($menutype);
+		$Menu = D("Menu");
+		$data = $Menu->showMenusByType($menutype);
+
+		// 系统自带分页类
 		$this->assign("menulist",$data["list"]);
 		$this->assign("menushow",$data["show"]);
 		// dump($data["list"]);
 		// dump($data["show"]);
+		 
+		// 获取type类型
+		
+		// $page = I("param.p", "1");
+		// $pagesize = C("PAGE_ROWS");
+		// $count = ($page-1)*$pagesize;
+		
+
+
+
 		$this->assign("curMenuType",isset($menutype)?$menutype:-1);
 		$this->assign("nav_title","预览");
 		$this->display();
@@ -49,9 +57,9 @@ class MenuController extends CommonController{
 			$Menu = D("Menu");
 			$result = $Menu->addMenu($menuInfo);
 			if($result["status"]==0){
-				$url=__CONTROLLER__."/index";
+				$url= __CONTROLLER__."/index";
 			}else{
-				$url=__CONTROLLER__."/".__FUNCTION__;
+				$url= __CONTROLLER__."/".__FUNCTION__;
 			}
 			return AJAXResult($result["status"],$result["msg"],array("url"=>$url));
 		}else{
@@ -121,4 +129,6 @@ class MenuController extends CommonController{
 			$this->redirect("index");
 		}
 	}
+
+
 }

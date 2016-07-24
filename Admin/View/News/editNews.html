@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>内容管理平台--新闻编辑</title>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap-switch.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/index.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/morris.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/global.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/upload.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/uploadify.css">
+	<script type="text/javascript" src="__PUBLIC__/js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/layer/layer.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/dialog.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/admin/news.js"></script>
+</head>
+<body>
+	<div id="wrapper">
+		<include file="Index/nav"/>
+		<div id="page-wrapper">
+		    <div class="container-fluid">
+		    	<!-- Page Heading -->
+		    	<div class="row">
+			        <div class="col-lg-12">
+			        	<ol class="breadcrumb">
+				            <li>
+				              <i class="icon icon-dashboard"></i>  <a href="/admin.php?c=content">文章管理</a>
+				            </li>
+				            <li class="active">
+				              <i class="icon icon-edit"></i>&nbsp;{$nav_title}
+				            </li>
+			          	</ol>
+			        </div>
+		    	</div>
+		      	<!-- /.row -->
+		    	<div class="row">
+		        	<div class="col-lg-12">
+			          	<form class="form-horizontal" id="singcms-form" method="post" action="__SELF__">
+				            <div class="form-group">
+				           		<label for="newstitle" class="col-sm-2 control-label">标题:</label>
+				            	<div class="col-sm-5">
+				            		<input type="text" name="newstitle" class="form-control" id="newstitle" placeholder="请填写标题" value="{$newsInfo.title}">
+				            	</div>
+				        	</div>
+					        <div class="form-group">
+					            <label for="newssubtitle" class="col-sm-2 control-label">短标题:</label>
+					            <div class="col-sm-5">
+					                <input type="text" name="newssubtitle" class="form-control" id="newssubtitle" placeholder="请填写短标题" value="{$newsInfo.subtitle}">
+					            </div>
+					        </div>
+				            <div class="form-group">
+						        <label for="file_upload" class="col-sm-2 control-label">缩图:</label>
+						        <div class="col-sm-5">
+						            <input id="file_upload" type="file" multiple="false" data-url="__MODULE__/Image/uploadImage" swf-url="__PUBLIC__/js/uploadify.swf" img-url="__PUBLIC__/image/Uploads/" attr-pubpath="__PUBLIC__"><!-- multiple="true" -->
+						            <img style="display: none" id="upload_origin_img" src="{$newsInfo.thumb}" width="150" height="150">
+						            <input id="upload_thumb_image" name="thumb" type="hidden" multiple="false" value="{$newsInfo.thumb}" multiple="true" ><!-- multiple="true" -->
+						        </div>
+				            </div>
+				            <div class="form-group">
+				              	<label for="newstitlecolor" class="col-sm-2 control-label">标题颜色:</label>
+				              	<div class="col-sm-5">
+				                	<select class="form-control" name="newstitlecolor" id="newstitlecolor">
+				                  		<option value="-1"
+				                  			<if condition="-1 eq $newsInfo.titlecolor">
+				                  				selected="selected"
+											</if>
+				                  		>==请选择颜色==</option>
+				                    	<foreach name="newsTitleColor" item="color">
+				                      		<option value="{$key}"
+												<if condition="$key eq $newsInfo['titlecolor']">
+													selected="selected"
+												</if>
+				                      		>{$color}</option>
+				                    	</foreach>
+				                	</select>
+				              	</div>
+				            </div>
+				            <div class="form-group">
+				              	<label for="newsprogram" class="col-sm-2 control-label">所属栏目:</label>
+				              	<div class="col-sm-5">
+				                	<select class="form-control" name="newsprogram" id="newsprogram" >
+				                  		<option value="-1"
+					                  		<if condition="-1 eq $newsInfo['program_id']">
+					                  			selected="selected"
+					                  		</if>
+				                  		>==请选择栏目==</option>
+				                  		<foreach name="newsProgram" item="program">
+				                    		<option value="{$program.menu_id}"
+					                    		<if condition="$program.menu_id eq $newsInfo['program_id']">
+					                    			selected="selected"
+					                    		</if>
+				                    		>{$program.name}</option>
+				                  		</foreach>
+				                	</select>
+				              	</div>
+				            </div>
+				            <div class="form-group">
+				              	<label for="newscopyfrom" class="col-sm-2 control-label">来源:</label>
+				              	<div class="col-sm-5">
+				                	<select class="form-control" name="newscopyfrom" id="newscopyfrom">
+					                 	<option value="-1"
+						                 	<if condition="-1 eq $newsInfo.copyfrom">
+						                 		selected="selected"
+						                 	</if>
+					                 	>==请选择来源==</option>
+					                 	<foreach name="newsCopyFrom" item="from">
+					                    	<option value="{$key}"
+						                    	<if condition="$key eq $newsInfo['copyfrom']">
+						                    		selected="selected"
+						                    	</if>
+					                    	>{$from}</option>
+					                  	</foreach>
+				                </select>
+				              </div>
+				            </div>
+				            <div class="form-group">
+				              	<label for="news_editor_area" class="col-sm-2 control-label">内容:</label>
+				              	<div class="col-sm-10">
+				                <textarea class="input js-editor" id="news_editor_area" name="newscontent" rows="20" attr-imguploadurl="__MODULE__/Image/uploadNewsImage" >{$newsInfo.content|html_entity_decode}</textarea>
+				              	</div>
+				            </div>
+				            <div class="form-group">
+				              	<label for="newsdescription" class="col-sm-2 control-label">描述:</label>
+				              	<div class="col-sm-5">
+				                	<input type="text" class="form-control" name="newsdescription" id="newsdescription" placeholder="描述" value="{$newsInfo.description}">
+				              	</div>
+				            </div>
+				            <div class="form-group">
+				              	<label for="newskeywords" class="col-sm-2 control-label">关键字:</label>
+				              	<div class="col-sm-5">
+				               		<input type="text" class="form-control" name="newskeywords" id="newskeywords" placeholder="请填写关键词" value="{$newsInfo.keywords}">
+				              	</div>
+				            </div>
+				            <div class="form-group">
+				              	<div class="col-sm-offset-2 col-sm-10">
+				              		<!-- <input type="hidden" name="newsId" id="newsId" value="{$newsInfo.news_id}"> -->
+				                	<button type="button" class="btn btn-default" id="btn_edit_news_submit" data-url="__SELF__" attr-id="{$newsInfo.news_id}">提交</button>
+				              	</div>
+				            </div>
+			            </form>
+		        	</div>
+		      	</div>
+		      <!-- /.row -->
+		    </div>
+	    	<!-- /.container-fluid -->
+	  	</div>
+  		<!-- /#page-wrapper -->
+	</div>
+</body>
+<script type="text/javascript" src="__PUBLIC__/kindeditor/kindeditor-all-min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.uploadify.min.js"></script>
+<script type="text/javascript">
+	    var imgPathPre=$("#file_upload").attr("img-url");
+	    var newsImgUploadUrl=$("#news_editor_area").attr("attr-imguploadurl");
+		$("#file_upload").uploadify({
+			"buttonText": "上传美图",
+			"fileTypeDesc": "Image Files",
+			"fileObjName": "file_upload",
+			"fileTypeExts": "*.gif; *.jpg; *.jpeg; *.png; *.bmp",
+	    	"swf"      : $("#file_upload").attr('swf-url'),
+	    	"uploader" : $("#file_upload").attr('data-url'),
+	        "removeCompleted": false,
+	        // 现在已经没有cancelImg这个属性了，如需要修改取消按钮图标，应该直接在css文件中修改
+	    	"onUploadSuccess": function(file, data, response){
+	    		if(response){
+	    			var obj = JSON.parse(data);
+	    			$imagePath = imgPathPre + obj.data.file_upload.savepath+obj.data.file_upload.savename;
+	                $("#upload_origin_img").attr("src", $imagePath);
+	                $("#upload_origin_img").show();
+	    			$("#upload_thumb_image").attr("value", $imagePath);
+	    		}else{
+	    			hfaw_dialog.error("图片上传失败");
+	    		}
+	    	}
+		});
+
+	    KindEditor.ready(function(k){
+	        window.editor=k.create("#news_editor_area",{
+	            width : "100%",
+	            filterMode : true,
+	            themeType: "simple",
+	            colorTable: [
+	                ['#E53333', '#E56600', '#FF9900', '#64451D', '#DFC5A4', '#FFE500'],
+	                ['#009900', '#006600', '#99BB00', '#B8D100', '#60D978', '#00D5FF'],
+	                ['#337FE5', '#003399', '#4C33E5', '#9933E5', '#CC33E5', '#EE33EE'],
+	                ['#FFFFFF', '#CCCCCC', '#999999', '#666666', '#333333', '#000000'],
+	                ['#f6f6f6', '#214ef7', '#f8f8f8', '#ff6600', '#444444', '#777777']
+	            ],
+	            uploadJson: newsImgUploadUrl
+	        });
+	    });
+
+	    //文件开始编辑前是否显示缩略图
+	    var thumbpath = "{$newsInfo.thumb}";
+	    if(thumbpath){
+	    	$("#upload_origin_img").show();
+	    }
+</script>
+</html>

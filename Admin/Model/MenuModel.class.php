@@ -50,14 +50,16 @@ class MenuModel extends Model{
 	}
 
 	/**
-	 * 分页展示菜单信息
+	 * 根据菜单类型分页展示菜单信息
 	 * @return [type] [description]
 	 */
-	public function showlist($menutype){
+	public function showMenusByType($menutype){
 		if(!isset($menutype) || !in_array(intval($menutype), array(0,1))){
-			$count = $this->count();
+			$condition = array("status"=>array("neq","-1"));
+			$count = $this->where($condition)->count();
 		}else{
 			$condition["type"]=array("eq",$menutype);
+			$condition["status"]=array("neq","-1");
 			$count = $this->where($condition)->count();
 		}
 		$page = new Page($count,C("PAGE_ROWS"));
@@ -69,6 +71,7 @@ class MenuModel extends Model{
 		$list = $this->where($condition)->order("`order` desc")->limit($page->firstRow,$page->listRows)->select();
 		return array("list"=>$list,"show"=>$show);
 	}
+
 
 	/**
 	 * [delteMenu description]
@@ -95,14 +98,50 @@ class MenuModel extends Model{
 	}
 
 	/**
-	 * 获取所有的菜单信息
+	 * 获取所有后台菜单信息
 	 * @return [type] [description]
 	 */
-	public function getMenuInfoList(){
-		$condition=array(
+	public function getAdminMenuList(){
+		$condition = array(
 			"type" => array("eq", 1),
 			"status"=> array("neq", -1),
 		);
 		return $this->where($condition)->select();
+	}
+
+	/**
+	 * 获取所有前台菜单信息
+	 * @return [type] [description]
+	 */
+	public function getWebSiteMenuList(){
+		$condition = array(
+			"type" => array("eq", 0),
+			"status" => array("eq", 1),
+		);
+		return $this->where($condition)->select();
+	}
+
+	public function getWebSiteMenuNames(){
+		$condition = array(
+			"type" => array("eq", 0),
+			"status" => array("eq", 1),
+		);
+		return $this->field("menu_id,name")->where($condition)->select();
+	}
+
+	public function getWebSiteMenuNameById($menuId){
+		if($menuId==-1){
+			return null;
+		}
+		$condition["menu_id"]=$menuId;
+		return $this->field("name")->where($condition)->getField("name");
+	}
+
+	public function getWebSiteMenuIds(){
+		$condition = array(
+			"type" => array("eq", 0),
+			"status" => array("eq", 1),
+		);
+		return $this->field("menu_id")->where($condition)->getField("menu_id",true);
 	}
 }

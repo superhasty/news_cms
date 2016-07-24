@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `cms_admin` (
 insert into `cms_admin` values
 (1, 'admin', '4ef3d351448d0bdbe441d79f747231aa', '0', 1461135752, 'iamzhouj@163.com', '张三', 1);
 
--- 网站后台管理员信息表
+-- 菜单信息表
 CREATE TABLE IF NOT EXISTS `cms_menu` (
   `menu_id` smallint(6) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(40) NOT NULL DEFAULT '',
@@ -54,3 +54,39 @@ INSERT INTO `cms_menu` VALUES
 (11, '基本管理', 0, 'admin', 'basic', 'index', '', 0, 1, 1),
 (12, '新闻', 0, 'home', 'cat', 'index', '', 0, 1, 0),
 (13, '用户管理', 0, 'admin', 'admin', 'index', '', 0, 1, 1);
+
+-- 新闻摘要表
+CREATE TABLE IF NOT EXISTS `cms_news`(
+  `news_id` MEDIUMINT(8) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '新闻ID',
+  `program_id` SMALLINT(5) UNSIGNED NOT NULL DEFAULT 0 COMMENT '栏目ID',
+  `title` VARCHAR(80) NOT NULL DEFAULT '' COMMENT '标题',
+  `subtitle` VARCHAR(30) DEFAULT '' COMMENT '副标题',
+  `titlecolor` VARCHAR(250) DEFAULT NULL COMMENT '标题颜色',
+  `thumb` varchar(250) NOT NULL DEFAULT '' COMMENT '缩略图',
+  `keywords` VARCHAR(40) NOT NULL DEFAULT '' COMMENT '关键字',
+  `description` VARCHAR(250) NOT NULL COMMENT '简介',
+  `position_id` VARCHAR(250) NOT NULL DEFAULT '' COMMENT '展示位置',
+  `order` TINYINT(3) UNSIGNED NOT NULL DEFAULT '0' COMMENT '排序',
+  `status` TINYINT(1) NOT NULL DEFAULT '1' COMMENT '状态',
+  `copyfrom` VARCHAR(250) DEFAULT NULL COMMENT '来源',
+  `author` VARCHAR(20) NOT NULL DEFAULT '' COMMENT '作者',
+  `createtime` INT(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `updatetime` INT(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '更新时间',
+  `count` INT(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '阅读量',
+  PRIMARY KEY (`news_id`),
+  KEY `status` (`status`,`order`,`news_id`),
+  KEY `order` (`program_id`,`status`,`order`,`news_id`),
+  KEY `program_id` (`program_id`,`status`,`news_id`)
+)ENGINE=MYISAM DEFAULT CHARSET=utf8;
+
+
+-- 新闻正文表
+CREATE TABLE IF NOT EXISTS `cms_news_content` (
+  `content_id` MEDIUMINT(8) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '新闻正文ID',
+  `news_id` MEDIUMINT(8) UNSIGNED NOT NULL COMMENT '新闻摘要ID',
+  `content` MEDIUMTEXT NOT NULL COMMENT '新闻正文',
+  `createtime` INT(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `updatetime` INT(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '更新时间',
+  PRIMARY KEY (`content_id`),
+  KEY `news_id` (`news_id`)
+) ENGINE=MYISAM DEFAULT CHARSET=utf8;

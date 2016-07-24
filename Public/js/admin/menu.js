@@ -27,11 +27,11 @@ $(function(){
 				dataType: 'json',
 				data: data,
 			})
-			.done(function(){
+			.done(function(result){
 				if(result.status==0){
-					hfaw_dialog.success("删除菜单成功", result.url);
+					hfaw_dialog.success("删除菜单成功", result.data.url);
 				}else{
-					hfaw_dialog.error("删除菜单失败,原因是"+result.msg, result.url);
+					hfaw_dialog.error("删除菜单失败,原因是"+result.msg, result.data.url);
 				}
 			})
 			.fail(function(){

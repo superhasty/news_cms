@@ -20,6 +20,15 @@ function AJAXResult($status, $msg, $data=array()){
 	exit(json_encode($result));
 }
 
+function KindUploadResult($error, $url){
+	// header("Content-type:application/json;charset=utf8");
+	$result = array(
+		"error" => $error,
+		"url" => $url
+	);
+	exit(json_encode($result));
+}
+
 /**
  * 公共函数: 返回MD5加密后的密码数据
  * @param [type] $password [description]
@@ -74,10 +83,10 @@ function isActive($navController){
 	}
 }
 
-function uploadImage(){
+function uploadImage($savePath){
 	$upload = new Upload();
 	$upload->exts=array("jpg","jpeg","png","gif","bmp");
-	$upload->rootPath="./Public/image/Uploads/";
+	$upload->rootPath=$savePath;
 
 	if(($res=$upload->upload())){
 		$data["status"]=0;
@@ -89,4 +98,41 @@ function uploadImage(){
 		$data["data"]=null;
 	}
 	return $data;
+}
+
+function getNewsStatus($status){
+	switch ($status){
+		case '0':
+			$name = "关闭";
+			break;
+		case '1':
+			$name = "开启";
+			break;
+		case "-1":
+			$name = "删除";
+			break;
+		default:
+			break;
+	}
+	return $name;
+}
+
+function hasthumb($thumb){
+	if($thumb){
+		return "<span style=\"color: red;\">有</span>";
+	}
+	return "<span>无</span>";
+}
+
+function getProgramName($programId){
+	$Menu = D("Menu");
+	if($name = $Menu->getWebSiteMenuNameById($programId)){
+		return $name;
+	}else{
+		return "无";
+	}
+}
+
+function getCopyFromName($copyfromId){
+	return C("NEWS_COPY_FROM")[$copyfromId];
 }

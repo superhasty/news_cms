@@ -9,6 +9,7 @@ class CommonController extends Controller{
 	}
 
 	public function init(){
+		$this->assign("basicWebConfig", F("basic_web_config"));
 		//检查是否登陆系统
 		if(!$this->isLogin()){
 			$this->redirect("index/login");

@@ -9,4 +9,15 @@ return array(
 	'DEFAULT_CONTROLLER'    =>  'Index', // 默认控制器名称
 	"DEFAULT_ACTION"        =>  'index', // 默认操作名称
 	'URL_MODEL'             =>  2,
+	"NEWS_TITLE_COLOR"      =>  array(
+									"#5674ed" => "蓝色",
+									"#ed568b" => "红色",
+								),
+	"NEWS_COPY_FROM"				=>  array(
+									"0" => "本站",
+									"1" => "新浪网",
+									"2" => "央视网",
+									"3" => "网易",
+									"4" => "搜狐",
+								)
 );
