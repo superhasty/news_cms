@@ -49,6 +49,19 @@ class NewsContentModel extends Model{
 		return array("status"=>$status,"msg"=>$msg,"data"=>$data);
 	}
 
+	public function deleteContent($newsId){
+		$data = null;
+		$condition["news_id"] = $newsId;
+		if(FALSE!==($res = $this->where($condition)->delete())){
+			$status = 0;
+			$msg = "删除新闻正文成功";
+		}else{
+			$status = 1;
+			$msg = $this->getError();
+		}
+		return array("status"=>$status,"msg"=>$msg,"data"=>$data);
+	}
+
 	public function getContentById($newsId){
 		if(is_null($newsId) || !is_numeric($newsId)){
 			return null;

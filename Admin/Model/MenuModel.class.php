@@ -51,25 +51,23 @@ class MenuModel extends Model{
 
 	/**
 	 * 根据菜单类型分页展示菜单信息
-	 * @return [type] [description]
+	 * 排序规则：优先考虑自定义排序字段order
+	 * @param  [type] $condition [description]
+	 * @param  [type] $page      [description]
+	 * @return [type]            [description]
 	 */
-	public function showMenusByType($menutype){
-		if(!isset($menutype) || !in_array(intval($menutype), array(0,1))){
-			$condition = array("status"=>array("neq","-1"));
-			$count = $this->where($condition)->count();
+	public function showMenusByType($condition, $page){
+		$start = ($page-1)*C("PAGE_ROWS");
+		$defCondition = array(
+			"status" => array("neq", "-1"),
+		);
+		if(is_null($condition)|| !is_array($condition)){
+			return $this->where($defCondition)->order("`order` desc")->limit($start, C("PAGE_ROWS"))->select();
 		}else{
-			$condition["type"]=array("eq",$menutype);
-			$condition["status"]=array("neq","-1");
-			$count = $this->where($condition)->count();
+			$con=array_merge($condition, $defCondition);
+			$res = $this->where($con)->order("`order` desc")->limit($start, C("PAGE_ROWS"))->select();
+			return $res;
 		}
-		$page = new Page($count,C("PAGE_ROWS"));
-		//'%HEADER%', '%NOW_PAGE%', '%UP_PAGE%', '%DOWN_PAGE%', '%FIRST%', '%LINK_PAGE%', '%END%', '%TOTAL_ROW%', '%TOTAL_PAGE%'
-		$page->setConfig("theme",'%HEADER%&nbsp;当前第%NOW_PAGE%页&nbsp;&nbsp;%FIRST%&nbsp;%UP_PAGE%&nbsp;%LINK_PAGE%&nbsp;%DOWN_PAGE%&nbsp;%END%&nbsp;总共%TOTAL_PAGE%页');
-		$page->setConfig("prev","上一页");
-		$page->setConfig("next","下一页");
-		$show = $page->show();
-		$list = $this->where($condition)->order("`order` desc")->limit($page->firstRow,$page->listRows)->select();
-		return array("list"=>$list,"show"=>$show);
 	}
 
 
@@ -106,7 +104,7 @@ class MenuModel extends Model{
 			"type" => array("eq", 1),
 			"status"=> array("neq", -1),
 		);
-		return $this->where($condition)->select();
+		return $this->where($condition)->order("`order` desc")->select();
 	}
 
 	/**
@@ -143,5 +141,40 @@ class MenuModel extends Model{
 			"status" => array("eq", 1),
 		);
 		return $this->field("menu_id")->where($condition)->getField("menu_id",true);
+	}
+
+	/**
+	 * 获取满足条件的菜单数目
+	 * @param  [type] $condition [description]
+	 * @return [type]            [description]
+	 */
+	public function getMenusCount($condition){
+		if(is_null($condition)||!is_array($condition)){
+			return $this->count();
+		}else{
+			return $this->where($condition)->count();
+		}
+	}
+
+	/**
+	 * 更改指定菜单ID的排序权值
+	 * @param  [type] $order  [description]
+	 * @param  [type] $menuId [description]
+	 * @return [type]         [description]
+	 */
+	public function updateMenuOrderById($order, $menuId){
+		if(is_null($menuId)|| !is_numeric($menuId) || ($order<0)){
+			E("更改菜单排序时传入的菜单ID不合法");
+			// throw new Exception("更改菜单排序时传入的菜单ID不合法");
+			// throw_exception("更改菜单排序时传入的菜单ID不合法");
+		}else{
+			$data=array(
+				"order"=> intval($order),
+			);
+			$condition=array(
+				"menu_id" => array("eq", $menuId),
+			);
+			return $this->where($condition)->save($data);
+		}
 	}
 }

@@ -27,7 +27,7 @@
 			        <div class="col-lg-12">
 			        	<ol class="breadcrumb">
 				            <li>
-				              <i class="icon icon-dashboard"></i>  <a href="/admin.php?c=content">文章管理</a>
+				              <i class="icon icon-dashboard"></i>&nbsp;&nbsp;<a href="__CONTROLLER__/index">文章管理</a>
 				            </li>
 				            <li class="active">
 				              <i class="icon icon-edit"></i>&nbsp;{$nav_title}
@@ -55,7 +55,7 @@
 						        <label for="file_upload" class="col-sm-2 control-label">缩图:</label>
 						        <div class="col-sm-5">
 						            <input id="file_upload" type="file" multiple="false" data-url="__MODULE__/Image/uploadImage" swf-url="__PUBLIC__/js/uploadify.swf" img-url="__PUBLIC__/image/Uploads/" attr-pubpath="__PUBLIC__"><!-- multiple="true" -->
-						            <img style="display: none" id="upload_origin_img" src="{$newsInfo.thumb}" width="150" height="150">
+						            <img style="display: none" id="upload_origin_img" src="{$newsInfo.thumb}" style="width:100%;">
 						            <input id="upload_thumb_image" name="thumb" type="hidden" multiple="false" value="{$newsInfo.thumb}" multiple="true" ><!-- multiple="true" -->
 						        </div>
 				            </div>

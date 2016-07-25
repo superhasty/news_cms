@@ -45,27 +45,33 @@ class NewsModel extends Model{
 		}
 		return array("status"=>$status,"msg"=>$msg,"data"=>$data);
 	}
-	public function showNewsByProgram($condition = array(), $page=1){
+
+	/**
+	 * 根据新闻栏目分页展示新闻信息
+	 * @param  [type]  $condition [description]
+	 * @param  integer $page      [description]
+	 * @return [type]             [description]
+	 */
+	public function showNewsByProgram($condition, $page=1){
 		$start = ($page-1)*C("PAGE_ROWS");
 		$defCondition = array(
 			"status" => array("neq", "-1"),
 		);
-		if(is_null($condition)){
-			return $this->where($defCondition)->limit($start, C("PAGE_ROWS"))->select();
+		if(is_null($condition)|| !is_array($condition)){
+			return $this->where($defCondition)->order("`order` desc")->limit($start, C("PAGE_ROWS"))->select();
 		}else{
 			$con=array_merge($condition, $defCondition);
-			// dump($con);
-			$res = $this->where($con)->limit($start, C("PAGE_ROWS"))->select();
-			// dump($res);
+			$res = $this->where($con)->order("`order` desc")->limit($start, C("PAGE_ROWS"))->select();
 			return $res;
 		}
 	}
 
-
 	public function getNewsCount($condition){
+		if(is_null($condition)|| !is_array($condition)){
+			return $this->count();
+		}
 		return $this->where($condition)->count();
 	}
-
 
 	public function getNewsInfoById($newsId){
 		if(is_null($newsId) || !is_numeric($newsId)){
@@ -75,6 +81,34 @@ class NewsModel extends Model{
 				"news_id" => array("eq", $newsId),
 			);
 			return $this->where($condition)->find();
+		}
+	}
+
+	public function deleteNews($newsId){
+		$data = null;
+		$condition["news_id"] = $newsId;
+		$data["status"]= -1;
+		if(FALSE!==($res = $this->where($condition)->save($data))){
+			$status = 0;
+			$msg = "删除新闻摘要成功";
+		}else{
+			$status = 1;
+			$msg = $this->getError();
+		}
+		return array("status"=>$status,"msg"=>$msg,"data"=>$data);
+	}
+
+	public function updateNewsStatus($newsId){
+		if(is_null($newsId) || !is_numeric($newsId)){
+			E("更改菜单排序时传入的菜单ID不合法");
+		}else{
+			$condition=array(
+				"news_id" => array("eq", $newsId),
+			);
+			$data=array(
+				"status" => 1
+			);
+			$this->where($condition)->save($data);
 		}
 	}
 }

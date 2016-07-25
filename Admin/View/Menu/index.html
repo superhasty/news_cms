@@ -40,31 +40,33 @@
 	        <!-- /.row -->
 	        <div class="row">
 	            <form action="__ACTION__" method="GET">
-	                <div class="input-group">
-	                    <span class="input-group-addon">类型</span>
-	                    <select class="form-control" name="searchMenuType">
-	                        <option value="-1" <if condition="$curMenuType eq -1">selected="selected"</if>>请选择类型</option>
-	                        <option value="1" <if condition="$curMenuType eq 1">selected="selected"</if> >后台菜单</option>
-	                        <option value="0" <if condition="$curMenuType eq 0">selected="selected"</if> >前端导航</option>
-	                    <select>
+	                <div class="col-md-5">
+	                	<div class="input-group">
+	                	    <span class="input-group-addon">类型</span>
+	                	    <select class="form-control" name="searchMenuType">
+	                	        <option value="-1" <if condition="$curMenuType eq -1">selected="selected"</if>>请选择类型</option>
+	                	        <option value="1" <if condition="$curMenuType eq 1">selected="selected"</if> >后台菜单</option>
+	                	        <option value="0" <if condition="$curMenuType eq 0">selected="selected"</if> >前端导航</option>
+	                	    <select>
+		                	<span class="input-group-btn">
+		                	  <button id="menu_type_search" type="submit" class="btn btn-primary">
+		                	  	<i class="icon icon-search"></i>
+		                	  </button>
+		                	</span>
+	                	</div>
 	                </div>
-	                <span class="input-group-btn">
-	                  <button id="menu_type_search" type="submit" class="btn btn-primary">
-	                  	<i class="icon icon-search"></i>
-	                  </button>
-	                </span>
 	            </form>
-	        </div>
-	        <div>
-	          <button id="menu_add_link" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-url="__CONTROLLER__/addMenu">
-	          	<span class="icon icon-plus" aria-hidden="true"></span>&nbsp;添加
-	          </button>
+		        <div class="col-md-1">
+		          <button id="menu_add_link" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-url="__CONTROLLER__/addMenu">
+		          	<span class="icon icon-plus" aria-hidden="true"></span>&nbsp;添加
+		          </button>
+		        </div>
 	        </div>
 	        <div class="row">
 	            <div class="col-lg-10">
 	                <h3></h3>
 	                <div class="table-responsive">
-	                    <form id="singcms-listorder">
+	                    <form id="menu_controller_form">
 	                    <table class="table table-bordered table-hover news-cms-table">
 	                        <thead>
 	                        <tr>
@@ -109,7 +111,9 @@
 	                        </ul>
 	                    </nav>
 	                    <div>
-	                        <button  id="button-listorder" type="button" class="btn btn-primary dropdown-toggle" ><span class="icon icon-plus" aria-hidden="true"></span>&nbsp;更新排序 </button>
+	                        <button id="btn_change_menu_order" type="button" class="btn btn-primary dropdown-toggle" data-url="__CONTROLLER__/orderMenu" data-redirect-url="__CONTROLLER__/index">
+	                        	<span class="icon icon-plus" aria-hidden="true"></span>&nbsp;更新排序
+	                       	</button>
 	                    </div>
 	                </div>
 	            </div>

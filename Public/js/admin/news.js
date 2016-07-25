@@ -15,8 +15,29 @@ $(function(){
 
     // 跳转到新闻删除页面
     $(".news_delete_link").on('click', function(event){
-        event.preventDefault();
-        window.location.href=$(this).attr("data-url");
+       event.preventDefault();
+        // 弹窗进行确认
+        var url=$(this).attr("data-url");
+        var data={id: $(this).attr("attr-id")};
+        hfaw_dialog.confirm("是否删除", doDeleteMenu);
+        function doDeleteMenu(){
+            $.ajax({
+                url: url,
+                type: 'POST',
+                dataType: 'json',
+                data: data,
+            })
+            .done(function(result){
+                if(result.status==0){
+                    hfaw_dialog.success("删除菜单成功", result.data.url);
+                }else{
+                    hfaw_dialog.error("删除菜单失败,原因是"+result.msg, result.data.url);
+                }
+            })
+            .fail(function(){
+                hfaw_dialog.error("网络连接错误");
+            });
+        }
     });
 
     // 跳转到新闻是否显示页面
@@ -58,6 +79,7 @@ $(function(){
         });
     });
 
+    //edit news
     $("#btn_edit_news_submit").on('click', function(event) {
         event.preventDefault();
         editor.sync();

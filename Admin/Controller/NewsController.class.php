@@ -4,6 +4,9 @@ use Think\Controller;
 use Think\Page;
 
 class NewsController extends Controller{
+	/**
+	 * 添加新闻
+	 */
 	public function addNews(){
 		if(IS_POST){
 			//获取表单数据
@@ -65,20 +68,47 @@ class NewsController extends Controller{
 		}
 	}
 
+	/**
+	 * 删除新闻
+	 * @return [type] [description]
+	 */
 	public function deleteNews(){
-		$this->assign("nav_title","删除文章");
-		$this->display();
+		if(IS_POST){
+			$News = D("News");
+			$newsId = I("get.id", -1);
+			$result = $News->deleteNews($newsId);
+			if($result["status"]==0){
+				//开始删除新闻正文部分
+				$NewsContent = D("NewsContent");
+				$result = $NewsContent->deleteContent($newsId);
+				if($result["status"]==0){
+					$url = __CONTROLLER__."/index";
+				}else{
+					$url = __CONTROLLER__."/".__FUNCTION__;	
+				}
+			}else{
+				$url=__CONTROLLER__."/".__FUNCTION__;
+			}
+			return AJAXResult($result["status"],$status["msg"],array("url"=>$url));
+		}else{
+			$this->redirect("index");
+		}
 	}
 
+	/**
+	 * 首页
+	 * @return [type] [description]
+	 */
 	public function index(){
 		$newsProgram = null;
-		$condition=null;
+		$condition=array();
 		$News = D("News");
 		$Menu = D("Menu");
 		
 		//获取栏目
 		$programs = $Menu->getWebSiteMenuNames();
-		$programIds = $Menu->getWebSiteMenuIds();//获取当前可用的前台展示栏目ID，滤掉删除状态。结果是数组
+		//获取当前可用的前台展示栏目ID，滤掉删除状态。结果是数组
+		$programIds = $Menu->getWebSiteMenuIds();
 
 			$newsProgramId = I("param.searchNewsProgram/d", "-1");
 			$newsTitle = I("param.searchNewsTitle/s", "");
@@ -93,39 +123,35 @@ class NewsController extends Controller{
 				$condition=array(
 					"program_id" => array(
 							array("eq", $newsProgramId),
-							// array("in", $programIds),
 						),
 					"title"      => array("like","%".$newsTitle."%"),
 				);
 			}
 		
 			$page = I("param.p/d", 1);
-		
-		// echo "<br><br><br><br><br><br><br><br>---$newsProgramId-------$newsTitle-------------$page";
 
 		$condition["status"]=array("neq","-1");
-		// $condition["program_id"]=array("in",$programIds);//查询结果集时考虑滤掉删除状态的前台栏目
 		$count = $News->getNewsCount($condition);
-		// echo "<br><br>----------$count";
 		$pageTool = new Page($count, C("PAGE_ROWS"));
 		$pageTool->setConfig("theme",'%HEADER%&nbsp;当前第%NOW_PAGE%页&nbsp;&nbsp;%FIRST%&nbsp;%UP_PAGE%&nbsp;%LINK_PAGE%&nbsp;%DOWN_PAGE%&nbsp;%END%&nbsp;总共%TOTAL_PAGE%页');
 		$pageTool->setConfig("prev","上一页");
 		$pageTool->setConfig("next","下一页");
 		$show = $pageTool->show();
-		$this->assign("newsshow",$show);
 		$data = $News->showNewsByProgram($condition, $page);
+		$this->assign("newsshow",$show);
 		$this->assign("newslist",$data);
-		// dump($data);
-		
-		// $curProgram = $Menu->getWebSiteMenuNameById($newsProgramId);
 		$this->assign("programs", $programs);
 		$this->assign("curProgramId", $newsProgramId);
 		$this->assign("nav_title","文章列表");
 		$this->display();
 	}
 
+	/**
+	 * 编辑新闻
+	 * @return [type] [description]
+	 */
 	public function editNews(){
-		$this->assign("nav_title","新增");
+		$this->assign("nav_title","编辑");
 		$News=D("News");
 		$NewsContent = D("NewsContent");
 		if(IS_GET){
@@ -196,6 +222,18 @@ class NewsController extends Controller{
 				$url = __CONTROLLER__."/".__FUNCTION__;
 			}
 			return AJAXResult($result["status"],$result["msg"],array("url"=>$url));
+		}
+	}
+
+	/**
+	 * 改变新闻显示状态
+	 * @return [type] [description]
+	 */
+	public function hidden(){
+		if(IS_POST){
+
+		}else{
+			$this->redirect("index");
 		}
 	}
 }
