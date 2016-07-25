@@ -5,10 +5,10 @@ use Think\Controller;
 
 class ImageController extends Controller{
 	/**
-	 * 
+	 * 上传新闻缩略图
 	 * @return [type] [description]
 	 */
-	public function uploadImage(){
+	public function uploadThumbImage(){
 		if(IS_POST){
 			$data = uploadImage("./Public/image/Uploads/");
 			if($data["status"]==0){
