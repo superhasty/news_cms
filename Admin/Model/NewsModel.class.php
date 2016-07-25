@@ -98,17 +98,19 @@ class NewsModel extends Model{
 		return array("status"=>$status,"msg"=>$msg,"data"=>$data);
 	}
 
-	public function updateNewsStatus($newsId){
+	public function updateNewsStatus($newsId, $status){
 		if(is_null($newsId) || !is_numeric($newsId)){
-			E("更改菜单排序时传入的菜单ID不合法");
+			E("更改新闻状态时传入的新闻ID不合法");
+		}elseif(is_null($status) || !is_numeric($status)){
+			E("更改新闻状态时传入的状态值不合法");
 		}else{
 			$condition=array(
 				"news_id" => array("eq", $newsId),
 			);
 			$data=array(
-				"status" => 1
+				"status" => $status
 			);
-			$this->where($condition)->save($data);
+			return $this->where($condition)->save($data);
 		}
 	}
 }

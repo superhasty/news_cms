@@ -40,9 +40,32 @@ $(function(){
         }
     });
 
-    // 跳转到新闻是否显示页面
+    // 设置新闻可见性
     $(".news_show_link").on('click', function(event){
         event.preventDefault();
+        var url=$(this).attr('data-url');
+        var postData={
+            id: $(this).attr('attr-id'),
+        };
+        hfaw_dialog.confirm("是否更改新闻状态", updateNewsStatus);
+        function updateNewsStatus(){
+            $.ajax({
+                url: url,
+                type: 'POST',
+                dataType: 'json',
+                data: postData,
+            })
+            .done(function(result){
+                if(result.status==0){
+                    hfaw_dialog.success("设置新闻状态成功", result.data.url);
+                }else{
+                    hfaw_dialog.error("设置新闻状态失败,原因是"+result.msg, result.data.url);
+                }
+            })
+            .fail(function() {
+              hfaw_dialog.error("网络连接错误");  
+            });
+        }
         
     });
 

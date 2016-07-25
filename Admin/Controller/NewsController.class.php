@@ -112,18 +112,18 @@ class NewsController extends Controller{
 
 			$newsProgramId = I("param.searchNewsProgram/d", "-1");
 			$newsTitle = I("param.searchNewsTitle/s", "");
+			$newsTitle = trim($newsTitle);
 			if($newsProgramId == -1){
 				$condition=array(
 					"program_id" => array(
 							array("neq", $newsProgramId),
 							array("in", $programIds),
-						)
+						),
+					"title"      => array("like","%".$newsTitle."%"),
 				);
 			}else{
 				$condition=array(
-					"program_id" => array(
-							array("eq", $newsProgramId),
-						),
+					"program_id" => array("eq", $newsProgramId),
 					"title"      => array("like","%".$newsTitle."%"),
 				);
 			}
@@ -229,9 +229,25 @@ class NewsController extends Controller{
 	 * 改变新闻显示状态
 	 * @return [type] [description]
 	 */
-	public function hidden(){
+	public function updateStatus(){
 		if(IS_POST){
-
+			$News = D("News");
+			$newsId = I("post.id/d");
+			if($newsId){
+				try{
+					$result = $News->updateNewsStatus($newsId, -1);
+					if($result!==FALSE){
+						$url=__CONTROLLER__."/index";
+					}else{
+						$url=__CONTROLLER__."/".__FUNCTION__;
+					}
+				}catch(Exception $e){
+					return AJAXResult(2,"更新新闻状态产生异常",array("url"=>$url));
+				}
+				return AJAXResult(0,"更新新闻状态成功",array("url"=>$url));
+			}else{
+				return AJAXResult(1,"未指定修改的新闻ID号",array("url"=>$url));
+			}
 		}else{
 			$this->redirect("index");
 		}
