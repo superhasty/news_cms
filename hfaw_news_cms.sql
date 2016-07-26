@@ -90,3 +90,22 @@ CREATE TABLE IF NOT EXISTS `cms_news_content` (
   PRIMARY KEY (`content_id`),
   KEY `news_id` (`news_id`)
 ) ENGINE=MYISAM DEFAULT CHARSET=utf8;
+
+
+--  网站区域管理表
+CREATE TABLE IF NOT EXISTS `cms_position` (
+  `id` SMALLINT(5) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '区域ID号',
+  `name` VARCHAR(30) NOT NULL DEFAULT '' COMMENT '区域名称',
+  `status` TINYINT(1) NOT NULL DEFAULT '1' COMMENT '区域状态',
+  `description` VARCHAR(100) DEFAULT NULL COMMENT '区域描述',
+  `createtime` INT(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `updatetime` INT(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MYISAM  DEFAULT CHARSET=utf8;
+
+INSERT INTO cms_position VALUES
+(1, '底部广告', -1, '展示底部广告', 1455634352, 0),
+(2, '首页大图', 1, '展示首页大图', 1455634715, 0),
+(3, '小图推荐', 1, '小图推荐位', 1456665873, 0),
+(4, '首页右侧推荐位', -1, '', 1457248469, 0),
+(5, '右侧广告位', 1, '右侧广告位', 1457873143, 0);

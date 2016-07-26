@@ -235,7 +235,7 @@ class NewsController extends Controller{
 			$newsId = I("post.id/d");
 			if($newsId){
 				try{
-					$result = $News->updateNewsStatus($newsId, -1);
+					$result = $News->updateNewsStatus($newsId, 0);
 					if($result!==FALSE){
 						$url=__CONTROLLER__."/index";
 					}else{
@@ -247,6 +247,36 @@ class NewsController extends Controller{
 				return AJAXResult(0,"更新新闻状态成功",array("url"=>$url));
 			}else{
 				return AJAXResult(1,"未指定修改的新闻ID号",array("url"=>$url));
+			}
+		}else{
+			$this->redirect("index");
+		}
+	}
+
+
+	public function orderNews(){
+		$url = I("server.http_referer");
+		if(IS_POST){
+			$News=D("News");
+			$errors=array();
+			$data = I("post.order/a");
+			if($data){
+				try {
+					foreach ($data as $newsId => $order){
+						$res = $News->updateNewsOrderById($order, $newsId);
+						if($res===FALSE){
+							$errors[]=$newsId;
+						}
+					}
+				}catch(Exception $e){
+					return AJAXResult(3, "排序失败--".implode(",",$errors).",发生异常:".$e->getMessage(), array("url"=>$url));
+				}
+				if($errors){
+					return AJAXResult(2, "排序失败--".implode(",",$errors), array("url"=>$url));
+				}
+				return AJAXResult(0, "排序成功", array("url"=>$url));
+			}else{
+				return AJAXResult(1, "传入的排序数据有误", array("url"=>$url));
 			}
 		}else{
 			$this->redirect("index");

@@ -44,7 +44,7 @@
 	                	<div class="input-group">
 	                	    <span class="input-group-addon">类型</span>
 	                	    <select class="form-control" name="searchMenuType">
-	                	        <option value="-1" <if condition="$curMenuType eq -1">selected="selected"</if>>请选择类型</option>
+	                	        <option value="-1" <if condition="$curMenuType eq -1">selected="selected"</if>>==全部类型==</option>
 	                	        <option value="1" <if condition="$curMenuType eq 1">selected="selected"</if> >后台菜单</option>
 	                	        <option value="0" <if condition="$curMenuType eq 0">selected="selected"</if> >前端导航</option>
 	                	    <select>
@@ -84,7 +84,7 @@
 	                        <tbody>
 	                        	<foreach name="menulist" item="menu">
 		                        	<tr>
-		                        	    <td><input size="4" type="text" name="listorder[{$menu.menu_id}]" value="{$menu.order}"/></td>
+		                        	    <td><input size="4" type="text" name="order[{$menu.menu_id}]" value="{$menu.order}"/></td>
 		                        	    <td>{$menu.menu_id}</td>
 		                        	    <td>{$menu.name}</td>
 		                        	    <td>{$menu.module}</td>

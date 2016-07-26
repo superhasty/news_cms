@@ -120,6 +120,5 @@ $(function(){
 			// hfaw_dialog.error("网络连接错误");
 			hfaw_dialog.error("菜单重新排序产生异常", rurl);//,原因是"+result.msg, result.data.url);
 		});
-		
 	});
 });

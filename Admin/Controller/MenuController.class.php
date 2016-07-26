@@ -158,7 +158,7 @@ class MenuController extends CommonController{
 		if(IS_POST){
 			$Menu=D("Menu");
 			$errors=array();
-			$data = I("post.listorder/a");
+			$data = I("post.order/a");
 			if($data){
 				try {
 					foreach ($data as $menuId => $order){

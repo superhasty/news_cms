@@ -20,5 +20,8 @@ news_id, programid, title, subtitle, titlecolor, thumb, keywords, description, c
 content_id, news_id,    content,  createtime, updatetime
 新闻正文ID, 新闻摘要ID, 新闻正文, 创建时间,   更新时间
 
-5. cms_position      网站分类位置表
-6. cms_position_content      网站分类内容表
+5. cms_position      网站区域管理表
+id,     name,     status,   description,  createtime,  updatetime
+区域ID, 区域名称, 区域状态, 区域描述,     创建时间,    更新时间
+
+6. cms_position_content      网站区域内容管理表

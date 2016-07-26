@@ -1,0 +1,28 @@
+<header id="header">
+  <div class="navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="">
+          <img src="__PUBLIC__/image/Home/logo.png" alt="">
+        </a>
+      </div>
+      <ul class="nav navbar-nav navbar-left">
+        <li>
+          <a href="{$curId}" class="
+            <if condition="$curId eq -1">
+                curr
+            </if>
+          ">首页</a></li>
+        <foreach name="barMenus" item="barMenu">
+          <li>
+            <a href="__MODULE__/{$barMenu.controller}/{$barMenu.action}/id/{$barMenu.menu_id}" class=" 
+              <if condition="$barMenu.menu_id eq $curId">
+                curr
+              </if>
+            ">{$barMenu.name}</a>
+          </li>
+        </foreach>
+      </ul>
+    </div>
+  </div>
+</header>

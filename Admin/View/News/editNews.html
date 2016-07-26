@@ -54,7 +54,7 @@
 				            <div class="form-group">
 						        <label for="file_upload" class="col-sm-2 control-label">缩图:</label>
 						        <div class="col-sm-5">
-						            <input id="file_upload" type="file" multiple="false" data-url="__MODULE__/Image/uploadImage" swf-url="__PUBLIC__/js/uploadify.swf" img-url="__PUBLIC__/image/Uploads/" attr-pubpath="__PUBLIC__" style="display:none;"><!-- multiple="true" -->
+						            <input id="file_upload" name="file_upload" type="file" multiple="false" data-url="__MODULE__/Image/uploadImage" swf-url="__PUBLIC__/js/uploadify.swf" img-url="__PUBLIC__/image/Uploads/" attr-pubpath="__PUBLIC__" style="display:none;"><!-- multiple="true" -->
 						            <img style="display: none" id="upload_origin_img" src="{$newsInfo.thumb}" style="width:100%;">
 						            <input id="upload_thumb_image" name="thumb" type="hidden" multiple="false" value="{$newsInfo.thumb}" multiple="true" ><!-- multiple="true" -->
 						        </div>
@@ -135,8 +135,7 @@
 				              	</div>
 				            </div>
 				            <div class="form-group">
-				              	<div class="col-sm-offset-2 col-sm-10">
-				              		<!-- <input type="hidden" name="newsId" id="newsId" value="{$newsInfo.news_id}"> -->
+				              	<div class="col-sm-offset-2 col-sm-10">				           
 				                	<button type="button" class="btn btn-default" id="btn_edit_news_submit" data-url="__SELF__" attr-id="{$newsInfo.news_id}">提交</button>
 				              	</div>
 				            </div>
@@ -189,7 +188,8 @@
 	                ['#FFFFFF', '#CCCCCC', '#999999', '#666666', '#333333', '#000000'],
 	                ['#f6f6f6', '#214ef7', '#f8f8f8', '#ff6600', '#444444', '#777777']
 	            ],
-	            uploadJson: newsImgUploadUrl
+	            uploadJson: newsImgUploadUrl,
+	            filePostName: "KindEditorimgFile",
 	        });
 	    });
 

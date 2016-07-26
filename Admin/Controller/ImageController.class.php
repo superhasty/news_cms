@@ -23,11 +23,15 @@ class ImageController extends Controller{
 
 	public function uploadNewsImage(){
 		if(IS_POST){
+			dump($_FILES);
+			exit();
 			$data = uploadImage("./Public/image/News/");
 			if($data["status"]==0){
 				$error = $data["status"];
 
-				$url = APP_PATH."../../Public/image/News/".$data["data"]["imgFile"]["savepath"].$data["data"]["imgFile"]["savename"];
+				// $url = ROOT_URL."/Public/image/News/".$data["data"]["imgFile"]["savepath"].$data["data"]["imgFile"]["savename"];
+				$url = ROOT_URL."/Public/image/News/".$data["data"]["KindEditorimgFile"]["savepath"].$data["data"]["KindEditorimgFile"]["savename"];
+
 				KindUploadResult($error, $url);
 			}else{
 				$error = 1;

@@ -15,7 +15,7 @@ class MenuModel extends Model{
 	);
 
 	/**
-	 * [addMenu description]
+	 * 添加菜单
 	 * @param [type] $menuInfo [description]
 	 */
 	public function addMenu($menuInfo){
@@ -72,7 +72,7 @@ class MenuModel extends Model{
 
 
 	/**
-	 * [delteMenu description]
+	 * 删除菜单
 	 * @param  [type] $menuId [description]
 	 * @return [type]         [description]
 	 */
@@ -164,9 +164,7 @@ class MenuModel extends Model{
 	 */
 	public function updateMenuOrderById($order, $menuId){
 		if(is_null($menuId)|| !is_numeric($menuId) || ($order<0)){
-			E("更改菜单排序时传入的菜单ID不合法");
-			// throw new Exception("更改菜单排序时传入的菜单ID不合法");
-			// throw_exception("更改菜单排序时传入的菜单ID不合法");
+			E("更改菜单排序时传入的菜单ID或者排序值不合法");
 		}else{
 			$data=array(
 				"order"=> intval($order),

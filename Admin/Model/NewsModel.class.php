@@ -113,4 +113,18 @@ class NewsModel extends Model{
 			return $this->where($condition)->save($data);
 		}
 	}
+
+	public function updateNewsOrderById($order, $newsId){
+		if(is_null($newsId)|| !is_numeric($newsId) || ($order<0)){
+			E("更改新闻排序时传入的新闻ID或者排序值不合法");
+		}else{
+			$data=array(
+				"order"=> intval($order),
+			);
+			$condition=array(
+				"news_id" => array("eq", $newsId),
+			);
+			return $this->where($condition)->save($data);
+		}
+	}
 }
