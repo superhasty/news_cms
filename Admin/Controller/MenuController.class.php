@@ -91,16 +91,16 @@ class MenuController extends CommonController{
 	 * [editMenu description]
 	 * @return [type] [description]
 	 */
-	public function modifyMenu($menuId = -1){
+	public function modifyMenu(){
 		$Menu = D("Menu");
 		$this->assign("nav_title","修改");
 		if(IS_GET){
-			$menuId=I("get.id",$menuId);
+			$menuId=I("get.id",-1);
 			$menuInfo=$Menu->getMenuInfoById($menuId);
 			$this->assign("menuInfo",$menuInfo);
 			$this->display();
 		}else if(IS_POST){
-			$menuId=I("post.menuId");
+			$menuId=I("post.menuId",-1);
 			$menuName=I("post.menuName");
 			$menuType=I("post.menuType");
 			$menuModule=I("post.menuModule");
@@ -133,10 +133,10 @@ class MenuController extends CommonController{
 	 * @param  [type] $menuId [description]
 	 * @return [type]         [description]
 	 */
-	public function deleteMenu($menuId = -1){	
+	public function deleteMenu(){
 		if(IS_POST){
 			$Menu = D("Menu");
-			$menuId = I("get.id",$menuId);
+			$menuId = I("get.id",-1);
 			$result = $Menu->deleteMenu($menuId);
 			if($result["status"]==0){
 				$url=__CONTROLLER__."/index";
@@ -176,6 +176,34 @@ class MenuController extends CommonController{
 				return AJAXResult(0, "排序成功", array("url"=>$url));
 			}else{
 				return AJAXResult(1, "传入的排序数据有误", array("url"=>$url));
+			}
+		}else{
+			$this->redirect("index");
+		}
+	}
+
+	/**
+	 * 改变菜单显示状态
+	 * @return [type] [description]
+	 */
+	public function updateStatus(){
+		if(IS_POST){
+			$Menu = D("Menu");
+			$menuId = I("post.id/d");
+			if($menuId){
+				try{
+					$result = $Menu->updateMenuStatus($menuId, 0);
+					if($result!==FALSE){
+						$url=__CONTROLLER__."/index";
+					}else{
+						$url=__CONTROLLER__."/".__FUNCTION__;
+					}
+				}catch(Exception $e){
+					return AJAXResult(2,"更新菜单状态产生异常",array("url"=>$url));
+				}
+				return AJAXResult(0,"更新菜单状态成功",array("url"=>$url));
+			}else{
+				return AJAXResult(1,"未指定修改的菜单ID号",array("url"=>$url));
 			}
 		}else{
 			$this->redirect("index");

@@ -72,7 +72,7 @@ class MenuModel extends Model{
 
 
 	/**
-	 * 删除菜单
+	 * 删除指定ID号的菜单
 	 * @param  [type] $menuId [description]
 	 * @return [type]         [description]
 	 */
@@ -171,6 +171,28 @@ class MenuModel extends Model{
 			);
 			$condition=array(
 				"menu_id" => array("eq", $menuId),
+			);
+			return $this->where($condition)->save($data);
+		}
+	}
+
+	/**
+	 * 更新指定菜单ID的显示状态
+	 * @param  [type] $menuId [description]
+	 * @param  [type] $status [description]
+	 * @return [type]         [description]
+	 */
+	public function updateMenuStatus($menuId,$status){
+		if(is_null($menuId) || !is_numeric($menuId)){
+			E("更改菜单状态时传入的菜单ID不合法");
+		}elseif(is_null($status) || !is_numeric($status)){
+			E("更改菜单状态时传入的状态值不合法");
+		}else{
+			$condition=array(
+				"menu_id" => array("eq", $menuId),
+			);
+			$data=array(
+				"status" => $status
 			);
 			return $this->where($condition)->save($data);
 		}

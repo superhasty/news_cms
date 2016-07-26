@@ -49,8 +49,8 @@ INSERT INTO `cms_menu` VALUES
 (6, '文章管理', 0, 'admin', 'content', 'index', '', 9, 1, 1),
 (7, '用户管理', 0, 'admin', 'user', 'index', '', 0, -1, 1),
 (8, '科技', 0, 'home', 'cat', 'index', '', 0, 1, 0),
-(9, '推荐位管理', 0, 'admin', 'position', 'index', '', 4, 1, 1),
-(10, '推荐位内容管理', 0, 'admin', 'positioncontent', 'index', '', 1, 1, 1),
+(9, '推荐位管理', 0, 'admin', 'area', 'index', '', 4, 1, 1),
+(10, '推荐位内容管理', 0, 'admin', 'areacontent', 'index', '', 1, 1, 1),
 (11, '基本管理', 0, 'admin', 'basic', 'index', '', 0, 1, 1),
 (12, '新闻', 0, 'home', 'cat', 'index', '', 0, 1, 0),
 (13, '用户管理', 0, 'admin', 'admin', 'index', '', 0, 1, 1);
@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `cms_news_content` (
 
 
 --  网站区域管理表
-CREATE TABLE IF NOT EXISTS `cms_position` (
+CREATE TABLE IF NOT EXISTS `cms_area` (
   `id` SMALLINT(5) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '区域ID号',
   `name` VARCHAR(30) NOT NULL DEFAULT '' COMMENT '区域名称',
   `status` TINYINT(1) NOT NULL DEFAULT '1' COMMENT '区域状态',
@@ -103,9 +103,9 @@ CREATE TABLE IF NOT EXISTS `cms_position` (
   PRIMARY KEY (`id`)
 ) ENGINE=MYISAM  DEFAULT CHARSET=utf8;
 
-INSERT INTO cms_position VALUES
-(1, '底部广告', -1, '展示底部广告', 1455634352, 0),
-(2, '首页大图', 1, '展示首页大图', 1455634715, 0),
-(3, '小图推荐', 1, '小图推荐位', 1456665873, 0),
-(4, '首页右侧推荐位', -1, '', 1457248469, 0),
-(5, '右侧广告位', 1, '右侧广告位', 1457873143, 0);
+INSERT INTO cms_area VALUES
+(1, '底部广告', -1, '展示底部广告', 1455634352, 141665871),
+(2, '首页大图', 1, '展示首页大图', 1455634715, 141665871),
+(3, '小图推荐', 1, '小图推荐位', 1456665873, 141665871),
+(4, '首页右侧推荐位', -1, '', 1457248469, 141665871),
+(5, '右侧广告位', -1, '右侧广告位', 1457873143, 141665871);

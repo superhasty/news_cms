@@ -23,8 +23,6 @@ class ImageController extends Controller{
 
 	public function uploadNewsImage(){
 		if(IS_POST){
-			dump($_FILES);
-			exit();
 			$data = uploadImage("./Public/image/News/");
 			if($data["status"]==0){
 				$error = $data["status"];

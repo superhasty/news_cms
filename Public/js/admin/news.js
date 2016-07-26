@@ -119,8 +119,9 @@ $(function(){
             "newskeywords" : $("#newskeywords").val(),
             "newscontent" : $("#news_editor_area").val()
         };
+        var url=$(this).attr('data-url');
         $.ajax({
-            url: $(this).attr('data-url'),
+            url: url,
             type: 'POST',
             dataType: "json",
             data: newsdata,
