@@ -196,7 +196,7 @@ class AreacontentController extends CommonController{
 		if(IS_POST){
 			$AreaContent = D("AreaContent");
 			$areacontentId = I("get.id", -1);
-			$result = $AreaContent->deleteNews($areacontentId);
+			$result = $AreaContent->deleteAreaContent($areacontentId);
 			if($result["status"]==0){
 				$url = __CONTROLLER__."/index";
 			}else{

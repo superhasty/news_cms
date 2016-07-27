@@ -185,3 +185,19 @@ NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\L
 NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
 SQL: INSERT INTO `cms_area_content` (`title`,`area_id`,`thumb`,`url`,`news_id`,`status`,`createtime`,`updatetime`) VALUES ('重磅推荐5号有图','2','/Public/image/Uploads/2016-07-27/5798c1b3c2be2.jpg','','5','1','1469633811','1469633811') [ RunTime:0.0011s ]
 
+[ 2016-07-27T23:58:01+08:00 ] 127.0.0.1 /Admin/Areacontent/editAreaContent
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003585s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006199s ]
+SQL: UPDATE `cms_area_content` SET `title`='我们推荐5号文章给你',`area_id`='2',`thumb`='/Public/image/Uploads/2016-07-27/5798c1b3c2be2.jpg',`url`='',`news_id`='5',`status`='1',`createtime`='1469635081',`updatetime`='1469635081' WHERE `id` = 2 [ RunTime:0.0498s ]
+
+[ 2016-07-27T23:58:43+08:00 ] 127.0.0.1 /Admin/Areacontent/deleteAreaContent/id/3
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002345s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004466s ]
+ERR: Think\Model:deleteNews方法不存在！
+
+[ 2016-07-27T23:58:45+08:00 ] 127.0.0.1 /Admin/Areacontent/index/p/undefined
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-5,5' at line 1
+ [ SQL语句 ] : SELECT * FROM `cms_area_content` WHERE ( `area_id` <> '-1' AND `area_id` IN ('2','3')  ) AND `title` LIKE '%%' AND `status` <> '-1' ORDER BY `order` desc LIMIT -5,5  
+
