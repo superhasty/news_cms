@@ -43,7 +43,7 @@ function lock_md5($password){
  * @param  [type] $status [description]
  * @return [type]         [description]
  */
-function getMenuStatus($status){
+function parseStatus($status){
 	switch($status){
 		case '0':
 			$name = "关闭";
@@ -74,6 +74,19 @@ function getMenuTypeName($type){
 	return $name;
 }
 
+/**
+ * 获取网站区域名称集
+ * @param  [array] $areaInfos [description]
+ * @param  [type] $areaId    [description]
+ * @return [type]            [description]
+ */
+function getAreaName($areaInfos, $areaId){
+	foreach ($areaInfos as $areaInfo){
+		$areaNames[intval($areaInfo["id"])]=$areaInfo["name"];
+	}
+	return isset($areaNames[$areaId])? $areaNames[$areaId] : "无";
+}
+
 function isActive($navController){
 	$cur = CONTROLLER_NAME;
 	if(strtolower($navController) == strtolower($cur)){
@@ -100,22 +113,6 @@ function uploadImage($savePath){
 	return $data;
 }
 
-function getNewsStatus($status){
-	switch ($status){
-		case '0':
-			$name = "关闭";
-			break;
-		case '1':
-			$name = "开启";
-			break;
-		case "-1":
-			$name = "删除";
-			break;
-		default:
-			break;
-	}
-	return $name;
-}
 
 function hasthumb($thumb){
 	if($thumb){

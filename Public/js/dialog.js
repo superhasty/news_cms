@@ -33,5 +33,11 @@ var hfaw_dialog={
 				layer.close(index);
 			},
 		});
+	},
+
+	msg: function(message){
+		layer.msg(message,{
+			time: 1500
+		});
 	}
 }

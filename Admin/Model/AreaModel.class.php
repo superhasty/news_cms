@@ -78,6 +78,17 @@ class AreaModel extends Model{
 	}
 
 	/**
+	 * 获取开启状态的区域名称
+	 * @return [type] [description]
+	 */
+	public function getOpenAreaNames(){
+		$condition=array(
+			"status" => array("eq", 1),
+		);
+		return $this->field("name")->where($condition)->select();
+	}
+
+	/**
 	 * 获取所有有效的区域信息(status!=-1)
 	 * @return [type] [description]
 	 */
@@ -86,6 +97,25 @@ class AreaModel extends Model{
 			"status" => array("neq", -1),
 		);
 		return $this->where($condition)->select();
+	}
+
+	/**
+	 * 获取开启状态的区域信息
+	 * @return [type] [description]
+	 */
+	public function getOpenAreaInfos(){
+		$condition=array(
+			"status" => array("eq", 1),
+		);
+		return $this->where($condition)->select();
+	}
+
+
+	public function getOpenAreaIds(){
+		$condition=array(
+			"status" => array("eq", 1),
+		);
+		return $this->field("id")->where($condition)->getField("id",true);
 	}
 
 	/**
@@ -100,7 +130,7 @@ class AreaModel extends Model{
 			$condition=array(
 				"id" => array("eq", $areaId),
 			);
-			return $this->where($condition)->select();
+			return $this->where($condition)->find();
 		}
 	}
 

@@ -143,6 +143,7 @@ class MenuModel extends Model{
 		return $this->field("menu_id")->where($condition)->getField("menu_id",true);
 	}
 
+
 	/**
 	 * 获取满足条件的菜单数目
 	 * @param  [type] $condition [description]

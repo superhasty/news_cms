@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>内容管理平台--区域内容添加</title>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap-switch.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/index.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/morris.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/global.css">
+	<!-- javascript -->
+	<script type="text/javascript" src="__PUBLIC__/js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/layer/layer.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/dialog.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/admin/areacontent.js"></script>
+</head>
+<body>
+	<div id="wrapper">
+	    <include file="Index/nav"/>
+		<div id="page-wrapper">
+			<div class="container-fluid">
+				<!-- Page Heading -->
+				<div class="row">
+					<div class="col-lg-12">
+						<ol class="breadcrumb">
+							<li>
+								<i class="icon icon-dashboard"></i>
+								<a href="__CONTROLLER__/index">&nbsp;&nbsp;区域内容管理</a>
+							</li>
+							<li class="active">
+								<i class="icon icon-edit"></i>&nbsp;&nbsp;{$nav_title}
+							</li>
+						</ol>
+					</div>
+				</div>
+				<!-- /.row -->
+				<div class="row">
+					<div class="col-lg-12">
+						<form class="form-horizontal" id="singcms-form">
+							<div class="form-group">
+								<label for="inputname" class="col-sm-4 control-label">标题:</label>
+								<div class="col-sm-5">
+									<input type="text" name="title" class="form-control" id="inputname" placeholder="请填写标题">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputname" class="col-sm-4 control-label">选择区域名:</label>
+								<div class="col-sm-5">
+									<select class="form-control" name="position_id">
+										<foreach name="areaInfos" item="areaInfo">
+											<option value="{$areaInfo.id}">{$areaInfo.name}</option>
+										</foreach>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputname" class="col-sm-4 control-label">缩图:</label>
+								<div class="col-sm-5">
+									<input id="file_upload"  type="file" multiple="true" >
+									<img style="display: none" id="upload_org_code_img" src="" width="150" height="150">
+									<input id="file_upload_image" name="thumb" type="hidden" multiple="true" value="">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputPassword3" class="col-sm-4 control-label">url:</label>
+								<div class="col-sm-5">
+									<input type="text" class="form-control" name="url" id="inputPassword3" placeholder="请url地址">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputname" class="col-sm-4 control-label">文章id:</label>
+								<div class="col-sm-5">
+									<input type="text" name="news_id" class="form-control" id="inputname" placeholder="如果和文章无关联的可以不添加文章id">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputPassword3" class="col-sm-4 control-label">状态:</label>
+								<div class="col-sm-5">
+									<input type="radio" name="status" id="optionsRadiosInline1" value="1" checked>开启
+									<input type="radio" name="status" id="optionsRadiosInline2" value="0">关闭
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-4 col-sm-10">
+									<button type="button" class="btn btn-default" id="singcms-button-submit">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- /.row -->
+			</div>
+			<!-- /.container-fluid -->
+		</div>
+		<!-- /#page-wrapper -->
+	</div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>内容管理平台--菜单管理</title>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap-switch.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/index.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/morris.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/global.css">
+	<!-- javascript -->
+	<script type="text/javascript" src="__PUBLIC__/js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/layer/layer.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/dialog.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/admin/area.js"></script>
+</head>
+<body>
+	<div id="wrapper">
+	    <include file="Index/nav"/>
+		<div id="page-wrapper">
+		    <div class="container-fluid" >
+		        <!-- Page Heading -->
+		        <div class="row">
+		            <div class="col-lg-12">
+		                <ol class="breadcrumb">
+			                <li>
+			                	<i class="icon icon-dashboard"></i>
+			                	<a href="__CONTROLLER__/index">&nbsp;&nbsp;区域管理</a>
+			                </li>
+		                    <li class="active">
+		                        <i class="icon icon-table"></i>&nbsp;&nbsp;{$nav_title}
+		                    </li>
+		                </ol>
+		            </div>
+		        </div>
+		        <!-- /.row -->
+		        <div>
+		            <button id="area_add_link" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-url="__CONTROLLER__/addArea">
+		            	<span class="icon icon-plus" aria-hidden="true"></span>&nbsp;&nbsp;添加
+		            </button>
+		        </div>
+		        <div class="row">
+			        <form action="__ACTION__" method="GET">
+			            <div class="col-lg-12">
+			                <h3></h3>
+			                <div class="table-responsive">
+			                    <table class="table table-bordered table-hover singcms-table">
+			                        <thead>
+				                        <tr>
+				                            <th>id</th>
+				                            <th>名称</th>
+				                            <th>创建时间</th>
+				                            <th>更新时间</th>
+				                            <th>状态</th>
+				                            <th>操作</th>
+				                        </tr>
+			                        </thead>
+			                        <tbody>
+				                        <volist name="areaInfos" id="areaInfo">
+				                            <tr>
+				                                <td>{$areaInfo.id}</td>
+				                                <td>{$areaInfo.name}</td>
+				                                <td>{$areaInfo.createtime|date="Y-m-d H:i:s",###}</td>
+				                                <td>{$areaInfo.updatetime|date="Y-m-d H:i:s",###}</td>
+				                                <td>
+				                                	<span attr-status="
+				                                		<if condition="$areaInfo['status'] eq 1">
+				                                			0
+				                                		<else />
+				                                			1
+				                                		</if>" attr-id="{$areaInfo.id}" class="sing_cursor singcms-on-off" id="singcms-on-off" >{$areaInfo.status|parseStatus}</span>
+				                                </td>
+				                                <td>
+				                                    <a href="javascript:void(0)" attr-id="{$areaInfo.id}" class="area_edit_link" data-url="__CONTROLLER__/editArea/id/{$areaInfo.id}" attr-message="编辑">
+				                                    	<span class="icon icon-edit" aria-hidden="true"></span>
+				                                    </a>
+				                                    <a href="javascript:void(0)" attr-id="{$areaInfo.id}" class="area_delete_link" data-url="__CONTROLLER__/deleteArea/id/{$areaInfo.id}" attr-message="删除">
+				                                    	<span class="icon icon-remove-circle" aria-hidden="true"></span>
+				                                    </a>                               
+				                                </td>
+				                            </tr>
+				                        </volist>
+			                        </tbody>
+			                    </table>
+			                </div>
+			            </div>
+			        </form>
+		        </div>
+		        <!-- /.row -->
+		    </div>
+	    <!-- /.container-fluid -->
+		</div>
+		<!-- /#page-wrapper -->
+	</div>
+	<!-- /#wrapper -->
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>内容管理平台--区域内容管理</title>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap-switch.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/index.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/morris.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/global.css">
+	<!-- javascript -->
+	<script type="text/javascript" src="__PUBLIC__/js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/layer/layer.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/dialog.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/admin/areacontent.js"></script>
+</head>
+<body>
+	<div id="wrapper">
+	    <include file="Index/nav"/>
+		<div id="page-wrapper">
+		    <div class="container-fluid">
+		        <!-- Page Heading -->
+		        <div class="row">
+		            <div class="col-lg-12">
+		                <ol class="breadcrumb">
+		                    <li>
+		             			<i class="icon icon-dashboard"></i>
+		              			<a href="__CONTROLLER__/index">&nbsp;&nbsp;区域内容管理</a>
+		            		</li>
+		            		<li class="active">
+		              			<i class="icon icon-table"></i>&nbsp;&nbsp;{$nav_title}
+		            		</li>
+		                </ol>
+		            </div>
+		        </div>
+		        <!-- /.row -->
+		        <div >
+		            <button id="areacontent_add_link" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-url="__CONTROLLER__/addAreaContent">
+		            	<span class="icon icon-plus" aria-hidden="true"></span>&nbsp;添加
+		            </button>
+		        </div>
+		        <div class="row">
+		            <form action="__ACTION__" method="GET">
+		                <div class="col-md-3">
+		                    <div class="input-group">
+		                        <span class="input-group-addon">区域</span>
+		                        <select class="form-control" name="searchAreaId">
+		                        	<option value="-1" <if condition="$areaInfo['id'] eq -1">selected="selected"</if>>==全部区域==</option>
+		                            <foreach name="areaInfos" item="areaInfo">
+		                                <option value="{$areaInfo.id}" 
+		                                	<if condition="$areaInfo['id'] eq $curAreaId">
+		                                		selected="selected"
+		                                	</if>
+		                                >{$areaInfo.name}</option>
+		                            </foreach>
+		                        </select>
+		                    </div>
+		                </div>
+		                <div class="col-md-3">
+		                    <div class="input-group">
+		                        <input class="form-control" name="searchTitle" type="text" value="{$title}" placeholder="文章标题" />
+			                	<span class="input-group-btn">
+			                  		<button id="sub_data" type="submit" class="btn btn-primary">
+			                  			<i class="icon icon-search"></i>
+			                  		</button>
+			                	</span>
+		                    </div>
+		                </div>
+		            </form>
+		        </div>
+		        <div class="row">
+		            <div class="col-lg-12">
+		                <h3></h3>
+		                <div class="table-responsive">
+		                    <form id="areacontent_controller_form">
+		                    <table class="table table-bordered table-hover singcms-table">
+		                        <thead>
+		                        <tr>
+		                            <th width="14">排序</th>
+		                            <th>id</th>
+		                            <th>标题</th>
+		                            <th>区域</th>
+		                            <th>封面图</th>
+		                            <th>创建时间</th>
+		                            <th>更新时间</th>
+		                            <th>状态</th>
+		                            <th>操作</th>
+		                        </tr>
+		                        </thead>
+		                        <tbody>
+		                            <foreach name="datalist" item="content">
+		                            <tr>
+		                                <td>
+		                                	<input size='4' type='text' name='order[{$content.id}]' value="{$content.order}"/>
+		                                </td>
+		                                <td>{$content.id}</td>
+		                                <td>{$content.title}</td>
+		                                <td>{$content.area_id|getAreaName=$areaInfos,###}</td>
+		                                <td>{$content.thumb|hasthumb}</td>
+		                                <td>{$content.createtime|date="y-m-d H:i:s",###}</td>
+		                                <td>{$content.updatetime|date="y-m-d H:i:s",###}</td>
+		                                <td>
+		                                    <span attr-status="
+		                                    	<if condition="$content['status'] eq 1">
+		                                    		0
+		                                    	<else />
+		                                    		1
+		                                    	</if>" 
+		                                    	attr-id="{$content.id}" class="singcms-on-off" id="singcms-on-off">
+		                                    	{$content.status|parseStatus}
+		                                    </span>
+		                                </td>
+		                                <td>
+		                                    <a href="javascript:void(0)" id="singcms-delete"  attr-id="{$content.id}"  attr-message="删除">
+		                                    	<span class="sing_cursor icon icon-edit" aria-hidden="true" id="singcms-edit" attr-id="{$content.id}" ></span>
+		                                    </a>
+		                                    <a href="javascript:void(0)" id="singcms-delete"  attr-id="{$content.id}"  attr-message="删除">
+		                                        <span class="icon icon-remove-circle" aria-hidden="true"></span>
+		                                    </a>
+		                                </td>
+		                            </tr>
+		                            </foreach>
+		                        </tbody>
+		                    </table>
+		                    <nav>
+				              	<ul>
+				                	{$datashow}
+				              	</ul>
+				            </nav>
+		                    <div>
+		                        <button  id="btn_change_areacontent_order" type="button" class="btn btn-primary dropdown-toggle" data-url="__CONTROLLER__/orderAreaContent" data-redirect-url="__CONTROLLER__/index">
+		                        	<span class="icon icon-resize-vertical" aria-hidden="true"></span>&nbsp;&nbsp;更新排序
+		                        </button>
+		                    </div>
+		                    </form>
+		                </div>
+		            </div>
+		        </div>
+		        <!-- /.row -->
+		    </div>
+		    <!-- /.container-fluid -->
+		</div>
+		<!-- /#page-wrapper -->
+	</div>
+	<!-- /#wrapper -->
+</body>
+</html>

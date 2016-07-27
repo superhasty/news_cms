@@ -1,15 +1,19 @@
 <?php
 
-namespace Admin\Area;
-use Think\Area;
+namespace Admin\Controller;
+use Think\Controller;
 
-class AreaController extends Area{
+class AreaController extends Controller{
 	/**
 	 * 首页
 	 * @return [type] [description]
 	 */
 	public function index(){
-		
+		$Area = D("Area");
+		$areaInfos=$Area->getAreaInfos();
+		$this->assign("areaInfos",$areaInfos);
+		$this->assign("nav_title","预览");
+		$this->display();
 	}
 
 	/**
@@ -18,9 +22,9 @@ class AreaController extends Area{
 	public function addArea(){
 		$this->assign("nav_title","新增");
 		if(IS_POST){
-			$areaName=I("post.AreaName");
-			$areaStatus=I("post.AreaStatus/d");
-			$areaDesp=I("post.AreaDesp");
+			$areaName=I("post.areaName");
+			$areaStatus=I("post.areaStatus/d");
+			$areaDesp=I("post.areaDesp");
 			$areaInfo=array(
 				"name"=>$areaName,
 				"status"=>$areaStatus,
@@ -47,9 +51,9 @@ class AreaController extends Area{
 	 */
 	public function deleteArea(){
 		if(IS_POST){
-			$Menu = D("Menu");
-			$menuId = I("get.id",-1);
-			$result = $Menu->deleteMenu($menuId);
+			$Area = D("Area");
+			$areaId = I("get.id",-1);
+			$result = $Area->deleteArea($areaId);
 			if($result["status"]==0){
 				$url=__CONTROLLER__."/index";
 			}else{
@@ -66,7 +70,31 @@ class AreaController extends Area{
 	 * @return [type] [description]
 	 */
 	public function editArea(){
-		
+		$Area = D("Area");
+		$this->assign("nav_title","修改");
+		if(IS_GET){
+			$areaId=I("get.id/d",-1);
+			$areaInfo=$Area->getAreaInfoById($areaId);
+			$this->assign("areaInfo",$areaInfo);
+			$this->display();
+		}else if(IS_POST){
+			$areaId=I("post.areaId",-1);
+			$areaName=I("post.areaName");
+			$areaDesp=I("post.areaDesp");
+			$areaInfo=array(
+				"id"=>$areaId,
+				"name"=>$areaName,
+				"description"=>$areaDesp,
+				"updatetime"=>time()
+			);
+			$result = $Area->editArea($areaInfo);
+			if($result["status"]==0){
+				$url=__CONTROLLER__."/index";
+			}else{
+				$url=__CONTROLLER__."/".__FUNCTION__;
+			}
+			return AJAXResult($result["status"],$result["msg"],array("url"=>$url));
+		}
 	}
 
 	/**

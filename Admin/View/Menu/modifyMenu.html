@@ -10,7 +10,6 @@
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/morris.css">
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/global.css">
-	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/upload.css">
 	<!-- javascript -->
 	<script type="text/javascript" src="__PUBLIC__/js/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
@@ -42,40 +41,40 @@
 	            <div class="col-lg-6">
 	                <form class="form-horizontal" id="news_cms_form" >
 	                    <div class="form-group">
-	                        <label for="inputMenuName" class="col-sm-2 control-label">菜单名:</label>
+	                        <label class="col-sm-2 control-label">菜单名:</label>
 	                        <div class="col-sm-5">
-	                            <input type="text" name="menuName" class="form-control" id="inputMenuName" placeholder="请填写菜单名" value="{$menuInfo.name}">
+	                            <input type="text" name="menuName" class="form-control" placeholder="请填写菜单名" value="{$menuInfo.name}">
 	                        </div>
 	                    </div>
 	                    <div class="form-group">
-	                        <label for="inputMenuTypeOption1" class="col-sm-2 control-label">菜单类型:</label>
+	                        <label class="col-sm-2 control-label">菜单类型:</label>
 	                        <div class="col-sm-5">
-	                            <input type="radio" name="menuType" id="inputMenuTypeOption1" value="1" <if condition="$menuInfo.type eq 1">checked</if>>&nbsp;后台菜单
-	                            <input type="radio" name="menuType" id="inputMenuTypeOption2" value="0" <if condition="$menuInfo.type eq 0">checked</if>>&nbsp;前端栏目
+	                            <input type="radio" name="menuType" value="1" <if condition="$menuInfo.type eq 1">checked</if>>&nbsp;后台菜单
+	                            <input type="radio" name="menuType" value="0" <if condition="$menuInfo.type eq 0">checked</if>>&nbsp;前端栏目
 	                        </div>
 	                    </div>
 	                    <div class="form-group">
-	                        <label for="inputMenuModule" class="col-sm-2 control-label">模块名:</label>
+	                        <label class="col-sm-2 control-label">模块名:</label>
 	                        <div class="col-sm-5">
-	                            <input type="text" class="form-control" name="menuModule" id="inputMenuModule" placeholder="模块名如admin" value="{$menuInfo.module}">
+	                            <input type="text" class="form-control" name="menuModule" placeholder="模块名如admin" value="{$menuInfo.module}">
 	                        </div>
 	                    </div>
 	                    <div class="form-group">
-	                        <label for="inputMenuController" class="col-sm-2 control-label">控制器:</label>
+	                        <label class="col-sm-2 control-label">控制器:</label>
 	                        <div class="col-sm-5">
-	                            <input type="text" class="form-control" name="menuController" id="inputMenuController" placeholder="控制器如index" value="{$menuInfo.controller}">
+	                            <input type="text" class="form-control" name="menuController" placeholder="控制器如index" value="{$menuInfo.controller}">
 	                        </div>
 	                    </div>
 	                    <div class="form-group">
-	                        <label for="inputMenuAction" class="col-sm-2 control-label">方法:</label>
+	                        <label class="col-sm-2 control-label">方法:</label>
 	                        <div class="col-sm-5">
-	                            <input type="text" class="form-control" name="menuAction" id="inputMenuAction" placeholder="方法名如index" value="{$menuInfo.action}">
+	                            <input type="text" class="form-control" name="menuAction" placeholder="方法名如index" value="{$menuInfo.action}">
 	                        </div>
 	                    </div>
 	                    <div class="form-group">
-	                        <label for="inputMenuDescription" class="col-sm-2 control-label">描述:</label>
+	                        <label class="col-sm-2 control-label">描述:</label>
 	                        <div class="col-sm-5">
-	                            <input type="text" class="form-control" name="MenuDesp" id="inputMenuDescription" placeholder="菜单描述如下" value="{$menuInfo.description}">
+	                            <input type="text" class="form-control" name="menuDesp" placeholder="菜单描述如下" value="{$menuInfo.description}">
 	                        </div>
 	                    </div>
 	                    <!--<div class="form-group">
@@ -88,17 +87,17 @@
 	                    <div class="form-group">
 	                        <label for="inputMenuStatusOption1" class="col-sm-2 control-label">状态:</label>
 	                        <div class="col-sm-5">
-	                            <input type="radio" name="Menustatus" id="inputMenuStatusOption1" value="1" <if condition="$menuInfo.status eq 1">checked</if> />&nbsp;开启
-	                            <input type="radio" name="Menustatus" id="inputMenuStatusOption2" value="0" <if condition="$menuInfo.status eq 0">checked</if> />&nbsp;关闭
+	                            <input type="radio" name="menuStatus" id="inputMenuStatusOption1" value="1" <if condition="$menuInfo.status eq 1">checked</if> />&nbsp;开启
+	                            <input type="radio" name="menuStatus" id="inputMenuStatusOption2" value="0" <if condition="$menuInfo.status eq 0">checked</if> />&nbsp;关闭
 	                            <input style="display:none;" type="radio" name="Menustatus" id="inputMenuStatusOption3" value="-1" <if condition="$menuInfo.status eq -1">checked</if> />
 	                        </div>
 	                    </div>
 	                    <input type="hidden" name="menuId" value="{$menuInfo.menu_id}"/>
-	                <div class="form-group">
-	                    <div class="col-sm-offset-2 col-sm-10">
-	                        <button type="button" class="btn btn-default" id="btn_modify_menu_submit" data-url="__SELF__">更新</button>
-	                    </div>
-	                </div>
+		                <div class="form-group">
+		                    <div class="col-sm-offset-2 col-sm-10">
+		                        <button type="button" class="btn btn-default" id="btn_modify_menu_submit" data-url="__SELF__">更新</button>
+		                    </div>
+		                </div>
 	                </form>
 	            </div>
 	        </div>

@@ -3,7 +3,67 @@ namespace Admin\Controller;
 use Think\Controller;
 use Think\Page;
 
+/**
+ * 新闻管理控制器
+ * 复制新闻的添加，删除，修改，排序，改变状态
+ */
 class NewsController extends Controller{
+	/**
+	 * 首页
+	 * @return [type] [description]
+	 */
+	public function index(){
+		$condition=array();
+		$News = D("News");
+		$Menu = D("Menu");
+		
+		//获取当前可用的前台展示栏目,用于下拉列表展示
+		$programs = $Menu->getWebSiteMenuNames();
+		//获取当前可用的前台展示栏目ID，滤掉删除状态。结果是数组
+		$programIds = $Menu->getWebSiteMenuIds();
+
+			$newsProgramId = I("param.searchNewsProgram/d", "-1");
+			$newsTitle = I("param.searchNewsTitle/s", "");
+			$newsTitle = trim($newsTitle);
+			if($newsProgramId == -1){
+				$condition=array(
+					"program_id" => array(
+							array("neq", $newsProgramId),
+							array("in", $programIds),
+						),
+					"title"      => array("like","%".$newsTitle."%"),
+				);
+			}else{
+				$condition=array(
+					"program_id" => array("eq", $newsProgramId),
+					"title"      => array("like","%".$newsTitle."%"),
+				);
+			}
+		
+			$page = I("param.p/d", 1);
+
+		$condition["status"]=array("neq","-1");
+		$count = $News->getNewsCount($condition);
+		$pageTool = new Page($count, C("PAGE_ROWS"));
+		$pageTool->setConfig("theme",'%HEADER%&nbsp;当前第%NOW_PAGE%页&nbsp;&nbsp;%FIRST%&nbsp;%UP_PAGE%&nbsp;%LINK_PAGE%&nbsp;%DOWN_PAGE%&nbsp;%END%&nbsp;总共%TOTAL_PAGE%页');
+		$pageTool->setConfig("prev","上一页");
+		$pageTool->setConfig("next","下一页");
+		$show = $pageTool->show();
+		$data = $News->showNewsByProgram($condition, $page);
+
+		//获取网站管理区域的信息
+		$Area = D("Area");
+		$areaInfos = $Area->getAreaInfos();
+		$this->assign("areaInfos", $areaInfos);
+		
+		$this->assign("newsshow",$show);
+		$this->assign("newslist",$data);
+		$this->assign("programs", $programs);
+		$this->assign("curProgramId", $newsProgramId);
+		$this->assign("nav_title","文章列表");
+		$this->display();
+	}
+
 	/**
 	 * 添加新闻
 	 */
@@ -96,57 +156,6 @@ class NewsController extends Controller{
 	}
 
 	/**
-	 * 首页
-	 * @return [type] [description]
-	 */
-	public function index(){
-		$newsProgram = null;
-		$condition=array();
-		$News = D("News");
-		$Menu = D("Menu");
-		
-		//获取栏目
-		$programs = $Menu->getWebSiteMenuNames();
-		//获取当前可用的前台展示栏目ID，滤掉删除状态。结果是数组
-		$programIds = $Menu->getWebSiteMenuIds();
-
-			$newsProgramId = I("param.searchNewsProgram/d", "-1");
-			$newsTitle = I("param.searchNewsTitle/s", "");
-			$newsTitle = trim($newsTitle);
-			if($newsProgramId == -1){
-				$condition=array(
-					"program_id" => array(
-							array("neq", $newsProgramId),
-							array("in", $programIds),
-						),
-					"title"      => array("like","%".$newsTitle."%"),
-				);
-			}else{
-				$condition=array(
-					"program_id" => array("eq", $newsProgramId),
-					"title"      => array("like","%".$newsTitle."%"),
-				);
-			}
-		
-			$page = I("param.p/d", 1);
-
-		$condition["status"]=array("neq","-1");
-		$count = $News->getNewsCount($condition);
-		$pageTool = new Page($count, C("PAGE_ROWS"));
-		$pageTool->setConfig("theme",'%HEADER%&nbsp;当前第%NOW_PAGE%页&nbsp;&nbsp;%FIRST%&nbsp;%UP_PAGE%&nbsp;%LINK_PAGE%&nbsp;%DOWN_PAGE%&nbsp;%END%&nbsp;总共%TOTAL_PAGE%页');
-		$pageTool->setConfig("prev","上一页");
-		$pageTool->setConfig("next","下一页");
-		$show = $pageTool->show();
-		$data = $News->showNewsByProgram($condition, $page);
-		$this->assign("newsshow",$show);
-		$this->assign("newslist",$data);
-		$this->assign("programs", $programs);
-		$this->assign("curProgramId", $newsProgramId);
-		$this->assign("nav_title","文章列表");
-		$this->display();
-	}
-
-	/**
 	 * 编辑新闻
 	 * @return [type] [description]
 	 */
@@ -197,7 +206,6 @@ class NewsController extends Controller{
 				"description"=>$desc,
 				"keywords"=>$keywords,
 				"author"=>$author,
-				"createtime"=>time(),
 				"updatetime"=>time()
 			);
 			//通过Model进行数据库插入
@@ -209,7 +217,6 @@ class NewsController extends Controller{
 				$contentInfo = array(
 					"news_id" => $newsId,
 					"content" => htmlspecialchars($content),
-					"createtime" => time(),
 					"updatetime" => time()
 				);
 				$result = $NewsContent->editContent($contentInfo);
@@ -253,7 +260,10 @@ class NewsController extends Controller{
 		}
 	}
 
-
+	/**
+	 * 新闻排序
+	 * @return [type] [description]
+	 */
 	public function orderNews(){
 		$url = I("server.http_referer");
 		if(IS_POST){
@@ -277,6 +287,59 @@ class NewsController extends Controller{
 				return AJAXResult(0, "排序成功", array("url"=>$url));
 			}else{
 				return AJAXResult(1, "传入的排序数据有误", array("url"=>$url));
+			}
+		}else{
+			$this->redirect("index");
+		}
+	}
+
+	/**
+	 * 推送新闻
+	 * @return [type] [description]
+	 */
+	public function pushNews(){
+		$url = I("server.http_referer");
+		if(IS_POST){
+			$News=D("News");
+			$AreaContent=D("AreaContent");
+			$errors=array();
+			$areaId=I("post.areaId/d");
+			$newsIds=I("post.newsIds/a");
+			if(is_null($areaId)){
+				return AJAXResult(1, "请选择区域ID进行推送", array("url"=>$url));
+			}
+			if(is_null($newsIds) || !is_array($newsIds)){
+				return AJAXResult(2, "请选择新闻ID进行推送", array("url"=>$url));
+			}
+			try{
+				$newsInfos = $News->getNewsInfosByIds($newsIds);
+				if(is_null($newsInfos)){
+					return AJAXResult(3, "未找到推送数据", array("url"=>$url));
+				}else{
+					foreach ($newsInfos as $newsInfo){
+						//将新闻内容写入到指定区域的内容管理表中
+						$areaContentData = array(
+							"area_id" => $areaId,
+							"title" => $newsInfo["title"],
+							"thumb" => $newsInfo["thumb"],
+							"news_id" => $newsInfo["news_id"],
+							"createtime" => $newsInfo["createtime"],
+							// "createtime" => time(),
+							"updatetime" => time()
+						);
+						$res = $AreaContent->addData($areaContentData);
+						if($res===FALSE){
+							$errors[]=$newsInfo["news_id"];
+						}
+					}
+					if($errors){
+						AJAXResult(4, "推送失败,新闻ID号--".implode(",", $errors), array("url"=>$url));
+					}
+					return AJAXResult(0, "推送成功", array("url"=>$url));
+				}
+			}
+			catch(Exception $e){
+				return AJAXResult(5, "推送失败,发生异常", array("url"=>$url));
 			}
 		}else{
 			$this->redirect("index");

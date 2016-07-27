@@ -19,8 +19,8 @@ $(function(){
         // 弹窗进行确认
         var url=$(this).attr("data-url");
         var data={id: $(this).attr("attr-id")};
-        hfaw_dialog.confirm("是否删除", doDeleteMenu);
-        function doDeleteMenu(){
+        hfaw_dialog.confirm("是否删除", doDeleteNews);
+        function doDeleteNews(){
             $.ajax({
                 url: url,
                 type: 'POST',
@@ -69,8 +69,10 @@ $(function(){
         
     });
 
-    // add news
-    $("#btn_add_news_submit").on('click', function(event) {
+    /**
+     * 新闻添加
+     */
+    $("#btn_add_news_submit").on('click', function(event){
         event.preventDefault();
         editor.sync();
         var newsdata = {
@@ -102,8 +104,10 @@ $(function(){
         });
     });
 
-    //edit news
-    $("#btn_edit_news_submit").on('click', function(event) {
+    /**
+     * 新闻编辑
+     */
+    $("#btn_edit_news_submit").on('click', function(event){
         event.preventDefault();
         editor.sync();
         var newsId = $(this).attr("attr-id");
@@ -139,9 +143,9 @@ $(function(){
     });
 
     /**
-     * news order
+     * 新闻排序
      */
-    $("#btn_change_news_order").on('click', function(event) {
+    $("#btn_change_news_order").on('click', function(event){
         event.preventDefault();
         var data = $("#news_controller_form").serializeArray();
         var postData ={};
@@ -167,4 +171,46 @@ $(function(){
             hfaw_dialog.error("新闻重新排序产生异常", rurl);//,原因是"+result.msg, result.data.url);
         });
     });
+
+    /**
+     * 新闻推送
+     */
+    $("#btn_push_news").on('click', function(event){
+        event.preventDefault();
+        //获取选中的区域名称及新闻ID号集合
+        var areaId=$("#select_push_area").val();
+        if(areaId==-1){
+            hfaw_dialog.msg("请选择区域");
+            return;
+        }
+        var postData={};
+        var newsIds={};
+        $("input[name='pushcheck']:checked").each(function(index, el) {
+            newsIds[index]=$(this).val();
+        });
+
+        postData["newsIds"]=newsIds;
+        postData["areaId"]=areaId;
+
+        var url=$(this).attr('data-url');
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            dataType: 'json',
+            data: postData,
+        })
+        .done(function(result){
+            if(result.status==0){
+                hfaw_dialog.success("推送区域内容成功", result.data.url);
+            }else{
+                hfaw_dialog.error("推送区域内容失败,原因是"+result.msg, result.data.url);
+            }
+        })
+        .fail(function(){
+            hfaw_dialog.error("推送区域内容产生异常", rurl);
+        });
+        
+    });
+
 });

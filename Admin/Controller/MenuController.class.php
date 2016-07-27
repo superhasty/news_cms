@@ -22,7 +22,6 @@ class MenuController extends CommonController{
 	 * @return [type] [description]
 	 */
 	public function index(){
-		$menutype=null;
 		$condition=array();
 		$Menu = D("Menu");
 		$menutype=I("param.searchMenuType/d",-1);
@@ -100,14 +99,14 @@ class MenuController extends CommonController{
 			$this->assign("menuInfo",$menuInfo);
 			$this->display();
 		}else if(IS_POST){
-			$menuId=I("post.menuId",-1);
+			$menuId=I("post.menuId/d",-1);
 			$menuName=I("post.menuName");
 			$menuType=I("post.menuType");
 			$menuModule=I("post.menuModule");
 			$menuController=I("post.menuController");
 			$menuAction=I("post.menuAction");
-			$menuDesp=I("post.MenuDesp");
-			$menustatus=I("post.Menustatus");
+			$menuDesp=I("post.menuDesp");
+			$menuStatus=I("post.menuStatus");
 			$menuInfo=array(
 				"menu_id"=>$menuId,
 				"name"=>$menuName,
@@ -115,7 +114,7 @@ class MenuController extends CommonController{
 				"module"=>$menuModule,
 				"controller"=>$menuController,
 				"action"=>$menuAction,
-				"status"=>$menustatus,
+				"status"=>$menuStatus,
 				"description"=>$menuDesp
 			);
 			$result = $Menu->modifyMenu($menuInfo);

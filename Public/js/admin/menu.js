@@ -70,7 +70,7 @@ $(function(){
 		event.preventDefault();
 		var formData = $("#news_cms_form").serializeArray();
 		var postData={};
-		$.each(formData, function(index, val) {
+		$.each(formData, function(index, val){
 			postData[val.name] = val.value;
 		});
 		$.ajax({

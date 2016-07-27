@@ -10,7 +10,6 @@
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/morris.css">
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/global.css">
-	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/upload.css">
 	<!-- javascript -->
 	<script type="text/javascript" src="__PUBLIC__/js/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
@@ -91,7 +90,7 @@
 		                        	    <td>{$menu.controller}</td>
 		                        	    <td>{$menu.action}</td>
 		                        	    <td>{$menu.type|getMenuTypeName}</td>
-		                        	    <td>{$menu.status|getMenuStatus}</td>
+		                        	    <td>{$menu.status|parseStatus}</td>
 		                        	    <td>
 		                        	    	<a href="javascript:void(0)" attr-id="{$menu.menu_id}" class="menu_modify_link" data-url="__CONTROLLER__/modifyMenu/id/{$menu.menu_id}" attr-message="编辑">
 		                        	    		<span class="icon icon-edit" aria-hidden="true"></span>

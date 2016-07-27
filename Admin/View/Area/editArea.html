@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap-switch.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/index.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/morris.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/global.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/upload.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/uploadify.css">
+	<script type="text/javascript" src="__PUBLIC__/js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/layer/layer.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/dialog.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/admin/area.js"></script>
+</head>
+<body>
+	<div id="wrapper">
+	    <include file="Index/nav"/>
+		<div id="page-wrapper">
+			<div class="container-fluid">
+				<!-- Page Heading -->
+				<div class="row">
+					<div class="col-lg-12">
+						<ol class="breadcrumb">
+							<li>
+								<i class="icon icon-dashboard"></i>
+								<a href="/admin.php?c=position">&nbsp;&nbsp;区域管理</a>
+							</li>
+							<li class="active">
+								<i class="icon icon-edit"></i>&nbsp;&nbsp;{$nav_title}
+							</li>
+						</ol>
+					</div>
+				</div>
+				<!-- /.row -->
+				<div class="row">
+					<div class="col-lg-6">
+						<form class="form-horizontal" id="area_edit_form">
+							<div class="form-group">
+								<label class="col-sm-2 control-label">区域名称:</label>
+								<div class="col-sm-5">
+									<input type="text" name="areaName" value="{$areaInfo.name}" class="form-control" id="inputname" placeholder="请填写区域名称">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">区域描述:</label>
+								<div class="col-sm-5">
+									<input type="text" name="areaDesp" value="{$areaInfo.description}" class="form-control" placeholder="请填写区域描述">
+								</div>
+							</div>
+							<div class="form-group">
+							<input type="hidden" name="areaId" value="{$areaInfo.id}">
+							<div class="form-group">
+								<div class="col-sm-offset-2 col-sm-10">
+									<button type="button" class="btn btn-default" id="btn_edit_area_submit" data-url="__SELF__">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- /.row -->
+			</div>
+			<!-- /.container-fluid -->
+		</div>
+		<!-- /#page-wrapper -->
+	</div>
+</body>
+</html>

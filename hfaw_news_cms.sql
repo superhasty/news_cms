@@ -104,8 +104,24 @@ CREATE TABLE IF NOT EXISTS `cms_area` (
 ) ENGINE=MYISAM  DEFAULT CHARSET=utf8;
 
 INSERT INTO cms_area VALUES
-(1, '底部广告', -1, '展示底部广告', 1455634352, 141665871),
-(2, '首页大图', 1, '展示首页大图', 1455634715, 141665871),
-(3, '小图推荐', 1, '小图推荐位', 1456665873, 141665871),
-(4, '首页右侧推荐位', -1, '', 1457248469, 141665871),
-(5, '右侧广告位', -1, '右侧广告位', 1457873143, 141665871);
+(1, '底部广告', -1, '展示底部广告', 1457873143, 1469591087),
+(2, '首页大图', 1, '展示首页大图', 1457873143, 1469591087),
+(3, '小图推荐', 1, '小图推荐位', 1457873143, 1469591087),
+(4, '首页右侧推荐位', -1, '', 1457873143, 1469591087),
+(5, '右侧广告位', -1, '右侧广告位', 1457873143, 1469591087);
+
+
+-- 区域内容管理表
+CREATE TABLE IF NOT EXISTS `cms_area_content` (
+  `id` SMALLINT(5) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '区域内容ID',
+  `area_id` INT(5) UNSIGNED NOT NULL COMMENT '区域名称ID号',
+  `title` VARCHAR(30) NOT NULL DEFAULT '' COMMENT '内容标题',
+  `thumb` VARCHAR(100) NOT NULL DEFAULT '' COMMENT '内容缩略图',
+  `url` VARCHAR(100) DEFAULT NULL COMMENT '内容链接地址',
+  `news_id` MEDIUMINT(8) UNSIGNED NOT NULL COMMENT '内容对应新闻ID号',
+  `order` TINYINT(3) UNSIGNED NOT NULL DEFAULT '0' COMMENT '内容排序规则',
+  `status` TINYINT(1) NOT NULL DEFAULT '1' COMMENT '内容状态',
+  `createtime` INT(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `updatetime` INT(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '　更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MYISAM  DEFAULT CHARSET=utf8;

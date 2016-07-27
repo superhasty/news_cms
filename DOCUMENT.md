@@ -25,3 +25,5 @@ id,     name,     status,   description,  createtime,  updatetime
 区域ID, 区域名称, 区域状态, 区域描述,     创建时间,    更新时间
 
 6. cms_area_content      网站区域内容管理表
+id,          area_id,  title,     thumb,      url,           news_id,            order,         status,    createtime,  updatetime
+区域内容ID,  区域ID号, 内容标题,  内容缩略图, 内容链接地址,  内容对应新闻ID号,   内容排序规则,  内容状态,  创建时间,　  更新时间

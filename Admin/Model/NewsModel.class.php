@@ -84,6 +84,17 @@ class NewsModel extends Model{
 		}
 	}
 
+	public function getNewsInfosByIds($newsIds){
+		if(is_null($newsIds) || !is_array($newsIds)){
+			throw_exception("传入新闻ID集合参数不正确");
+		}else{
+			$condition=array(
+				"news_id" => array("in", implode(",", $newsIds)),
+			);
+			return $this->where($condition)->select();
+		}
+	}
+
 	public function deleteNews($newsId){
 		$data = null;
 		$condition["news_id"] = $newsId;
