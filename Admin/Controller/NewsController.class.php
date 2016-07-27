@@ -7,7 +7,7 @@ use Think\Page;
  * 新闻管理控制器
  * 复制新闻的添加，删除，修改，排序，改变状态
  */
-class NewsController extends Controller{
+class NewsController extends CommonController{
 	/**
 	 * 首页
 	 * @return [type] [description]
