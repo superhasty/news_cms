@@ -1,7 +1,0 @@
-[ 2016-07-28T00:01:17+08:00 ] 127.0.0.1 /Admin/Areacontent/deleteAreaContent/id/3
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004787s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.007700s ]
-SQL: UPDATE `cms_area_content` SET `status`='-1' WHERE `id` = 3 [ RunTime:0.0054s ]
-NOTIC: [8] Undefined variable: status E:\PHPProject\hfaw_news\news_cms\Admin\Controller\AreacontentController.class.php 第 205 行.
-
