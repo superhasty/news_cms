@@ -1,0 +1,377 @@
+[ 2016-07-24T01:05:54+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/addNews
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003919s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005915s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_news` (`title`,`subtitle`,`thumb`,`titlecolor`,`program_id`,`copyfrom`,`description`,`keywords`,`author`,`createtime`,`updatetime`) VALUES ('123','123','','#ed568b','4','1','456','12fc','admin','1469293554','1469293554') [ RunTime:0.0580s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_news_content` (`news_id`,`content`,`createtime`,`updatetime`) VALUES ('2','&amp;lt;p&amp;gt;
+	123
+&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;
+	123
+&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;
+	345
+&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;
+	sdf
+&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;
+	qwe
+&amp;lt;/p&amp;gt;','1469293554','1469293554') [ RunTime:0.0010s ]
+
+[ 2016-07-24T01:07:52+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/index/getPersonInfo/username/
+ERR: 参数错误或者未定义:username
+
+[ 2016-07-24T01:09:32+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/Index/check
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003889s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006030s ]
+SQL: SELECT * FROM `cms_admin` WHERE `username` = 'admin' LIMIT 1   [ RunTime:0.0253s ]
+
+[ 2016-07-24T01:09:57+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/Index/check
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003851s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006104s ]
+
+[ 2016-07-24T01:11:58+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/addnews
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003917s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005946s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_news` (`title`,`subtitle`,`thumb`,`titlecolor`,`program_id`,`copyfrom`,`description`,`keywords`,`author`,`createtime`,`updatetime`) VALUES ('我爱中国','我热爱我的祖国','','#5674ed','4','0','祖国','祖国，中国','','1469293918','1469293918') [ RunTime:0.0013s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_news_content` (`news_id`,`content`,`createtime`,`updatetime`) VALUES ('3','我热爱中国，','1469293918','1469293918') [ RunTime:0.0009s ]
+
+[ 2016-07-24T01:12:33+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/index/inex
+ERR: 非法操作:inex
+
+[ 2016-07-24T01:12:44+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/Index/check
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004041s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006171s ]
+SQL: SELECT * FROM `cms_admin` WHERE `username` = 'admin' LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2016-07-24T01:13:35+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/addNews
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003989s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006354s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_news` (`title`,`subtitle`,`thumb`,`titlecolor`,`program_id`,`copyfrom`,`description`,`keywords`,`author`,`createtime`,`updatetime`) VALUES ('葡萄牙夺冠了','葡萄牙夺冠了','','#ed568b','5','1','葡萄牙夺冠了','葡萄牙夺冠了','admin','1469294015','1469294015') [ RunTime:0.0013s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_news_content` (`news_id`,`content`,`createtime`,`updatetime`) VALUES ('4','葡萄牙夺冠了','1469294015','1469294015') [ RunTime:0.0009s ]
+
+[ 2016-07-24T01:15:17+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/addNews
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003714s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005781s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_news` (`title`,`subtitle`,`thumb`,`titlecolor`,`program_id`,`copyfrom`,`description`,`keywords`,`author`,`createtime`,`updatetime`) VALUES ('123','123','/hfaw_news/news_cms/Public/image/Uploads/2016-07-24/5793a61ff2e62.jpg','#5674ed','5','0','123','123','admin','1469294117','1469294117') [ RunTime:0.0013s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_news_content` (`news_id`,`content`,`createtime`,`updatetime`) VALUES ('5','123','1469294117','1469294117') [ RunTime:0.0008s ]
+
+[ 2016-07-24T10:08:04+08:00 ] 127.0.0.1 /hfaw_news/news_cms/admin/news/index
+ERR: Think\Controller:showNewsByProgram方法不存在！
+
+[ 2016-07-24T11:04:36+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/Index/check
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002807s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004909s ]
+SQL: SELECT * FROM `cms_admin` WHERE `username` = 'admin' LIMIT 1   [ RunTime:0.0452s ]
+
+[ 2016-07-24T11:04:43+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/Index/check
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002112s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004010s ]
+SQL: SELECT * FROM `cms_admin` WHERE `username` = 'admin' LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2016-07-24T11:37:15+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/index
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `cms_news` WHERE (  status ) AND (  (  neq ) AND (  ) ) LIMIT 1  
+
+[ 2016-07-24T11:37:43+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/index
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `cms_news` WHERE (  status ) AND (  (  neq ) AND (  ) ) LIMIT 1  
+
+[ 2016-07-24T11:38:06+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/index
+ERR: 1054:Unknown column 'neq' in 'where clause'
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `cms_news` WHERE (  status ) AND (  (  neq ) AND (  -1 ) ) LIMIT 1  
+
+[ 2016-07-24T11:38:57+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/index
+ERR: 1054:Unknown column 'neq' in 'where clause'
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `cms_news` WHERE (  status ) AND (  (  neq ) AND (  -1 ) ) LIMIT 1  
+
+[ 2016-07-24T11:39:11+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/index
+ERR: 1054:Unknown column 'neq' in 'where clause'
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `cms_news` WHERE (  status ) AND (  (  neq ) AND (  -1 ) ) LIMIT 1  
+
+[ 2016-07-24T11:39:26+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/index
+ERR: 1054:Unknown column 'neq' in 'where clause'
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `cms_news` WHERE (  status ) AND (  (  neq ) AND (  -1 ) ) LIMIT 1  
+
+[ 2016-07-24T14:41:48+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/index/searchNewsProgram/-1/p/4.html
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND `status` <> '-1' LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `cms_news` WHERE `program_id` IN () AND `status` <> '-1' LIMIT 1  
+
+[ 2016-07-24T15:26:31+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/16
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002869s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004985s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: UPDATE `cms_news` SET `title`='我是5号专栏的不会显示',`subtitle`='C罗金球奖希望巨大',`thumb`='/hfaw_news/news_cms/Public/image/Uploads/2016-07-24/5793a61ff2e62.jpg',`titlecolor`='#ed568b',`program_id`='3',`copyfrom`='1',`description`='夺冠了',`keywords`='C罗  欧洲杯',`author`='admin',`createtime`='1469345191',`updatetime`='1469345191' WHERE `news_id` = 16 [ RunTime:0.0140s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_news_content` (`news_id`,`content`,`createtime`,`updatetime`) VALUES ('1','&amp;lt;p&amp;gt;
+	葡萄牙夺冠了哈哈
+&amp;lt;/p&amp;gt;','1469345191','1469345191') [ RunTime:0.0223s ]
+
+[ 2016-07-24T15:35:53+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/16
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002210s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004192s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: UPDATE `cms_news` SET `title`='我是5号专栏的不会显示',`subtitle`='C罗金球奖希望巨大',`thumb`='/hfaw_news/news_cms/Public/image/Uploads/2016-07-24/5793a61ff2e62.jpg',`titlecolor`='#ed568b',`program_id`='3',`copyfrom`='1',`description`='夺冠了',`keywords`='C罗  欧洲杯',`author`='admin',`createtime`='1469345753',`updatetime`='1469345753' WHERE `news_id` = 16 [ RunTime:0.0013s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+
+[ 2016-07-24T15:39:20+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/16
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002183s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004228s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: UPDATE `cms_news` SET `title`='金球奖花落谁家',`subtitle`='C罗金球奖希望巨大',`thumb`='/hfaw_news/news_cms/Public/image/Uploads/2016-07-24/5793a61ff2e62.jpg',`titlecolor`='#ed568b',`program_id`='3',`copyfrom`='1',`description`='夺冠了',`keywords`='C罗  欧洲杯',`author`='admin',`createtime`='1469345960',`updatetime`='1469345960' WHERE `news_id` = 16 [ RunTime:0.0014s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+
+[ 2016-07-24T15:40:51+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002190s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004193s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: UPDATE `cms_news` SET `title`='abc',`subtitle`='萨米尔2球边翼惊天世界波',`thumb`='',`titlecolor`='#5674ed',`program_id`='12',`copyfrom`='1',`description`='萨米尔2球边翼惊天世界波 绿城3-1泰达',`keywords`='中超',`author`='admin',`createtime`='1469346051',`updatetime`='1469346051' WHERE `news_id` = 1 [ RunTime:0.0011s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+
+[ 2016-07-24T15:41:39+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002189s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004236s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: UPDATE `cms_news` SET `title`='abc',`subtitle`='萨米尔2球边翼惊天世界波',`thumb`='',`titlecolor`='#5674ed',`program_id`='12',`copyfrom`='1',`description`='萨米尔2球边翼惊天世界波 绿城3-1泰达',`keywords`='中超',`author`='admin',`createtime`='1469346099',`updatetime`='1469346099' WHERE `news_id` = 1 [ RunTime:0.0012s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+
+[ 2016-07-24T15:43:03+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002200s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004357s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: UPDATE `cms_news` SET `title`='abc123123',`subtitle`='萨米尔2球边翼惊天世界波',`thumb`='',`titlecolor`='#5674ed',`program_id`='12',`copyfrom`='1',`description`='萨米尔2球边翼惊天世界波 绿城3-1泰达',`keywords`='中超',`author`='admin',`createtime`='1469346183',`updatetime`='1469346183' WHERE `news_id` = 0 [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+
+[ 2016-07-24T15:44:16+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002205s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004186s ]
+
+[ 2016-07-24T15:45:20+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002228s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004236s ]
+
+[ 2016-07-24T15:47:02+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002221s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004239s ]
+
+[ 2016-07-24T15:48:34+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002274s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004725s ]
+
+[ 2016-07-24T15:49:27+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002556s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005149s ]
+
+[ 2016-07-24T15:51:57+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002281s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004397s ]
+
+[ 2016-07-24T15:52:58+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002558s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004574s ]
+ERR: 非法操作:1
+
+[ 2016-07-24T15:54:20+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002414s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004914s ]
+
+[ 2016-07-24T15:57:59+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002260s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004641s ]
+
+[ 2016-07-24T15:58:45+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002164s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004201s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: UPDATE `cms_news` SET `title`='修改新闻',`subtitle`='萨米尔2球边翼惊天世界波',`thumb`='',`titlecolor`='#5674ed',`program_id`='12',`copyfrom`='1',`description`='萨米尔2球边翼惊天世界波 绿城3-1泰达',`keywords`='中超',`author`='admin',`createtime`='1469347125',`updatetime`='1469347125' WHERE `news_id` = 1 [ RunTime:0.0174s ]
+
+[ 2016-07-24T15:59:35+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002227s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004312s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: UPDATE `cms_news` SET `title`='修改新闻',`subtitle`='萨米尔2球边翼惊天世界波',`thumb`='',`titlecolor`='#5674ed',`program_id`='12',`copyfrom`='1',`description`='萨米尔2球边翼惊天世界波 绿城3-1泰达',`keywords`='中超',`author`='admin',`createtime`='1469347175',`updatetime`='1469347175' WHERE `news_id` = 1 [ RunTime:0.0012s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+
+[ 2016-07-24T16:02:26+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002198s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004365s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: UPDATE `cms_news` SET `title`='修改新闻',`subtitle`='萨米尔2球边翼惊天世界波',`thumb`='',`titlecolor`='#5674ed',`program_id`='12',`copyfrom`='1',`description`='萨米尔2球边翼惊天世界波 绿城3-1泰达',`keywords`='中超',`author`='admin',`createtime`='1469347346',`updatetime`='1469347346' WHERE `news_id` = 1 [ RunTime:0.0012s ]
+
+[ 2016-07-24T16:08:42+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002098s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004038s ]
+SQL: UPDATE `cms_news` SET `title`='修改新闻123121233123',`subtitle`='萨米尔2球边翼惊天世界波',`thumb`='',`titlecolor`='#5674ed',`program_id`='12',`copyfrom`='1',`description`='萨米尔2球边翼惊天世界波 绿城3-1泰达',`keywords`='中超',`author`='admin',`createtime`='1469347722',`updatetime`='1469347722' WHERE `news_id` = 1 [ RunTime:0.0011s ]
+
+[ 2016-07-24T16:10:29+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003411s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006004s ]
+SQL: UPDATE `cms_news` SET `title`='修改新闻123121233123',`subtitle`='萨米尔2球边翼惊天世界波',`thumb`='',`titlecolor`='#5674ed',`program_id`='12',`copyfrom`='1',`description`='萨米尔2球边翼惊天世界波 绿城3-1泰达',`keywords`='中超',`author`='admin',`createtime`='1469347829',`updatetime`='1469347829' WHERE `news_id` = 1 [ RunTime:0.0015s ]
+
+[ 2016-07-24T16:12:20+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002345s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004352s ]
+
+[ 2016-07-24T16:13:31+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002244s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004261s ]
+SQL: UPDATE `cms_news` SET `title`='uuu应用于',`subtitle`='萨米尔2球边翼惊天世界波',`thumb`='',`titlecolor`='#5674ed',`program_id`='12',`copyfrom`='1',`description`='萨米尔2球边翼惊天世界波 绿城3-1泰达',`keywords`='中超',`author`='admin',`createtime`='1469348011',`updatetime`='1469348011' WHERE `news_id` = 1 [ RunTime:0.0014s ]
+
+[ 2016-07-24T16:14:13+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002185s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004210s ]
+SQL: UPDATE `cms_news` SET `title`='55566yyy',`subtitle`='萨米尔2球边翼惊天世界波',`thumb`='',`titlecolor`='#5674ed',`program_id`='12',`copyfrom`='1',`description`='萨米尔2球边翼惊天世界波 绿城3-1泰达',`keywords`='中超',`author`='admin',`createtime`='1469348053',`updatetime`='1469348053' WHERE `news_id` = 1 [ RunTime:0.0012s ]
+
+[ 2016-07-24T16:17:19+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002342s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004794s ]
+SQL: UPDATE `cms_news` SET `title`='777',`subtitle`='萨米尔2球边翼惊天世界波',`thumb`='',`titlecolor`='#5674ed',`program_id`='12',`copyfrom`='1',`description`='萨米尔2球边翼惊天世界波 绿城3-1泰达',`keywords`='中超',`author`='admin',`createtime`='1469348239',`updatetime`='1469348239' WHERE `news_id` = 1 [ RunTime:0.0011s ]
+SQL: UPDATE `cms_news_content` SET `news_id`='1',`content`='&amp;lt;span style=&amp;quot;color:#333333;font-family:宋体;font-size:14px;line-height:23px;background-color:#FFFFFF;&amp;quot;&amp;gt;777666&amp;lt;/span&amp;gt;',`createtime`='1469348239',`updatetime`='1469348239' WHERE `news_id` = 1 [ RunTime:0.0280s ]
+
+[ 2016-07-24T16:24:06+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002236s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004302s ]
+SQL: UPDATE `cms_news` SET `title`='111',`subtitle`='萨米尔2球边翼惊天世界波',`thumb`='',`titlecolor`='#5674ed',`program_id`='12',`copyfrom`='1',`description`='萨米尔2球边翼惊天世界波 绿城3-1泰达',`keywords`='中超',`author`='admin',`createtime`='1469348646',`updatetime`='1469348646' WHERE `news_id` = 0 [ RunTime:0.0011s ]
+
+[ 2016-07-24T16:26:05+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002454s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004915s ]
+SQL: UPDATE `cms_news` SET `title`='7774',`subtitle`='萨米尔2球边翼惊天世界波',`thumb`='',`titlecolor`='#5674ed',`program_id`='12',`copyfrom`='1',`description`='萨米尔2球边翼惊天世界波 绿城3-1泰达',`keywords`='中超',`author`='admin',`createtime`='1469348765',`updatetime`='1469348765' WHERE `news_id` = 0 [ RunTime:0.0010s ]
+
+[ 2016-07-24T16:27:13+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002318s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004562s ]
+SQL: UPDATE `cms_news` SET `title`='777',`subtitle`='萨米尔2球边翼惊天世界波',`thumb`='',`titlecolor`='#5674ed',`program_id`='12',`copyfrom`='1',`description`='萨米尔2球边翼惊天世界波 绿城3-1泰达',`keywords`='中超',`author`='admin',`createtime`='1469348833',`updatetime`='1469348833' WHERE `news_id` = 0 [ RunTime:0.0010s ]
+
+[ 2016-07-24T16:27:55+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002311s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004421s ]
+SQL: UPDATE `cms_news` SET `title`='777',`subtitle`='萨米尔2球边翼惊天世界波',`thumb`='',`titlecolor`='#5674ed',`program_id`='12',`copyfrom`='1',`description`='萨米尔2球边翼惊天世界波 绿城3-1泰达',`keywords`='中超',`author`='admin',`createtime`='1469348875',`updatetime`='1469348875' WHERE `news_id` = 1 [ RunTime:0.0012s ]
+
+[ 2016-07-24T16:28:36+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002373s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004378s ]
+SQL: UPDATE `cms_news` SET `title`='777',`subtitle`='萨米尔2球边翼惊天世界波',`thumb`='',`titlecolor`='#5674ed',`program_id`='12',`copyfrom`='1',`description`='萨米尔2球边翼惊天世界波 绿城3-1泰达',`keywords`='中超',`author`='admin',`createtime`='1469348916',`updatetime`='1469348916' WHERE `news_id` = 1 [ RunTime:0.0012s ]
+
+[ 2016-07-24T16:29:49+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002189s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004147s ]
+SQL: UPDATE `cms_news` SET `title`='中超世界波',`subtitle`='萨米尔2球边翼惊天世界波',`thumb`='',`titlecolor`='#5674ed',`program_id`='12',`copyfrom`='1',`description`='萨米尔2球边翼惊天世界波 绿城3-1泰达',`keywords`='中超',`author`='admin',`createtime`='1469348988',`updatetime`='1469348988' WHERE `news_id` = 1 [ RunTime:0.0012s ]
+SQL: UPDATE `cms_news_content` SET `news_id`='1',`content`='&amp;lt;span style=&amp;quot;color:#333333;font-family:宋体;font-size:14px;line-height:23px;background-color:#FFFFFF;&amp;quot;&amp;gt;中超世界波发生了&amp;lt;/span&amp;gt;',`createtime`='1469348989',`updatetime`='1469348989' WHERE `news_id` = 1 [ RunTime:0.0170s ]
+
+[ 2016-07-24T16:30:58+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/editNews/id/1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002868s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005066s ]
+SQL: UPDATE `cms_news` SET `title`='中超世界波',`subtitle`='萨米尔2球边翼惊天世界波',`thumb`='',`titlecolor`='#5674ed',`program_id`='12',`copyfrom`='1',`description`='萨米尔2球边翼惊天世界波 绿城3-1泰达',`keywords`='中超',`author`='admin',`createtime`='1469349058',`updatetime`='1469349058' WHERE `news_id` = 1 [ RunTime:0.0015s ]
+SQL: UPDATE `cms_news_content` SET `news_id`='1',`content`='&amp;lt;p&amp;gt;
+	我爱我家
+&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;
+	&amp;lt;br /&amp;gt;
+&amp;lt;/p&amp;gt;',`createtime`='1469349058',`updatetime`='1469349058' WHERE `news_id` = 1 [ RunTime:0.0101s ]
+
+[ 2016-07-24T18:18:44+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/basic/index
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002873s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005099s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002994s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003348s ]
+
+[ 2016-07-24T19:29:20+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/basic/index
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002883s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005383s ]
+
+[ 2016-07-24T19:32:42+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/basic/index
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002880s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004981s ]
+
+[ 2016-07-24T19:33:01+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/basic/undefined
+ERR: 非法操作:undefined
+
+[ 2016-07-24T19:34:58+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/basic/index'
+ERR: 非法操作:index'
+
+[ 2016-07-24T19:36:04+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/basic/index
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002214s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004186s ]
+
+[ 2016-07-24T19:41:13+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/Basic/index
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002872s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005071s ]
+

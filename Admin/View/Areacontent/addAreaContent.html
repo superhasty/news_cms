@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/morris.css">
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/global.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/uploadify.css">
 	<!-- javascript -->
 	<script type="text/javascript" src="__PUBLIC__/js/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
@@ -41,15 +42,15 @@
 					<div class="col-lg-12">
 						<form class="form-horizontal" id="singcms-form">
 							<div class="form-group">
-								<label for="inputname" class="col-sm-4 control-label">标题:</label>
+								<label class="col-sm-4 control-label">标题:</label>
 								<div class="col-sm-5">
-									<input type="text" name="title" class="form-control" id="inputname" placeholder="请填写标题">
+									<input type="text" name="title" id="title" class="form-control" placeholder="请填写标题">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="inputname" class="col-sm-4 control-label">选择区域名:</label>
+								<label class="col-sm-4 control-label">选择区域名:</label>
 								<div class="col-sm-5">
-									<select class="form-control" name="position_id">
+									<select class="form-control" name="area_id" id="area_id">
 										<foreach name="areaInfos" item="areaInfo">
 											<option value="{$areaInfo.id}">{$areaInfo.name}</option>
 										</foreach>
@@ -57,35 +58,35 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="inputname" class="col-sm-4 control-label">缩图:</label>
+								<label class="col-sm-4 control-label">缩图:</label>
 								<div class="col-sm-5">
-									<input id="file_upload"  type="file" multiple="true" >
-									<img style="display: none" id="upload_org_code_img" src="" width="150" height="150">
-									<input id="file_upload_image" name="thumb" type="hidden" multiple="true" value="">
+									<input id="file_upload" type="file" data-url="__MODULE__/Image/uploadThumbImage" swf-url="__PUBLIC__/js/uploadify.swf" img-url="__PUBLIC__/image/Uploads/"><!-- multiple="true" -->
+									<img style="display: none" id="upload_origin_img" src="" style="width:100%;">
+									<input id="upload_thumb_image" name="thumb" type="hidden" multiple="false" value="">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="inputPassword3" class="col-sm-4 control-label">url:</label>
+								<label class="col-sm-4 control-label">url:</label>
 								<div class="col-sm-5">
-									<input type="text" class="form-control" name="url" id="inputPassword3" placeholder="请url地址">
+									<input type="text" class="form-control" name="url" id="url" placeholder="请url地址">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="inputname" class="col-sm-4 control-label">文章id:</label>
+								<label class="col-sm-4 control-label">文章id:</label>
 								<div class="col-sm-5">
-									<input type="text" name="news_id" class="form-control" id="inputname" placeholder="如果和文章无关联的可以不添加文章id">
+									<input type="text" name="news_id" id="news_id" class="form-control" placeholder="如果和文章无关联的可以不添加文章id">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="inputPassword3" class="col-sm-4 control-label">状态:</label>
+								<label class="col-sm-4 control-label">状态:</label>
 								<div class="col-sm-5">
-									<input type="radio" name="status" id="optionsRadiosInline1" value="1" checked>开启
-									<input type="radio" name="status" id="optionsRadiosInline2" value="0">关闭
+									<input type="radio" name="status" value="1" checked>开启
+									<input type="radio" name="status" value="0">关闭
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-4 col-sm-10">
-									<button type="button" class="btn btn-default" id="singcms-button-submit">提交</button>
+									<button type="button" class="btn btn-default" id="btn_add_areacontent_submit" data-url="__SELF__">提交</button>
 								</div>
 							</div>
 						</form>
@@ -98,4 +99,29 @@
 		<!-- /#page-wrapper -->
 	</div>
 </body>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.uploadify.min.js"></script>
+<script type="text/javascript">
+	    var imgPathPre=$("#file_upload").attr("img-url");
+		$("#file_upload").uploadify({
+			"buttonText": "上传美图",
+			"fileTypeDesc": "Image Files",
+			"fileObjName": "file_upload",//input的id属性
+			"fileTypeExts": "*.gif; *.jpg; *.jpeg; *.png; *.bmp",
+	    	"swf"      : $("#file_upload").attr('swf-url'),
+	    	"uploader" : $("#file_upload").attr('data-url'),
+	        "removeCompleted": false,
+	        // 现在已经没有cancelImg这个属性了，如需要修改取消按钮图标，应该直接在css文件中修改
+	    	"onUploadSuccess": function(file, data, response){
+	    		if(response){
+	    			var obj = JSON.parse(data);
+	    			$imagePath = imgPathPre + obj.data.file_upload.savepath+obj.data.file_upload.savename;
+	                $("#upload_origin_img").attr("src", $imagePath);
+	                $("#upload_origin_img").show();
+	    			$("#upload_thumb_image").attr("value", $imagePath);
+	    		}else{
+	    			hfaw_dialog.error("图片上传失败");
+	    		}
+	    	}
+		});
+</script>
 </html>

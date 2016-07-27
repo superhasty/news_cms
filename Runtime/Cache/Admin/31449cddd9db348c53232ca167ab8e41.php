@@ -5,19 +5,19 @@
 	<title><?php echo ($basicWebConfig["title"]); ?></title>
 	<meta name="keywords" content="<?php echo ($basicWebConfig["keywords"]); ?>">
 	<meta name="description" content="<?php echo ($basicWebConfig["description"]); ?>">
-	<link rel="stylesheet" type="text/css" href="/news_imooc/project-demo/news_cms/Public/css/reset.css">
-	<link rel="stylesheet" type="text/css" href="/news_imooc/project-demo/news_cms/Public/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="/news_imooc/project-demo/news_cms/Public/css/bootstrap-switch.css">
-	<link rel="stylesheet" type="text/css" href="/news_imooc/project-demo/news_cms/Public/css/admin/index.css">
-	<link rel="stylesheet" type="text/css" href="/news_imooc/project-demo/news_cms/Public/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="/news_imooc/project-demo/news_cms/Public/css/admin/morris.css">
-	<link rel="stylesheet" type="text/css" href="/news_imooc/project-demo/news_cms/Public/css/admin/global.css">
-	<link rel="stylesheet" type="text/css" href="/news_imooc/project-demo/news_cms/Public/css/admin/upload.css">
+	<link rel="stylesheet" type="text/css" href="/Public/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/Public/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/Public/css/bootstrap-switch.css">
+	<link rel="stylesheet" type="text/css" href="/Public/css/admin/index.css">
+	<link rel="stylesheet" type="text/css" href="/Public/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/Public/css/admin/morris.css">
+	<link rel="stylesheet" type="text/css" href="/Public/css/admin/global.css">
+	<link rel="stylesheet" type="text/css" href="/Public/css/admin/upload.css">
 	<!-- javascript -->
-	<script type="text/javascript" src="/news_imooc/project-demo/news_cms/Public/js/jquery-1.11.3.min.js"></script>
-	<script type="text/javascript" src="/news_imooc/project-demo/news_cms/Public/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/news_imooc/project-demo/news_cms/Public/js/layer/layer.js"></script>
-	<script type="text/javascript" src="/news_imooc/project-demo/news_cms/Public/js/dialog.js"></script>
+	<script type="text/javascript" src="/Public/js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="/Public/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/Public/js/layer/layer.js"></script>
+	<script type="text/javascript" src="/Public/js/dialog.js"></script>
 </head>
 <body>
 	<div id="wrapper">
@@ -35,12 +35,12 @@
       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon icon-user"></i>&nbsp;<?php echo ($realName); ?><b class="caret"></b></a>
       <ul class="dropdown-menu">
         <li>
-          <a href="/news_imooc/project-demo/news_cms/Admin/index/getPersonInfo/username/<?php echo ($userName); ?>"><i class="icon icon-fw icon-user"></i>&nbsp;个人中心</a>
+          <a href="/Admin/index/getPersonInfo/username/<?php echo ($userName); ?>"><i class="icon icon-fw icon-user"></i>&nbsp;个人中心</a>
         </li>
        
         <li class="divider"></li>
         <li>
-          <a href="/news_imooc/project-demo/news_cms/Admin/index/logout"><i class="icon icon-fw icon-power-off"></i>&nbsp;退出</a>
+          <a href="/Admin/index/logout"><i class="icon icon-fw icon-power-off"></i>&nbsp;退出</a>
         </li>
       </ul>
     </li>
@@ -49,10 +49,10 @@
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav nav_list">
       <li class="<?php echo (isActive((isset($defCtrl) && ($defCtrl !== ""))?($defCtrl):'index')); ?>">
-        <a href="/news_imooc/project-demo/news_cms/Admin/Index/index"><i class="icon icon-fw icon-dashboard"></i>&nbsp;首页</a>
+        <a href="/Admin/Index/index"><i class="icon icon-fw icon-dashboard"></i>&nbsp;首页</a>
       </li>
       <?php if(is_array($MenuList)): $i = 0; $__LIST__ = $MenuList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$menu): $mod = ($i % 2 );++$i;?><li class="<?php echo (isActive($menu["controller"])); ?>">
-        <a href="/news_imooc/project-demo/news_cms/Admin/<?php echo ($menu["controller"]); ?>/<?php echo ($menu["action"]); ?>"><i class="icon icon-fw icon-bar-chart-o">&nbsp;<?php echo ($menu["name"]); ?></i></a>
+        <a href="/Admin/<?php echo ($menu["controller"]); ?>/<?php echo ($menu["action"]); ?>"><i class="icon icon-fw icon-bar-chart-o">&nbsp;<?php echo ($menu["name"]); ?></i></a>
       </li><?php endforeach; endif; else: echo "" ;endif; ?>
     </ul>
   </div>

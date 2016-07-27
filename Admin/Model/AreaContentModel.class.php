@@ -67,4 +67,44 @@ class AreaContentModel extends Model{
 			return $this->where($condition)->save($data);
 		}
 	}
+
+	/**
+	 * 获取指定ID的区域内容
+	 */
+	public function getAreaContentInfoById($areaContentId){
+		if(is_null($areaContentId) || !is_numeric($areaContentId)){
+			return null;
+		}else{
+			$condition = array(
+				"id" => array("eq", $areaContentId),
+			);
+			return $this->where($condition)->find();
+		}
+	}
+
+	public function deleteAreaContent($areacontentId){
+		$data = null;
+		$condition["id"] = $areacontentId;
+		$data["status"]= -1;
+		if(FALSE!==($res = $this->where($condition)->save($data))){
+			$status = 0;
+			$msg = "删除区域内容成功";
+		}else{
+			$status = 1;
+			$msg = $this->getError();
+		}
+		return array("status"=>$status,"msg"=>$msg,"data"=>$data);
+	}
+
+	public function editAreaContent($areacontentInfo){
+		$data=null;
+		if(($areacontentId = $this->save($areacontentInfo))!==FALSE){
+			$status = 0;
+			$msg = "修改区域内容成功";
+		}else{
+			$status = 1;
+			$msg=$this->getError();
+		}
+		return array("status"=>$status,"msg"=>$msg,"data"=>$data);
+	}
 }

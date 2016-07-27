@@ -1,0 +1,91 @@
+[ 2016-07-20T21:56:16+08:00 ] 127.0.0.1 /index.php/Admin/Index/PUBLIC_URL/css/reset.css
+ERR: 非法操作:PUBLIC_URL
+
+[ 2016-07-20T21:56:16+08:00 ] 127.0.0.1 /index.php/Admin/Index/PUBLIC_URL/css/bootstrap.min.css
+ERR: 非法操作:PUBLIC_URL
+
+[ 2016-07-20T21:56:16+08:00 ] 127.0.0.1 /index.php/Admin/Index/PUBLIC_URL/css/admin/login.css
+ERR: 非法操作:PUBLIC_URL
+
+[ 2016-07-20T21:56:16+08:00 ] 127.0.0.1 /index.php/Admin/Index/PUBLIC_URL/js/jquery-1.11.3.min.js
+ERR: 非法操作:PUBLIC_URL
+
+[ 2016-07-20T21:56:16+08:00 ] 127.0.0.1 /index.php/Admin/Index/PUBLIC_URL/js/dialog.js
+ERR: 非法操作:PUBLIC_URL
+
+[ 2016-07-20T21:56:16+08:00 ] 127.0.0.1 /index.php/Admin/Index/PUBLIC_URL/js/layer/layer.js
+ERR: 非法操作:PUBLIC_URL
+
+[ 2016-07-20T21:56:16+08:00 ] 127.0.0.1 /index.php/Admin/Index/PUBLIC_URL/js/admin/login.js
+ERR: 非法操作:PUBLIC_URL
+
+[ 2016-07-20T21:56:16+08:00 ] 127.0.0.1 /index.php/Admin/Index/PUBLIC_URL/js/dialog.js
+ERR: 非法操作:PUBLIC_URL
+
+[ 2016-07-20T21:56:17+08:00 ] 127.0.0.1 /index.php/Admin/Index/PUBLIC_URL/js/admin/login.js
+ERR: 非法操作:PUBLIC_URL
+
+[ 2016-07-20T21:57:05+08:00 ] 127.0.0.1 /Admin/Index/PUBLIC_URL/css/reset.css
+ERR: 非法操作:PUBLIC_URL
+
+[ 2016-07-20T21:57:05+08:00 ] 127.0.0.1 /Admin/Index/PUBLIC_URL/css/admin/login.css
+ERR: 非法操作:PUBLIC_URL
+
+[ 2016-07-20T21:57:05+08:00 ] 127.0.0.1 /Admin/Index/PUBLIC_URL/js/jquery-1.11.3.min.js
+ERR: 非法操作:PUBLIC_URL
+
+[ 2016-07-20T21:57:05+08:00 ] 127.0.0.1 /Admin/Index/PUBLIC_URL/js/layer/layer.js
+ERR: 非法操作:PUBLIC_URL
+
+[ 2016-07-20T21:57:05+08:00 ] 127.0.0.1 /Admin/Index/PUBLIC_URL/js/admin/login.js
+ERR: 非法操作:PUBLIC_URL
+
+[ 2016-07-20T21:57:05+08:00 ] 127.0.0.1 /Admin/Index/PUBLIC_URL/js/dialog.js
+ERR: 非法操作:PUBLIC_URL
+
+[ 2016-07-20T21:57:10+08:00 ] 127.0.0.1 /Admin/Index/PUBLIC_URL/css/bootstrap.min.css
+ERR: 非法操作:PUBLIC_URL
+
+[ 2016-07-20T21:57:10+08:00 ] 127.0.0.1 /Admin/Index/PUBLIC_URL/js/layer/layer.js
+ERR: 非法操作:PUBLIC_URL
+
+[ 2016-07-20T21:57:10+08:00 ] 127.0.0.1 /Admin/Index/PUBLIC_URL/js/dialog.js
+ERR: 非法操作:PUBLIC_URL
+
+[ 2016-07-20T21:57:10+08:00 ] 127.0.0.1 /Admin/Index/PUBLIC_URL/js/admin/login.js
+ERR: 非法操作:PUBLIC_URL
+
+[ 2016-07-20T21:57:59+08:00 ] 127.0.0.1 /Admin/Index/undefined
+ERR: 非法操作:undefined
+
+[ 2016-07-20T22:00:48+08:00 ] 127.0.0.1 /Admin/Index/check
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002761s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004788s ]
+SQL: SHOW COLUMNS FROM `cms_admin` [ RunTime:0.0456s ]
+SQL: SELECT * FROM `cms_admin` WHERE ( username = 'admin' ) LIMIT 1   [ RunTime:0.0128s ]
+
+[ 2016-07-20T23:00:01+08:00 ] 127.0.0.1 /Admin/Menu/modifyMenu/id/3
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002109s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004234s ]
+ERR: 非法数据对象！
+
+[ 2016-07-20T23:06:35+08:00 ] 127.0.0.1 /Admin/Menu/modifyMenu/id/3
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003013s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005030s ]
+ERR: 非法数据对象！
+
+[ 2016-07-20T23:07:29+08:00 ] 127.0.0.1 /Admin/Menu/modifyMenu/id/3
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002130s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004007s ]
+ERR: 非法数据对象！
+
+[ 2016-07-20T23:17:51+08:00 ] 127.0.0.1 /Admin/Menu/modifyMenu/id/3
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003055s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005147s ]
+SQL: UPDATE `cms_menu` SET `name`='天下足球',`type`='0',`module`='home',`controller`='sports',`action`='football',`status`='1',`description`='足球' WHERE `menu_id` = 3 [ RunTime:0.0011s ]
+

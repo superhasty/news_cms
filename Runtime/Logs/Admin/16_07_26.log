@@ -1,0 +1,89 @@
+[ 2016-07-26T21:11:52+08:00 ] 127.0.0.1 /Admin/Index/check
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002106s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004216s ]
+SQL: SELECT * FROM `cms_admin` WHERE `username` = 'admin' LIMIT 1   [ RunTime:0.0199s ]
+
+[ 2016-07-26T21:12:54+08:00 ] 127.0.0.1 /Admin/position/index
+ERR: 无法加载控制器:Position
+
+[ 2016-07-26T21:15:19+08:00 ] 127.0.0.1 /Admin/News/editNews/id/6
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003780s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006150s ]
+SQL: UPDATE `cms_news` SET `title`='我爱中国',`subtitle`='我热爱我的祖国',`thumb`='',`titlecolor`='#5674ed',`program_id`='15',`copyfrom`='0',`description`='祖国',`keywords`='祖国，中国',`author`='admin',`createtime`='1469538919',`updatetime`='1469538919' WHERE `news_id` = 6 [ RunTime:0.0308s ]
+SQL: UPDATE `cms_news_content` SET `news_id`='6',`content`='&amp;lt;img src=&amp;quot;/Public/image/News/2016-07-26/5797622960dd1.jpg&amp;quot; alt=&amp;quot;&amp;quot; /&amp;gt;',`createtime`='1469538919',`updatetime`='1469538919' WHERE `news_id` = 6 [ RunTime:0.0009s ]
+
+[ 2016-07-26T21:25:01+08:00 ] 127.0.0.1 /Admin/Image/uploadImage
+ERR: 非法操作:uploadImage
+
+[ 2016-07-26T21:29:19+08:00 ] 127.0.0.1 /Admin/Image/uploadImage
+ERR: 非法操作:uploadImage
+
+[ 2016-07-26T21:30:15+08:00 ] 127.0.0.1 /Admin/Image/uploadImage
+ERR: 非法操作:uploadImage
+
+[ 2016-07-26T21:30:53+08:00 ] 127.0.0.1 /Admin/Image/uploadImage
+ERR: 非法操作:uploadImage
+
+[ 2016-07-26T21:32:17+08:00 ] 127.0.0.1 /Admin/Image/uploadImage
+ERR: 非法操作:uploadImage
+
+[ 2016-07-26T21:37:52+08:00 ] 127.0.0.1 /Admin/News/editNews/id/15
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003545s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005444s ]
+ERR: 1264:Out of range value for column 'program_id' at row 1
+ [ SQL语句 ] : UPDATE `cms_news` SET `title`='我爱中国',`subtitle`='我热爱我的祖国',`thumb`='/Public/image/Uploads/2016-07-26/579767a57452c.jpg',`titlecolor`='#5674ed',`program_id`='-1',`copyfrom`='0',`description`='祖国',`keywords`='祖国，中国',`author`='admin',`createtime`='1469540272',`updatetime`='1469540272' WHERE `news_id` = 15
+ERR: 1264:Out of range value for column 'program_id' at row 1
+ [ SQL语句 ] : UPDATE `cms_news` SET `title`='我爱中国',`subtitle`='我热爱我的祖国',`thumb`='/Public/image/Uploads/2016-07-26/579767a57452c.jpg',`titlecolor`='#5674ed',`program_id`='-1',`copyfrom`='0',`description`='祖国',`keywords`='祖国，中国',`author`='admin',`createtime`='1469540272',`updatetime`='1469540272' WHERE `news_id` = 15
+
+[ 2016-07-26T21:40:08+08:00 ] 127.0.0.1 /Admin/News/editNews/id/15
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003739s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005956s ]
+ERR: 1264:Out of range value for column 'program_id' at row 1
+ [ SQL语句 ] : UPDATE `cms_news` SET `title`='我爱中国',`subtitle`='我热爱我的祖国',`thumb`='/Public/image/Uploads/2016-07-26/579767a57452c.jpg',`titlecolor`='#5674ed',`program_id`='-1',`copyfrom`='0',`description`='祖国',`keywords`='祖国，中国',`author`='admin',`createtime`='1469540408',`updatetime`='1469540408' WHERE `news_id` = 15
+ERR: 1264:Out of range value for column 'program_id' at row 1
+ [ SQL语句 ] : UPDATE `cms_news` SET `title`='我爱中国',`subtitle`='我热爱我的祖国',`thumb`='/Public/image/Uploads/2016-07-26/579767a57452c.jpg',`titlecolor`='#5674ed',`program_id`='-1',`copyfrom`='0',`description`='祖国',`keywords`='祖国，中国',`author`='admin',`createtime`='1469540408',`updatetime`='1469540408' WHERE `news_id` = 15
+
+[ 2016-07-26T21:40:33+08:00 ] 127.0.0.1 /Admin/News/editNews/id/15
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003703s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005970s ]
+ERR: 1264:Out of range value for column 'program_id' at row 1
+ [ SQL语句 ] : UPDATE `cms_news` SET `title`='我爱中国',`subtitle`='我热爱我的祖国',`thumb`='/Public/image/Uploads/2016-07-26/5797684eea8f0.jpg',`titlecolor`='#5674ed',`program_id`='-1',`copyfrom`='0',`description`='祖国',`keywords`='祖国，中国',`author`='admin',`createtime`='1469540433',`updatetime`='1469540433' WHERE `news_id` = 15
+ERR: 1264:Out of range value for column 'program_id' at row 1
+ [ SQL语句 ] : UPDATE `cms_news` SET `title`='我爱中国',`subtitle`='我热爱我的祖国',`thumb`='/Public/image/Uploads/2016-07-26/5797684eea8f0.jpg',`titlecolor`='#5674ed',`program_id`='-1',`copyfrom`='0',`description`='祖国',`keywords`='祖国，中国',`author`='admin',`createtime`='1469540433',`updatetime`='1469540433' WHERE `news_id` = 15
+
+[ 2016-07-26T21:43:05+08:00 ] 127.0.0.1 /Admin/News/editNews
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003762s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006024s ]
+ERR: 1264:Out of range value for column 'program_id' at row 1
+ [ SQL语句 ] : UPDATE `cms_news` SET `title`='我爱中国',`subtitle`='我热爱我的祖国',`thumb`='/Public/image/Uploads/2016-07-26/579768e59ff81.jpg',`titlecolor`='#5674ed',`program_id`='-1',`copyfrom`='0',`description`='祖国',`keywords`='祖国，中国',`author`='admin',`createtime`='1469540585',`updatetime`='1469540585' WHERE `news_id` = 15
+ERR: 1264:Out of range value for column 'program_id' at row 1
+ [ SQL语句 ] : UPDATE `cms_news` SET `title`='我爱中国',`subtitle`='我热爱我的祖国',`thumb`='/Public/image/Uploads/2016-07-26/579768e59ff81.jpg',`titlecolor`='#5674ed',`program_id`='-1',`copyfrom`='0',`description`='祖国',`keywords`='祖国，中国',`author`='admin',`createtime`='1469540585',`updatetime`='1469540585' WHERE `news_id` = 15
+
+[ 2016-07-26T21:44:20+08:00 ] 127.0.0.1 /Admin/News/editNews
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003861s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006025s ]
+ERR: 1264:Out of range value for column 'program_id' at row 1
+ [ SQL语句 ] : UPDATE `cms_news` SET `title`='我爱中国',`subtitle`='我热爱我的祖国',`thumb`='/Public/image/Uploads/2016-07-26/579769324916d.jpg',`titlecolor`='#5674ed',`program_id`='-1',`copyfrom`='0',`description`='祖国',`keywords`='祖国，中国',`author`='admin',`createtime`='1469540660',`updatetime`='1469540660' WHERE `news_id` = 15
+ERR: 1264:Out of range value for column 'program_id' at row 1
+ [ SQL语句 ] : UPDATE `cms_news` SET `title`='我爱中国',`subtitle`='我热爱我的祖国',`thumb`='/Public/image/Uploads/2016-07-26/579769324916d.jpg',`titlecolor`='#5674ed',`program_id`='-1',`copyfrom`='0',`description`='祖国',`keywords`='祖国，中国',`author`='admin',`createtime`='1469540660',`updatetime`='1469540660' WHERE `news_id` = 15
+
+[ 2016-07-26T21:46:00+08:00 ] 127.0.0.1 /Admin/News/editNews
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003859s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006240s ]
+SQL: UPDATE `cms_news` SET `title`='我爱中国',`subtitle`='我热爱我的祖国',`thumb`='/Public/image/Uploads/2016-07-26/579769324916d.jpg',`titlecolor`='#5674ed',`program_id`='15',`copyfrom`='0',`description`='祖国',`keywords`='祖国，中国',`author`='admin',`createtime`='1469540760',`updatetime`='1469540760' WHERE `news_id` = 15 [ RunTime:0.0501s ]
+SQL: UPDATE `cms_news_content` SET `news_id`='15',`content`='',`createtime`='1469540760',`updatetime`='1469540760' WHERE `news_id` = 15 [ RunTime:0.0009s ]
+
+[ 2016-07-26T21:52:39+08:00 ] 127.0.0.1 /Admin/Menu/modifyMenu/id/9
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002303s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004227s ]
+SQL: UPDATE `cms_menu` SET `name`='推荐位管理',`type`='1',`module`='admin',`controller`='area',`action`='index',`status`='1',`description`='' WHERE `menu_id` = 9 [ RunTime:0.0011s ]
+

@@ -1,0 +1,120 @@
+[ 2016-07-22T21:03:31+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/Index/check
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002962s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005342s ]
+SQL: SELECT * FROM `cms_admin` WHERE `username` = 'admin' LIMIT 1   [ RunTime:0.3001s ]
+
+[ 2016-07-22T21:03:55+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:04:24+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:05:46+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:09:26+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:19:30+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:19:34+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:22:41+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:24:58+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:32:15+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/uploadify.swf?preventswfcaching=1469194334622
+ERR: 非法操作:uploadify.swf
+
+[ 2016-07-22T21:32:15+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/uploadify.swf?preventswfcaching=1469194334622
+ERR: 非法操作:uploadify.swf
+
+[ 2016-07-22T21:32:21+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/uploadify.swf?preventswfcaching=1469194341796
+ERR: 非法操作:uploadify.swf
+
+[ 2016-07-22T21:32:22+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/uploadify.swf?preventswfcaching=1469194341796
+ERR: 非法操作:uploadify.swf
+
+[ 2016-07-22T21:32:48+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:32:59+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/uploadify.swf?preventswfcaching=1469194379629
+ERR: 非法操作:uploadify.swf
+
+[ 2016-07-22T21:33:10+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/uploadify.swf?preventswfcaching=1469194390382
+ERR: 非法操作:uploadify.swf
+
+[ 2016-07-22T21:33:10+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/uploadify.swf?preventswfcaching=1469194390382
+ERR: 非法操作:uploadify.swf
+
+[ 2016-07-22T21:33:22+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:33:27+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:34:37+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:35:19+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:36:45+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:42:59+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:43:57+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:45:41+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:45:49+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:47:15+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:48:04+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:48:16+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:49:20+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:49:25+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:49:57+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:50:22+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:50:57+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:51:16+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:51:43+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:53:21+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:53:27+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+
+[ 2016-07-22T21:54:22+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/
+ERR: 非法操作:index
+

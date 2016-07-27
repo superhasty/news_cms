@@ -1,0 +1,191 @@
+[ 2016-07-23T12:32:35+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/Index/check
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003116s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005326s ]
+SQL: SELECT * FROM `cms_admin` WHERE `username` = 'admin' LIMIT 1   [ RunTime:0.1208s ]
+
+[ 2016-07-23T12:32:46+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/content/index
+ERR: 无法加载控制器:Content
+
+[ 2016-07-23T12:48:45+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/user/index
+ERR: 无法加载控制器:User
+
+[ 2016-07-23T16:29:46+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/__PUBLIC__/image/News
+ERR: 非法操作:__PUBLIC__
+
+[ 2016-07-23T16:38:26+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/__PUBLIC__/image/News/2016-07-23/2016-07-23
+ERR: 非法操作:__PUBLIC__
+
+[ 2016-07-23T16:43:27+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/Public/image/News/2016-07-23/2016-07-23
+ERR: 非法操作:Public
+
+[ 2016-07-23T16:48:17+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/Public/image/News/2016-07-23/2016-07-23
+ERR: 非法操作:Public
+
+[ 2016-07-23T17:07:58+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/Public/image/News/2016-07-23/2016-07-23
+ERR: 非法操作:Public
+
+[ 2016-07-23T17:12:18+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news_cms/Public/image/News/2016-07-23/2016-07-23
+ERR: 无法加载控制器:News_cms
+
+[ 2016-07-23T17:16:00+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news_cms/Public/image/News/2016-07-23/2016-07-23
+ERR: 无法加载控制器:News_cms
+
+[ 2016-07-23T22:20:13+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/addnews
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004092s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006224s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_news` (`title`,`subtitle`,`thumb`,`titlecolor`,`program_id`,`copyfrom`,`description`,`keywords`,`createtime`,`updatetime`) VALUES ('宏运3-1','逆转上港詹姆斯传射最贵洋枪破门','','','4','1','宏运3-1逆转上港詹姆斯传射最贵洋枪破门','中超','1469283613','1469283613') [ RunTime:0.0012s ]
+SQL: SHOW COLUMNS FROM `cms_news_content` [ RunTime:0.0525s ]
+NOTIC: [8] Undefined variable: res E:\PHPProject\hfaw_news\news_cms\Admin\Controller\NewsController.class.php 第 36 行.
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+
+[ 2016-07-23T22:26:34+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/addnews
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.009915s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.011836s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_news` (`title`,`subtitle`,`thumb`,`titlecolor`,`program_id`,`copyfrom`,`description`,`keywords`,`createtime`,`updatetime`) VALUES ('2222','1111','','','4','0','55555','66666','1469283994','1469283994') [ RunTime:0.0013s ]
+NOTIC: [8] Undefined variable: res E:\PHPProject\hfaw_news\news_cms\Admin\Controller\NewsController.class.php 第 36 行.
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+
+[ 2016-07-23T22:27:43+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/addnews
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005102s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007634s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_news` (`title`,`subtitle`,`thumb`,`titlecolor`,`program_id`,`copyfrom`,`description`,`keywords`,`createtime`,`updatetime`) VALUES ('111','222','','','5','0','66','77','1469284062','1469284062') [ RunTime:0.0012s ]
+NOTIC: [8] Undefined variable: res E:\PHPProject\hfaw_news\news_cms\Admin\Controller\NewsController.class.php 第 36 行.
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+
+[ 2016-07-23T22:28:33+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/addnews
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005528s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.008751s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_news` (`title`,`subtitle`,`thumb`,`titlecolor`,`program_id`,`copyfrom`,`description`,`keywords`,`createtime`,`updatetime`) VALUES ('11','22','','#5674ed','4','1','666','777','1469284113','1469284113') [ RunTime:0.0016s ]
+NOTIC: [8] Undefined variable: res E:\PHPProject\hfaw_news\news_cms\Admin\Controller\NewsController.class.php 第 36 行.
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+
+[ 2016-07-23T22:32:35+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/addnews
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003894s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006105s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_news` (`title`,`subtitle`,`thumb`,`titlecolor`,`program_id`,`copyfrom`,`description`,`keywords`,`createtime`,`updatetime`) VALUES ('宏运3-1逆转上港','詹姆斯传射最贵洋枪破门 ','','#5674ed','4','0','辽宁宏运主场3比1战胜上海上港','中超','1469284355','1469284355') [ RunTime:0.0018s ]
+NOTIC: [8] Undefined variable: res E:\PHPProject\hfaw_news\news_cms\Admin\Controller\NewsController.class.php 第 36 行.
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+
+[ 2016-07-23T22:32:42+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/undefined
+ERR: 非法操作:undefined
+
+[ 2016-07-23T22:42:33+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/addnews
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003876s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006571s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_news` (`title`,`subtitle`,`thumb`,`titlecolor`,`program_id`,`copyfrom`,`description`,`keywords`,`createtime`,`updatetime`) VALUES ('11','22','','#5674ed','4','0','789','12456','1469284952','1469284952') [ RunTime:0.0012s ]
+NOTIC: [8] Undefined variable: res E:\PHPProject\hfaw_news\news_cms\Admin\Controller\NewsController.class.php 第 36 行.
+
+[ 2016-07-23T22:48:32+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/addnews
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003757s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005880s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_news` (`title`,`subtitle`,`thumb`,`titlecolor`,`program_id`,`copyfrom`,`description`,`keywords`,`createtime`,`updatetime`) VALUES ('13','123','','#ed568b','4','1','fadfadf','adfafdadf','1469285312','1469285312') [ RunTime:0.0012s ]
+NOTIC: [8] Undefined variable: res E:\PHPProject\hfaw_news\news_cms\Admin\Controller\NewsController.class.php 第 36 行.
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+ERR: 1048:Column 'news_id' cannot be null
+ [ SQL语句 ] : INSERT INTO `cms_news_content` (`news_id`,`content`,`createtime`,`updatetime`) VALUES (NULL,'&amp;lt;p&amp;gt;
+	dfadfadf e
+&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;
+	wfeaf
+&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;
+	wfewf
+&amp;lt;/p&amp;gt;','1469285312','1469285312')
+ERR: 1048:Column 'news_id' cannot be null
+ [ SQL语句 ] : INSERT INTO `cms_news_content` (`news_id`,`content`,`createtime`,`updatetime`) VALUES (NULL,'&amp;lt;p&amp;gt;
+	dfadfadf e
+&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;
+	wfeaf
+&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;
+	wfewf
+&amp;lt;/p&amp;gt;','1469285312','1469285312')
+
+[ 2016-07-23T22:52:23+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/addnews
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003803s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005736s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_news` (`title`,`subtitle`,`thumb`,`titlecolor`,`program_id`,`copyfrom`,`description`,`keywords`,`createtime`,`updatetime`) VALUES ('123','1233','','#ed568b','4','0','fafadf','fw321','1469285543','1469285543') [ RunTime:0.0011s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_news_content` (`news_id`,`content`,`createtime`,`updatetime`) VALUES ('9','&amp;lt;p&amp;gt;
+	232
+&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;
+	12323
+&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;
+	1231
+&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;
+	23
+&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;
+	123
+&amp;lt;/p&amp;gt;','1469285543','1469285543') [ RunTime:0.0113s ]
+
+[ 2016-07-23T22:52:26+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/undefined
+ERR: 非法操作:undefined
+
+[ 2016-07-23T23:04:27+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/news/addnews
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004099s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006234s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_news` (`title`,`subtitle`,`thumb`,`titlecolor`,`program_id`,`copyfrom`,`description`,`keywords`,`createtime`,`updatetime`) VALUES ('123','1233','','#ed568b','4','0','fafadf','fw321','1469286267','1469286267') [ RunTime:0.0011s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_news_content` (`news_id`,`content`,`createtime`,`updatetime`) VALUES ('10','&amp;lt;p&amp;gt;
+	232
+&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;
+	12323
+&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;
+	1231
+&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;
+	23
+&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;
+	123
+&amp;lt;/p&amp;gt;','1469286267','1469286267') [ RunTime:0.0010s ]
+
+[ 2016-07-23T23:54:16+08:00 ] 127.0.0.1 /hfaw_news/news_cms/Admin/News/addNews
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004810s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006966s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_news` (`title`,`subtitle`,`thumb`,`titlecolor`,`program_id`,`copyfrom`,`description`,`keywords`,`createtime`,`updatetime`) VALUES ('绿城3-1泰达','萨米尔2球边翼惊天世界波','','#5674ed','5','1','萨米尔2球边翼惊天世界波 绿城3-1泰达','中超','1469289255','1469289255') [ RunTime:0.3127s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_news_content` (`news_id`,`content`,`createtime`,`updatetime`) VALUES ('1','&amp;lt;span style=&amp;quot;color:#333333;font-family:宋体;font-size:14px;line-height:23px;background-color:#FFFFFF;&amp;quot;&amp;gt;北京时间7月23日晚上19点35分，中超联赛第19轮展开争夺，杭州绿城坐镇主场迎战天津泰达。上半场迪亚涅的射门击中横梁弹出，半场补时阶段裁判给了点球，萨米尔通过补射得分，下半场李源一世界波扳平，随后加比奥内塔的远射再次帮助绿城反超，萨米尔补时阶段梅开二度锁定胜局，最终绿城主场3-1战胜泰达，结束2连败。&amp;lt;/span&amp;gt;','1469289256','1469289256') [ RunTime:0.0269s ]
+

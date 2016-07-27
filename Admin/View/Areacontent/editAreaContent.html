@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>内容管理平台--区域内容管理</title>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap-switch.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/index.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/morris.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/global.css">
+	<!-- <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/upload.css"> -->
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/uploadify.css">
+	<!-- javascript -->
+	<script type="text/javascript" src="__PUBLIC__/js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/layer/layer.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/dialog.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/admin/areacontent.js"></script>
+</head>
+<body>
+		<div id="wrapper">
+			<include file="Index/nav"/>
+	  	<div id="page-wrapper">
+		<div class="container-fluid">
+		  <!-- Page Heading -->
+		  <div class="row">
+			<div class="col-lg-12">
+			  <ol class="breadcrumb">
+				<li>
+				  <i class="fa fa-dashboard"></i>
+				  <a href="__CONTROLLER__/index">&nbsp;&nbsp;区域内容管理</a>
+				</li>
+				<li class="active">
+				  <i class="fa fa-edit"></i>&nbsp;&nbsp;{$nav_title}
+				</li>
+			  </ol>
+			</div>
+		  </div>
+		  <!-- /.row -->
+		  <div class="row">
+			<div class="col-lg-12">
+			  <form class="form-horizontal" id="singcms-form">
+				<div class="form-group">
+				  <label for="title" class="col-sm-2 control-label">标题:</label>
+				  <div class="col-sm-5">
+					<input type="text" name="title" class="form-control" id="title" placeholder="请填写标题" value="{$areaContentInfo.title}">
+				  </div>
+				</div>
+				<div class="form-group">
+				  	<label for="area_id" class="col-sm-2 control-label">选择推荐位:</label>
+				  	<div class="col-sm-5">
+						<select class="form-control" name="area_id" id="area_id">
+					  	<foreach name="areaInfos" item="areaInfo">
+					  		<option value="{$areaInfo.id}"
+					  		<if condition="$areaInfo['id'] eq $areaContentInfo['area_id']">
+					  			selected="selected"
+					  		</if>
+					  		>{$areaInfo.name}</option>
+						</foreach>
+						</select>
+				  	</div>
+				</div>
+				<div class="form-group">
+				  <label for="file_upload" class="col-sm-2 control-label">缩图:</label>
+				  <div class="col-sm-5">
+					<input id="file_upload" type="file" data-url="__MODULE__/Image/uploadThumbImage" swf-url="__PUBLIC__/js/uploadify.swf" img-url="__PUBLIC__/image/Uploads/"><!-- multiple="true -->
+					<img style="display: none" id="upload_origin_img" src="{$areaContentInfo.thumb}" style="width:100%;">
+					<input id="upload_thumb_image" name="thumb" type="hidden" multiple="false" value="{$areaContentInfo.thumb}">
+				  </div>
+				</div>
+				<div class="form-group">
+				  <label for="url" class="col-sm-2 control-label">url:</label>
+				  <div class="col-sm-5">
+					<input type="text" class="form-control" value="{$areaContentInfo.url}" name="url" id="url" placeholder="请填写url地址">
+				  </div>
+				</div>
+				<div class="form-group">
+				  <label for="news_id" class="col-sm-2 control-label">文章id:</label>
+				  <div class="col-sm-5">
+					<input type="text" name="news_id" value="{$areaContentInfo.news_id}" class="form-control" id="news_id" placeholder="如果和文章无关联的可以不添加文章id">
+				  </div>
+				</div>
+				<div class="form-group">
+				  <label class="col-sm-2 control-label">状态:</label>
+				  <div class="col-sm-5">
+					<input type="radio" name="status" value="1" 
+						<if condition="$areaContentInfo['status'] eq 1">
+							checked
+						</if>
+					>开启
+					<input type="radio" name="status" value="0" 
+						<if condition="$areaContentInfo['status'] eq 0">
+							checked
+						</if>
+					>关闭
+				  </div>
+				</div>
+				<div class="form-group">
+				  	<div class="col-sm-offset-2 col-sm-10">
+						<button type="button" class="btn btn-default" id="btn_edit_areacontent_submit" data-url="__ACTION__" attr-id="{$areaContentInfo.id}">提交</button>
+				  	</div>
+				</div>
+			  </form>
+			</div>
+		  </div>
+		  <!-- /.row -->
+		</div>
+		<!-- /.container-fluid -->
+	  </div>
+	  <!-- /#page-wrapper -->
+	</div>
+</body>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.uploadify.min.js"></script>
+<script type="text/javascript">
+	    var imgPathPre=$("#file_upload").attr("img-url");
+		$("#file_upload").uploadify({
+			"buttonText": "上传美图",
+			"fileTypeDesc": "Image Files",
+			"fileObjName": "file_upload",
+			"fileTypeExts": "*.gif; *.jpg; *.jpeg; *.png; *.bmp",
+	    	"swf"      : $("#file_upload").attr('swf-url'),
+	    	"uploader" : $("#file_upload").attr('data-url'),
+	        "removeCompleted": false,
+	        // 现在已经没有cancelImg这个属性了，如需要修改取消按钮图标，应该直接在css文件中修改
+	    	"onUploadSuccess": function(file, data, response){
+	    		if(response){
+	    			var obj = JSON.parse(data);
+	    			$imagePath = imgPathPre + obj.data.file_upload.savepath+obj.data.file_upload.savename;
+	                $("#upload_origin_img").attr("src", $imagePath);
+	                $("#upload_origin_img").show();
+	    			$("#upload_thumb_image").attr("value", $imagePath);
+	    		}else{
+	    			hfaw_dialog.error("图片上传失败");
+	    		}
+	    	}
+		});
+
+	    //文件开始编辑前是否显示缩略图
+	    var thumbpath = "{$areaContentInfo.thumb}";
+	    if(thumbpath){
+	    	$("#upload_origin_img").show();
+	    }
+</script>
+</html>

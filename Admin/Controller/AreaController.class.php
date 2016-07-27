@@ -3,7 +3,7 @@
 namespace Admin\Controller;
 use Think\Controller;
 
-class AreaController extends Controller{
+class AreaController extends CommonController{
 	/**
 	 * 首页
 	 * @return [type] [description]

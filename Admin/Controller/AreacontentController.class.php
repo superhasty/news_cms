@@ -3,7 +3,7 @@ namespace Admin\Controller;
 use Think\Controller;
 use Think\Page;
 
-class AreacontentController extends Controller{
+class AreacontentController extends CommonController{
 	/**
 	 * 区域内容管理首页的逻辑：
 	 * 1. 区域内容搜索采用post方式发送搜索数据
@@ -67,59 +67,144 @@ class AreacontentController extends Controller{
 	 */
 	public function addAreaContent(){
 		if(IS_POST){
+			$url = __CONTROLLER__."/".__FUNCTION__;
 			//获取表单数据
-			// $title = I("post.newstitle");
-			// $subtitle = I("post.newssubtitle");
-			// $thumb = I("post.thumb");
-			// $titlecolor = I("post.newstitlecolor");
-			// $program = I("post.newsprogram");
-			// $copyfrom = I("post.newscopyfrom");
-			// $desc = I("post.newsdescription");
-			// $keywords = I("post.newskeywords");
-			// //通过session读取管理员信息
-			// $author = session("username")?session("username") : "";
-			// $newsInfo = array(
-			// 	"title"=>$title,
-			// 	"subtitle"=>$subtitle,
-			// 	"thumb"=>$thumb,
-			// 	"titlecolor"=>$titlecolor,
-			// 	"program_id"=>$program,
-			// 	"copyfrom"=>$copyfrom,
-			// 	"description"=>$desc,
-			// 	"keywords"=>$keywords,
-			// 	"author"=>$author,
-			// 	"createtime"=>time(),
-			// 	"updatetime"=>time()
-			// );
-			// //通过Model进行数据库插入
-			// $News = D("News");
-			// $result = $News->addNews($newsInfo);
-			// if($result["status"]==0){
-			// 	//将新闻正文内容添加到数据库中
-			// 	$NewsContent = D("NewsContent");
-			// 	$contentInfo = array(
-			// 		"news_id" => $result["data"]["id"],
-			// 		"content" => htmlspecialchars(I("post.newscontent")),
-			// 		"createtime" => time(),
-			// 		"updatetime" => time()
-			// 	);
-			// 	$result = $NewsContent->addContent($contentInfo);
-			// 	if($result["status"]==0){
-			// 		$url = __CONTROLLER__."/index";
-			// 	}else{
-			// 		$url = __CONTROLLER__."/".__FUNCTION__;	
-			// 	}
-			// }else{
-			// 	$url = __CONTROLLER__."/".__FUNCTION__;
-			// }
-			// return AJAXResult($result["status"],$result["msg"],array("url"=>$url));
+			$title = I("post.title");
+			$areaId = I("post.area_id");
+			$thumb = I("post.thumb");
+			$news_url = I("post.url");
+			$newsId = I("post.news_id");
+			$status = I("post.status");
+			//进行url与id的判断
+			if(!$news_url && !$newsId){
+				return AJAXResult(1,"第三方跳转url与文章ID不能同时为空",array("url"=>$url));
+			}
+			if(!$thumb){
+				if($newsId){
+					//取出当前文章ID对应的缩略图
+					$News=D("News");
+					$NewsInfo = $News->getNewsInfoById($newsId);
+					if($NewsInfo && is_array($NewsInfo)){
+						$thumb = $NewsInfo["thumb"];
+					}else{
+						return AJAXResult(2,"当前指定的新闻没有缩略图",array("url"=>$url));
+					}
+				}else{
+					return AJAXResult(3,"没有指定缩略图",array("url"=>$url));
+				}
+			}
+			$areaContentInfo = array(
+				"title"=>$title,
+				"area_id"=>$areaId,
+				"thumb"=>$thumb,
+				"url"=>$news_url,
+				"news_id"=>$newsId,
+				"status"=>$status,
+				"createtime"=>time(),
+				"updatetime"=>time()
+			);
+			//通过Model进行数据库插入
+			$AreaContent = D("AreaContent");
+			try{
+				$result = $AreaContent->addData($areaContentInfo);
+				if($result["status"]==0){
+					$url = __CONTROLLER__."/index";
+				}
+			}catch(Exception $e){
+				return AJAXResult(4,"添加区域内容时发生异常",array("url"=>$url));
+			}
+			return AJAXResult($result["status"],$result["msg"],array("url"=>$url));
 		}else{
 			$this->assign("nav_title","添加");
 			// 获取配置信息
 			$areaInfos=D("Area")->getOpenAreaInfos();
-
 			$this->assign("areaInfos",$areaInfos);
 			$this->display();
+		}
+	}
+
+	public function editAreaContent(){
+		$this->assign("nav_title","编辑");
+		$AreaContent=D("AreaContent");
+		if(IS_GET){
+			//通过ID获取区域内容并填充页面
+			$areaContentId = I("get.id");
+			if(!$areaContentId){
+				$this->redirect("index");
+			}
+			$AreaContentInfo = $AreaContent->getAreaContentInfoById($areaContentId);
+			$this->assign("areaContentInfo", $AreaContentInfo);
+			//获取配置信息
+			$areaInfos=D("Area")->getOpenAreaInfos();
+			$this->assign("areaInfos",$areaInfos);
+			$this->display();
+		}else if(IS_POST){
+			//获取表单数据
+			$areacontentId = I("post.id");
+			$title = I("post.title");
+			$areaId = I("post.area_id");
+			$thumb = I("post.thumb");
+			$news_url = I("post.url");
+			$newsId = I("post.news_id");
+			$status = I("post.status");
+			//进行url与id的判断
+			if(!$news_url && !$newsId){
+				return AJAXResult(1,"第三方跳转url与文章ID不能同时为空",array("url"=>$url));
+			}
+			if(!$thumb){
+				if($newsId){
+					//取出当前文章ID对应的缩略图
+					$News=D("News");
+					$NewsInfo = $News->getNewsInfoById($newsId);
+					if($NewsInfo && is_array($NewsInfo)){
+						$thumb = $NewsInfo["thumb"];
+					}else{
+						return AJAXResult(2,"当前指定的新闻没有缩略图",array("url"=>$url));
+					}
+				}else{
+					return AJAXResult(3,"没有指定缩略图",array("url"=>$url));
+				}
+			}
+			$areaContentInfo = array(
+				"id"=>$areacontentId,
+				"title"=>$title,
+				"area_id"=>$areaId,
+				"thumb"=>$thumb,
+				"url"=>$news_url,
+				"news_id"=>$newsId,
+				"status"=>$status,
+				"createtime"=>time(),
+				"updatetime"=>time()
+			);
+			//通过Model进行数据库插入
+			$AreaContent = D("AreaContent");
+			try{
+				$result = $AreaContent->editAreaContent($areaContentInfo);
+				if($result["status"]==0){
+					$url = __CONTROLLER__."/index";
+				}else{
+					$url = __CONTROLLER__."/".__FUNCTION__;
+				}
+			}catch(Exception $e){
+				return AJAXResult(4,"编辑区域内容时发生异常",array("url"=>$url));
+			}
+			return AJAXResult($result["status"],$result["msg"],array("url"=>$url));
+		}
+	}
+
+	public function deleteAreaContent(){
+		if(IS_POST){
+			$AreaContent = D("AreaContent");
+			$areacontentId = I("get.id", -1);
+			$result = $AreaContent->deleteNews($areacontentId);
+			if($result["status"]==0){
+				$url = __CONTROLLER__."/index";
+			}else{
+				$url = __CONTROLLER__."/".__FUNCTION__;	
+			}
+			return AJAXResult($result["status"],$status["msg"],array("url"=>$url));
+		}else{
+			$this->redirect("index");
 		}
 	}
 

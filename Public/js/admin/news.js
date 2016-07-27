@@ -3,7 +3,6 @@ $(function(){
     // 跳转到新闻添加页面
     $("#news_add_link").on('click', function(event){
         event.preventDefault();
-        // console.log($(this).attr("data-url"));
         window.location.href=$(this).attr("data-url");
     });
 
@@ -13,9 +12,9 @@ $(function(){
         window.location.href=$(this).attr("data-url");
     });
 
-    // 跳转到新闻删除页面
+    // 新闻删除
     $(".news_delete_link").on('click', function(event){
-       event.preventDefault();
+        event.preventDefault();
         // 弹窗进行确认
         var url=$(this).attr("data-url");
         var data={id: $(this).attr("attr-id")};

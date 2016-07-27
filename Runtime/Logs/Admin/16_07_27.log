@@ -1,0 +1,187 @@
+[ 2016-07-27T21:16:48+08:00 ] 127.0.0.1 /Admin/Index/check
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002164s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004143s ]
+SQL: SELECT * FROM `cms_admin` WHERE `username` = 'admin' LIMIT 1   [ RunTime:0.0205s ]
+
+[ 2016-07-27T21:18:19+08:00 ] 127.0.0.1 /Admin/Menu/modifyMenu/id/9
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003101s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005288s ]
+SQL: UPDATE `cms_menu` SET `name`='区域管理',`type`='1',`module`='admin',`controller`='area',`action`='index',`status`='1',`description`='指定网站运营区域' WHERE `menu_id` = 9 [ RunTime:0.0768s ]
+
+[ 2016-07-27T21:19:05+08:00 ] 127.0.0.1 /Admin/Menu/modifyMenu/id/10
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002925s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005178s ]
+SQL: UPDATE `cms_menu` SET `name`='区域内容管理',`type`='1',`module`='admin',`controller`='areacontent',`action`='index',`status`='1',`description`='网站运营区域的内容管理' WHERE `menu_id` = 10 [ RunTime:0.0147s ]
+
+[ 2016-07-27T22:07:34+08:00 ] 127.0.0.1 /Admin/Areacontent/addAreaContent
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002503s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004662s ]
+
+[ 2016-07-27T22:08:04+08:00 ] 127.0.0.1 /Admin/Areacontent/addAreaContent
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002287s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004310s ]
+
+[ 2016-07-27T22:09:07+08:00 ] 127.0.0.1 /Admin/Areacontent/addAreaContent
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002428s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004620s ]
+SQL: SELECT * FROM `cms_news` WHERE `news_id` = '5' LIMIT 1   [ RunTime:0.0011s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_area_content` (`title`,`area_id`,`thumb`,`url`,`news_id`,`status`,`createtime`,`updatetime`) VALUES ('推荐5号文章','2','/hfaw_news/news_cms/Public/image/Uploads/2016-07-24/5793a61ff2e62.jpg','','5','1','1469628547','1469628547') [ RunTime:0.0276s ]
+
+[ 2016-07-27T22:10:15+08:00 ] 127.0.0.1 /Admin/Areacontent/addAreaContent
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002240s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004757s ]
+SQL: SELECT * FROM `cms_news` WHERE `news_id` = '5' LIMIT 1   [ RunTime:0.0013s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_area_content` (`title`,`area_id`,`thumb`,`url`,`news_id`,`status`,`createtime`,`updatetime`) VALUES ('再次推荐5号','2','/hfaw_news/news_cms/Public/image/Uploads/2016-07-24/5793a61ff2e62.jpg','','5','1','1469628615','1469628615') [ RunTime:0.0010s ]
+
+[ 2016-07-27T22:11:20+08:00 ] 127.0.0.1 /Admin/Areacontent/addAreaContent
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002199s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004457s ]
+
+[ 2016-07-27T22:13:27+08:00 ] 127.0.0.1 /Admin/Areacontent/addAreaContent
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002220s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004468s ]
+SQL: SELECT * FROM `cms_news` WHERE `news_id` = '5' LIMIT 1   [ RunTime:0.0012s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_area_content` (`title`,`area_id`,`thumb`,`url`,`news_id`,`status`,`createtime`,`updatetime`) VALUES ('推荐大家5号','2','/hfaw_news/news_cms/Public/image/Uploads/2016-07-24/5793a61ff2e62.jpg','','5','1','1469628807','1469628807') [ RunTime:0.0010s ]
+
+[ 2016-07-27T22:13:39+08:00 ] 127.0.0.1 /Admin/Areacontent/addAreaContent
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003161s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005578s ]
+
+[ 2016-07-27T22:13:53+08:00 ] 127.0.0.1 /Admin/Areacontent/addAreaContent
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002183s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004445s ]
+SQL: SELECT * FROM `cms_news` WHERE `news_id` = '6' LIMIT 1   [ RunTime:0.0011s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+
+[ 2016-07-27T22:14:20+08:00 ] 127.0.0.1 /Admin/Areacontent/addAreaContent
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005774s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.008686s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_area_content` (`title`,`area_id`,`thumb`,`url`,`news_id`,`status`,`createtime`,`updatetime`) VALUES ('推荐6号','2','/Public/image/Uploads/2016-07-27/5798c1b3c2be2.jpg','','6','1','1469628860','1469628860') [ RunTime:0.0011s ]
+
+[ 2016-07-27T22:16:17+08:00 ] 127.0.0.1 /Admin/News/editNews
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003210s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005467s ]
+SQL: UPDATE `cms_news` SET `title`='我爱中国',`subtitle`='我热爱我的祖国',`thumb`='/Public/image/Uploads/2016-07-27/5798c22ebc384.jpg',`titlecolor`='#5674ed',`program_id`='15',`copyfrom`='0',`description`='祖国',`keywords`='祖国，中国',`author`='admin',`updatetime`='1469628977' WHERE `news_id` = 6 [ RunTime:0.0013s ]
+SQL: UPDATE `cms_news_content` SET `news_id`='6',`content`='我爱中国',`updatetime`='1469628977' WHERE `news_id` = 6 [ RunTime:0.0008s ]
+
+[ 2016-07-27T22:16:51+08:00 ] 127.0.0.1 /Admin/Areacontent/addAreaContent
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002194s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004367s ]
+SQL: SELECT * FROM `cms_news` WHERE `news_id` = '6' LIMIT 1   [ RunTime:0.0011s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_area_content` (`title`,`area_id`,`thumb`,`url`,`news_id`,`status`,`createtime`,`updatetime`) VALUES ('推荐6号自带图片','3','/Public/image/Uploads/2016-07-27/5798c22ebc384.jpg','','6','1','1469629011','1469629011') [ RunTime:0.0011s ]
+
+[ 2016-07-27T22:18:21+08:00 ] 127.0.0.1 /Admin/News/editNews
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.008429s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.011571s ]
+SQL: UPDATE `cms_news` SET `title`='123',`subtitle`='123',`thumb`='/Public/image/Uploads/2016-07-27/5798c2aa691cb.jpg',`titlecolor`='#5674ed',`program_id`='5',`copyfrom`='0',`description`='123',`keywords`='123',`author`='admin',`updatetime`='1469629101' WHERE `news_id` = 5 [ RunTime:0.0012s ]
+SQL: UPDATE `cms_news_content` SET `news_id`='5',`content`='123',`updatetime`='1469629101' WHERE `news_id` = 5 [ RunTime:0.0011s ]
+
+[ 2016-07-27T22:19:12+08:00 ] 127.0.0.1 /Admin/Areacontent/addAreaContent
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.007943s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.011780s ]
+SQL: SELECT * FROM `cms_news` WHERE `news_id` = '5' LIMIT 1   [ RunTime:0.0013s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_area_content` (`title`,`area_id`,`thumb`,`url`,`news_id`,`status`,`createtime`,`updatetime`) VALUES ('5号图片正常了','3','/Public/image/Uploads/2016-07-27/5798c2aa691cb.jpg','','5','1','1469629152','1469629152') [ RunTime:0.0015s ]
+
+[ 2016-07-27T22:24:44+08:00 ] 127.0.0.1 /Admin/Areacontent/addAreaContent
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003229s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005405s ]
+
+[ 2016-07-27T22:24:52+08:00 ] 127.0.0.1 /Admin/Areacontent/addAreaContent
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004239s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006857s ]
+
+[ 2016-07-27T22:25:37+08:00 ] 127.0.0.1 /Admin/Areacontent/addAreaContent
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002189s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004379s ]
+
+[ 2016-07-27T22:26:11+08:00 ] 127.0.0.1 /Admin/Areacontent/addAreaContent
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.006855s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.009978s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_area_content` (`title`,`area_id`,`thumb`,`url`,`news_id`,`status`,`createtime`,`updatetime`) VALUES ('足协杯-特谢拉两球吉翔世界波 苏宁加时4-3建业','2','/Public/image/Uploads/2016-07-27/5798c47d62b95.jpg','http://sports.sina.com.cn/china/cfacup/2016-07-27/doc-ifxunyxy5704361.shtml','0','1','1469629571','1469629571') [ RunTime:0.0011s ]
+
+[ 2016-07-27T22:34:15+08:00 ] 127.0.0.1 /Admin/Areacontent/orderAreaContent
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002887s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005048s ]
+SQL: UPDATE `cms_area_content` SET `order`='0' WHERE `id` = 1 [ RunTime:0.0011s ]
+SQL: UPDATE `cms_area_content` SET `order`='0' WHERE `id` = 2 [ RunTime:0.0065s ]
+SQL: UPDATE `cms_area_content` SET `order`='0' WHERE `id` = 3 [ RunTime:0.0008s ]
+SQL: UPDATE `cms_area_content` SET `order`='8' WHERE `id` = 4 [ RunTime:0.0009s ]
+SQL: UPDATE `cms_area_content` SET `order`='0' WHERE `id` = 7 [ RunTime:0.0007s ]
+
+[ 2016-07-27T22:34:22+08:00 ] 127.0.0.1 /Admin/Areacontent/orderAreaContent
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003769s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006086s ]
+SQL: UPDATE `cms_area_content` SET `order`='8' WHERE `id` = 4 [ RunTime:0.0011s ]
+SQL: UPDATE `cms_area_content` SET `order`='8' WHERE `id` = 1 [ RunTime:0.0009s ]
+SQL: UPDATE `cms_area_content` SET `order`='0' WHERE `id` = 2 [ RunTime:0.0009s ]
+SQL: UPDATE `cms_area_content` SET `order`='0' WHERE `id` = 3 [ RunTime:0.0008s ]
+SQL: UPDATE `cms_area_content` SET `order`='0' WHERE `id` = 7 [ RunTime:0.0009s ]
+
+[ 2016-07-27T22:34:29+08:00 ] 127.0.0.1 /Admin/Areacontent/orderAreaContent
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003718s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005867s ]
+SQL: UPDATE `cms_area_content` SET `order`='8' WHERE `id` = 1 [ RunTime:0.0010s ]
+SQL: UPDATE `cms_area_content` SET `order`='8' WHERE `id` = 4 [ RunTime:0.0009s ]
+SQL: UPDATE `cms_area_content` SET `order`='9' WHERE `id` = 2 [ RunTime:0.0010s ]
+SQL: UPDATE `cms_area_content` SET `order`='0' WHERE `id` = 3 [ RunTime:0.0009s ]
+SQL: UPDATE `cms_area_content` SET `order`='0' WHERE `id` = 7 [ RunTime:0.0008s ]
+
+[ 2016-07-27T23:34:26+08:00 ] 127.0.0.1 /admin.php?c=positioncontent
+ERR: 无法加载控制器:Positioncontent
+
+[ 2016-07-27T23:35:02+08:00 ] 127.0.0.1 /admin.php?c=positioncontent
+ERR: 无法加载控制器:Positioncontent
+
+[ 2016-07-27T23:35:28+08:00 ] 127.0.0.1 /Admin/Areacontent/editAreaContent
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003782s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005967s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_area_content` (`title`,`area_id`,`thumb`,`url`,`news_id`,`status`,`createtime`,`updatetime`) VALUES ('再次推荐5号','2','/Public/image/Uploads/2016-07-27/5798c1b3c2be2.jpg','','5','0','1469633728','1469633728') [ RunTime:0.0250s ]
+
+[ 2016-07-27T23:36:51+08:00 ] 127.0.0.1 /Admin/Areacontent/editAreaContent
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002928s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005247s ]
+NOTIC: [8] Undefined index: validate E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\PHPProject\hfaw_news\news_cms\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cms_area_content` (`title`,`area_id`,`thumb`,`url`,`news_id`,`status`,`createtime`,`updatetime`) VALUES ('重磅推荐5号有图','2','/Public/image/Uploads/2016-07-27/5798c1b3c2be2.jpg','','5','1','1469633811','1469633811') [ RunTime:0.0011s ]
+

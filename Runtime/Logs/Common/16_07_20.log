@@ -1,0 +1,6 @@
+[ 2016-07-20T21:51:37+08:00 ] 127.0.0.1 /favicon.ico
+ERR: 无法加载模块:Favicon
+
+[ 2016-07-20T21:57:57+08:00 ] 127.0.0.1 /news_imooc/project-demo/news_cms/index.php/Admin/Index/check
+ERR: 无法加载模块:News_imooc
+
