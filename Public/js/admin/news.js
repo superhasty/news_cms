@@ -39,35 +39,6 @@ $(function(){
         }
     });
 
-    // 设置新闻可见性
-    $(".news_show_link").on('click', function(event){
-        event.preventDefault();
-        var url=$(this).attr('data-url');
-        var postData={
-            id: $(this).attr('attr-id'),
-        };
-        hfaw_dialog.confirm("是否更改新闻状态", updateNewsStatus);
-        function updateNewsStatus(){
-            $.ajax({
-                url: url,
-                type: 'POST',
-                dataType: 'json',
-                data: postData,
-            })
-            .done(function(result){
-                if(result.status==0){
-                    hfaw_dialog.success("设置新闻状态成功", result.data.url);
-                }else{
-                    hfaw_dialog.error("设置新闻状态失败,原因是"+result.msg, result.data.url);
-                }
-            })
-            .fail(function(){
-              hfaw_dialog.error("网络连接错误");  
-            });
-        }
-        
-    });
-
     /**
      * 新闻添加
      */
@@ -207,9 +178,37 @@ $(function(){
             }
         })
         .fail(function(){
-            hfaw_dialog.error("推送区域内容产生异常", rurl);
-        });
-        
+            hfaw_dialog.error("推送区域内容产生异常");
+        });     
     });
 
+
+    $(".status-switch-flag").on('click', function(event) {
+        event.preventDefault();
+        var url=$(this).attr('data-url');
+
+        var postData={
+            id: $(this).attr('attr-id'),
+            status: $(this).attr('attr-status')
+        };
+        hfaw_dialog.confirm("是否更改新闻状态", updateNewsStatus);
+        function updateNewsStatus(){
+            $.ajax({
+                url: url,
+                type: 'POST',
+                dataType: 'json',
+                data: postData,
+            })
+            .done(function(result){
+                if(result.status==0){
+                    hfaw_dialog.success("更改新闻状态成功", result.data.url);
+                }else{
+                    hfaw_dialog.error("更改新闻状态失败,原因是"+result.msg, result.data.url);
+                }
+            })
+            .fail(function(){
+              hfaw_dialog.error("网络连接错误");  
+            });
+        }
+    });
 });

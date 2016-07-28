@@ -79,7 +79,14 @@ class NewsController extends CommonController{
 			$desc = I("post.newsdescription");
 			$keywords = I("post.newskeywords");
 			//通过session读取管理员信息
-			$author = session("username")?session("username") : "";
+			$username = session("username")?session("username") : "";
+			$Admin=D("Admin");
+			$res = $Admin->getAdminByUserName($username);
+			if($res!==FALSE){
+				$author = $res["realname"];
+			}else{
+				$author = "匿名";
+			}
 			$newsInfo = array(
 				"title"=>$title,
 				"subtitle"=>$subtitle,
@@ -194,7 +201,14 @@ class NewsController extends CommonController{
 			$keywords = I("post.newskeywords");
 			$content = I("post.newscontent");
 			//通过session读取管理员信息
-			$author = session("username")?session("username") : "";
+			$username = session("username")?session("username") : "";
+			$Admin=D("Admin");
+			$res = $Admin->getAdminByUserName($username);
+			if($res!==FALSE){
+				$author = $res["realname"];
+			}else{
+				$author = "匿名";
+			}
 			$newsInfo = array(
 				"news_id"=>$newsId,
 				"title"=>$title,
@@ -240,9 +254,10 @@ class NewsController extends CommonController{
 		if(IS_POST){
 			$News = D("News");
 			$newsId = I("post.id/d");
+			$status = I("post.status");
 			if($newsId){
 				try{
-					$result = $News->updateNewsStatus($newsId, 0);
+					$result = $News->updateNewsStatus($newsId, $status);
 					if($result!==FALSE){
 						// $url=__CONTROLLER__."/index";
 						$url = I("server.http_referer");
@@ -329,7 +344,7 @@ class NewsController extends CommonController{
 							"updatetime" => time()
 						);
 						$res = $AreaContent->addData($areaContentData);
-						if($res===FALSE){
+						if($res["status"]!=0){
 							$errors[]=$newsInfo["news_id"];
 						}
 					}

@@ -15,16 +15,18 @@
       <div class="row">
         <div class="col-sm-9 col-md-9">
           <div class="banner">
+            <!-- 大图 -->
             <div class="banner-left">
               <a target="_blank" href="__MODULE__/detail/index/id/{$topBigNews[0]['news_id']}" title="{$topBigNews.0.title}">
                 <img src="{$topBigNews.0.thumb}" alt="{$topBigNews.0.title}">
               </a>
             </div>
+            <!-- 小图 -->
             <div class="banner-right">
               <ul>
                 <foreach name="topSmallNews" item="smallNews">
                   <li>
-                    <a target="_blank" href="__MODULE__/detail/index/id/{$smallNews.news_id]}" title="{$smallNews.title}">
+                    <a target="_blank" href="__MODULE__/detail/index/id/{$smallNews.news_id}" title="{$smallNews.title}">
                       <img src="{$smallNews.thumb}" alt="{$smallNews.title}">
                     </a>
                   </li>
@@ -32,73 +34,32 @@
               </ul>
             </div>
           </div>
+          <!-- 新闻列表 -->
           <div class="news-list">
               <foreach name="listNews" item="News">
                  <dl>
-                   <dt>{$News.title}</dt>
+                   <dt><a target="_blank" href="__MODULE__/detail/index/id/{$News.news_id}" style="color:{$News.titlecolor};">{$News.title}</a></dt>
                    <dd class="news-img">
-                     <img src="{$News.thumb}" alt="{$News.title}">
+                      <a target="_blank" href="__MODULE__/detail/index/id/{$News.news_id}">
+                        <img src="{$News.thumb}" alt="{$News.title}">
+                      </a>
                    </dd>
                    <dd class="news-intro">
                       {$News.description}
                    </dd>
                    <dd class="news-info">
-                     {$News.author}<span>{$News.updatetime|date="Y-m-d H:i:s",###}</span> 阅读({$News.count})
+                     {$News.keywords|str_replace="；","&nbsp;",###}<span>{$News.updatetime|date="Y-m-d H:i:s",###}</span> 阅读({$News.count})
                    </dd>
                  </dl>
              </foreach>
-             <!-- <dl>
-               <dt>一个悲伤的故事，马云彻底被王兴抛弃了</dt>
-               <dd class="news-img">
-                 <img src="__PUBLIC__/image/Home/img4.jpg" alt="">
-               </dd>
-               <dd class="news-intro">
-                 手段太刚猛，吃不消，美团这块肉，马云注定无福消遣。
-               </dd>
-               <dd class="news-info">
-                 秋远俊二 <span>15:22</span> 阅读(1万)
-               </dd>
-             </dl>
-             <dl>
-               <dt>一个悲伤的故事，马云彻底被王兴抛弃了</dt>
-               <dd class="news-img">
-                 <img src="__PUBLIC__/image/Home/img4.jpg" alt="">
-               </dd>
-               <dd class="news-intro">
-                 手段太刚猛，吃不消，美团这块肉，马云注定无福消遣。
-               </dd>
-               <dd class="news-info">
-                 秋远俊二 <span>15:22</span> 阅读(1万)
-               </dd>
-             </dl>
-             <dl>
-               <dt>一个悲伤的故事，马云彻底被王兴抛弃了</dt>
-               <dd class="news-img">
-                 <img src="__PUBLIC__/image/Home/img4.jpg" alt="">
-               </dd>
-               <dd class="news-intro">
-                 手段太刚猛，吃不消，美团这块肉，马云注定无福消遣。
-               </dd>
-               <dd class="news-info">
-                 秋远俊二 <span>15:22</span> 阅读(1万)
-               </dd>
-             </dl> -->
           </div>
         </div>
         <div class="col-sm-3 col-md-3">  
-          <include file="Index/right" />
+          <include file="Index/right" adNews="$adNews"/>
         </div>
      </div>
     </div>
   </section>
-  <footer>
-    <div class="row">
-      <div class="col-sm-12 col-lg-12">
-        <li>微博</li>
-        <li>微信</li>
-        <li>下载</li>
-      </div>
-    </div>
-  </footer>
+  <include file="Index/footer" rankNews="$rankNews"/>
 </body>
 </html>

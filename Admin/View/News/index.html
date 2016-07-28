@@ -112,7 +112,7 @@
 						                    <td>{$news.createtime|date="Y-m-d H:i:s",###}</td>
 						                    <td>{$news.updatetime|date="Y-m-d H:i:s",###}</td>
 						                    <td>
-						                    	<span attr-id="{$news.news_id}" class="cursor status-switch-flag">{$news.status|parseStatus}</span>
+						                    	<span attr-status="<if condition="$news['status'] eq 0">1<else />0</if>" attr-id="{$news.news_id}" data-url="__CONTROLLER__/updateStatus/id/{$news.news_id}" class="cursor status-switch-flag">{$news.status|parseStatus}</span>
 						                    </td>
 						                    <td>
 							                    <a href="javascript:void(0)" attr-id="{$news.news_id}" class="news_edit_link" data-url="__CONTROLLER__/editNews/id/{$news.news_id}" attr-message="编辑">
@@ -121,10 +121,9 @@
 					                      		<a href="javascript:void(0)" attr-id="{$news.news_id}" class="news_delete_link" data-url="__CONTROLLER__/deleteNews/id/{$news.news_id}" attr-message="删除">
 					                        		<span class="icon icon-remove-circle" aria-hidden="true"></span>
 					                      		</a>
-					              				<a href="javascript:void(0)" attr-id="{$news.news_id}" class="news_show_link" data-url="__CONTROLLER__/updateStatus/id/{$news.news_id}" attr-message="隐藏">
+					              				<!-- <a href="javascript:void(0)" attr-id="{$news.news_id}" class="news_show_link" data-url="__CONTROLLER__/updateStatus/id/{$news.news_id}" attr-message="隐藏">
 					              		  			<span class="icon icon-eye-open" aria-hidden="true"></span>
-					              				</a>
-						                      	<!-- <a target="_blank" href="/index.php?c=detail&a=view&id={$new.news_id}" class="sing_cursor icon icon-eye-open" aria-hidden="true" ></a> -->
+					              				</a> -->
 						                    </td>
 						                </tr>
 					                </foreach>

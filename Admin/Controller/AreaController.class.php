@@ -98,14 +98,6 @@ class AreaController extends CommonController{
 	}
 
 	/**
-	 * 排序推送区域
-	 * @return [type] [description]
-	 */
-	// public function orderArea(){
-
-	// }
-
-	/**
 	 * 改变区域显示状态
 	 * @return [type] [description]
 	 */
@@ -113,9 +105,10 @@ class AreaController extends CommonController{
 		if(IS_POST){
 			$Area = D("Area");
 			$areaId = I("post.id/d");
+			$status = I("post.status");
 			if($areaId){
 				try{
-					$result = $Area->updateAreaStatus($areaId, 0);
+					$result = $Area->updateAreaStatus($areaId, $status);
 					if($result!==FALSE){
 						$url=__CONTROLLER__."/index";
 					}else{

@@ -150,7 +150,7 @@ class AreaModel extends Model{
 	 * @param  [type] $status [description]
 	 * @return [type]         [description]
 	 */
-	public function updateMenuStatus($areaId,$status){
+	public function updateAreaStatus($areaId,$status){
 		if(is_null($areaId) || !is_numeric($areaId)){
 			E("更改区域状态时传入的区域ID不合法");
 		}elseif(is_null($status) || !is_numeric($status)){

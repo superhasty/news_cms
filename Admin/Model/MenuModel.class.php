@@ -116,7 +116,7 @@ class MenuModel extends Model{
 			"type" => array("eq", 0),
 			"status" => array("eq", 1),
 		);
-		return $this->where($condition)->select();
+		return $this->where($condition)->order("`order` desc, menu_id asc")->select();
 	}
 
 	public function getWebSiteMenuNames(){

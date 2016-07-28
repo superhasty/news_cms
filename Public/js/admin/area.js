@@ -92,5 +92,35 @@ $(function(){
 		});
 	});
 
-
+	/**
+	 * 设置区域的状态
+	 */
+	$(".status-switch-flag").on('click', function(event) {
+	    event.preventDefault();
+	    var url=$(this).attr('data-url');
+	    var postData={
+	        id: $(this).attr('attr-id'),
+	        status: $(this).attr('attr-status')
+	    };
+	    console.log(postData);
+	    hfaw_dialog.confirm("是否更改区域状态", updateAreaStatus);
+	    function updateAreaStatus(){
+	        $.ajax({
+	            url: url,
+	            type: 'POST',
+	            dataType: 'json',
+	            data: postData,
+	        })
+	        .done(function(result){
+	            if(result.status==0){
+	                hfaw_dialog.success("更改区域状态成功", result.data.url);
+	            }else{
+	                hfaw_dialog.error("更改区域状态失败,原因是"+result.msg, result.data.url);
+	            }
+	        })
+	        .fail(function(){
+	          hfaw_dialog.error("网络连接错误");  
+	        });
+	    }
+	});
 })

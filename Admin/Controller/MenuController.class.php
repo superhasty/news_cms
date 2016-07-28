@@ -94,7 +94,10 @@ class MenuController extends CommonController{
 		$Menu = D("Menu");
 		$this->assign("nav_title","修改");
 		if(IS_GET){
-			$menuId=I("get.id",-1);
+			$menuId=I("get.id/d");
+			if(!$menuId || !is_numeric($menuId)){
+				$this->redirect("index");
+			}
 			$menuInfo=$Menu->getMenuInfoById($menuId);
 			$this->assign("menuInfo",$menuInfo);
 			$this->display();
@@ -119,11 +122,12 @@ class MenuController extends CommonController{
 			);
 			$result = $Menu->modifyMenu($menuInfo);
 			if($result["status"]==0){
-				$url=__CONTROLLER__."/index";
+				$url = __CONTROLLER__."/index";
+				// $url = I("sever.http_referer");
 			}else{
-				$url=__CONTROLLER__."/".__FUNCTION__;
+				$url = __CONTROLLER__."/".__FUNCTION__;
 			}
-			return AJAXResult($result["status"],$result["msg"],array("url"=>$url));
+			return AJAXResult($result["status"], $result["msg"], array("url"=>$url));
 		}
 	}
 
@@ -189,9 +193,10 @@ class MenuController extends CommonController{
 		if(IS_POST){
 			$Menu = D("Menu");
 			$menuId = I("post.id/d");
+			$status = I("post.status");
 			if($menuId){
 				try{
-					$result = $Menu->updateMenuStatus($menuId, 0);
+					$result = $Menu->updateMenuStatus($menuId, $status);
 					if($result!==FALSE){
 						// $url=__CONTROLLER__."/index";
 						$url=I("server.http_referer");

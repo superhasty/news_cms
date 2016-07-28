@@ -66,12 +66,8 @@
 				                                <td>{$areaInfo.createtime|date="Y-m-d H:i:s",###}</td>
 				                                <td>{$areaInfo.updatetime|date="Y-m-d H:i:s",###}</td>
 				                                <td>
-				                                	<span attr-status="
-				                                		<if condition="$areaInfo['status'] eq 1">
-				                                			0
-				                                		<else />
-				                                			1
-				                                		</if>" attr-id="{$areaInfo.id}" class="sing_cursor singcms-on-off" id="singcms-on-off" >{$areaInfo.status|parseStatus}</span>
+				                                	<span attr-status="<if condition="$areaInfo['status'] eq 1">0<else />1</if>"
+				                                		attr-id="{$areaInfo.id}" data-url="__CONTROLLER__/updateStatus/id/{$areaInfo.id}" class="cursor status-switch-flag">{$areaInfo.status|parseStatus}</span>
 				                                </td>
 				                                <td>
 				                                    <a href="javascript:void(0)" attr-id="{$areaInfo.id}" class="area_edit_link" data-url="__CONTROLLER__/editArea/id/{$areaInfo.id}" attr-message="编辑">

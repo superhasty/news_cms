@@ -7,7 +7,7 @@ class NewsModel extends Model{
 
 	protected $_validate = array(
 		array("title","require","新闻标题必须存在"),
-		array('description','require','新闻简介必须存在'),
+		// array('description','require','新闻简介必须存在'),
 		// array('copyfrom','array(0,1,2,3,4)','菜单类型必须存在',2,'in'),
 		array('copyfrom','require','新闻来源必须存在'),
 	);
@@ -158,10 +158,12 @@ class NewsModel extends Model{
 	 * @param  [type] $count    [description]
 	 * @return [type]           [description]
 	 */
-	public function getRankData($count=30){
+	public function getRankNews($count=10){
 		$conditon=array(
 			"status" => array("eq", 1),
+			"description" => array("neq", ""),
 		);
-		return $this->where($conditon)->order("count desc, `order` desc, news_id desc")->limit($count)->select();
+		return $this->where($conditon)->order("`order` desc, count desc, news_id desc")->limit($count)->select();
+		// dump($this->fetchSql(true)->where($conditon)->order("`order` desc, count desc, news_id desc")->limit($count)->select());
 	}
 }
