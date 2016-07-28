@@ -236,4 +236,31 @@ class AreacontentController extends CommonController{
 			$this->redirect("index");
 		}
 	}
+
+	public function updateStatus(){
+		if(IS_POST){
+			$AreaContent = D("AreaContent");
+			$areacontentId = I("post.id/d");
+			$areacontentstatus = I("post.status/d");
+			if($areacontentId){
+				try{
+					$result = $AreaContent->updateAreaContentStatus($areacontentId, $areacontentstatus);
+					if($result!==FALSE){
+						// $url=__CONTROLLER__."/index";
+
+						$url = I("server.http_referer");
+					}else{
+						$url=__CONTROLLER__."/".__FUNCTION__;
+					}
+				}catch(Exception $e){
+					return AJAXResult(2,"更新区域内容状态产生异常",array("url"=>$url));
+				}
+				return AJAXResult(0,"更新区域内容状态成功",array("url"=>$url));
+			}else{
+				return AJAXResult(1,"未指定修改的区域内容ID号",array("url"=>$url));
+			}
+		}else{
+			$this->redirect("index");
+		}
+	}
 }

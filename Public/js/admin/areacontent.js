@@ -129,4 +129,34 @@ $(function(){
 		    hfaw_dialog.error("网络连接错误");
 		});
 	});
+
+
+	//状态切换
+	$(".status-switch-flag").on('click', function(event) {
+		event.preventDefault();
+		var url=$(this).attr('data-url');
+		var postData={
+		    id: $(this).attr('attr-id'),
+		    status: $(this).attr('attr-status')
+		};
+		hfaw_dialog.confirm("是否更改区域内容状态", updateNewsStatus);
+		function updateNewsStatus(){
+		    $.ajax({
+		        url: url,
+		        type: 'POST',
+		        dataType: 'json',
+		        data: postData,
+		    })
+		    .done(function(result){
+		        if(result.status==0){
+		            hfaw_dialog.success("设置区域内容状态成功", result.data.url);
+		        }else{
+		            hfaw_dialog.error("设置区域内容状态失败,原因是"+result.msg, result.data.url);
+		        }
+		    })
+		    .fail(function(){
+		      hfaw_dialog.error("网络连接错误");  
+		    });
+		}
+	});
 })

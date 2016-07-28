@@ -121,4 +121,32 @@ $(function(){
 			hfaw_dialog.error("菜单重新排序产生异常", rurl);//,原因是"+result.msg, result.data.url);
 		});
 	});
+
+	$(".status-switch-flag").on('click', function(event) {
+		event.preventDefault();
+		var url=$(this).attr('data-url');
+		var postData={
+		    id: $(this).attr('attr-id'),
+		    status: $(this).attr('attr-status')
+		};
+		hfaw_dialog.confirm("是否更改菜单状态", updateMenuStatus);
+		function updateMenuStatus(){
+		    $.ajax({
+		        url: url,
+		        type: 'POST',
+		        dataType: 'json',
+		        data: postData,
+		    })
+		    .done(function(result){
+		        if(result.status==0){
+		            hfaw_dialog.success("更改菜单状态成功", result.data.url);
+		        }else{
+		            hfaw_dialog.error("更改菜单状态失败,原因是"+result.msg, result.data.url);
+		        }
+		    })
+		    .fail(function(){
+		      hfaw_dialog.error("网络连接错误");  
+		    });
+		}
+	});
 });

@@ -138,4 +138,30 @@ class NewsModel extends Model{
 			return $this->where($condition)->save($data);
 		}
 	}
+
+	public function pullData($condition, $number=15){
+		if(is_null($condition) || !is_array($condition)){
+			E("拉取数据时传入的参数有误");
+		}else{
+			try{
+				return $this->where($condition)->order("`order` desc, updatetime desc")->limit($number)->select();
+			}catch(Exception $e){
+				return null;
+			}
+		}
+	}
+
+
+	/**
+	 * 获取当前阅读最活跃的文章
+	 * @param  [type] $conditon [description]
+	 * @param  [type] $count    [description]
+	 * @return [type]           [description]
+	 */
+	public function getRankData($count=30){
+		$conditon=array(
+			"status" => array("eq", 1),
+		);
+		return $this->where($conditon)->order("count desc, `order` desc, news_id desc")->limit($count)->select();
+	}
 }

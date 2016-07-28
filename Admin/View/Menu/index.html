@@ -90,7 +90,18 @@
 		                        	    <td>{$menu.controller}</td>
 		                        	    <td>{$menu.action}</td>
 		                        	    <td>{$menu.type|getMenuTypeName}</td>
-		                        	    <td>{$menu.status|parseStatus}</td>
+		                        	    <td>
+		                        	        <span attr-status="
+		                        	        	<if condition="$menu['status'] eq 1">
+		                        	        		0
+		                        	        	<else />
+		                        	        		1
+		                        	        	</if>" 
+		                        	        	attr-id="{$menu.menu_id}" data-url="__CONTROLLER__/updateStatus/id/{$menu.menu_id}" class="cursor status-switch-flag">
+		                        	        	{$menu.status|parseStatus}
+		                        	        </span>
+		                        	    </td>
+		                        	    <!-- <td>{$menu.status|parseStatus}</td> -->
 		                        	    <td>
 		                        	    	<a href="javascript:void(0)" attr-id="{$menu.menu_id}" class="menu_modify_link" data-url="__CONTROLLER__/modifyMenu/id/{$menu.menu_id}" attr-message="编辑">
 		                        	    		<span class="icon icon-edit" aria-hidden="true"></span>

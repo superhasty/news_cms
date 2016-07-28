@@ -244,7 +244,8 @@ class NewsController extends CommonController{
 				try{
 					$result = $News->updateNewsStatus($newsId, 0);
 					if($result!==FALSE){
-						$url=__CONTROLLER__."/index";
+						// $url=__CONTROLLER__."/index";
+						$url = I("server.http_referer");
 					}else{
 						$url=__CONTROLLER__."/".__FUNCTION__;
 					}
@@ -345,4 +346,5 @@ class NewsController extends CommonController{
 			$this->redirect("index");
 		}
 	}
+	
 }

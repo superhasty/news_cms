@@ -16,24 +16,38 @@
         <div class="col-sm-9 col-md-9">
           <div class="banner">
             <div class="banner-left">
-              <img src="__PUBLIC__/image/Home/banner.jpg" alt="">
+              <a target="_blank" href="__MODULE__/detail/index/id/{$topBigNews[0]['news_id']}" title="{$topBigNews.0.title}">
+                <img src="{$topBigNews.0.thumb}" alt="{$topBigNews.0.title}">
+              </a>
             </div>
             <div class="banner-right">
               <ul>
-                <li>
-                  <img src="__PUBLIC__/image/Home/img1.jpg" alt="">
-                </li>
-                <li>
-                  <img src="__PUBLIC__/image/Home/img1.jpg" alt="">
-                </li>
-                <li>
-                  <img src="__PUBLIC__/image/Home/img1.jpg" alt="">
-                </li>
+                <foreach name="topSmallNews" item="smallNews">
+                  <li>
+                    <a target="_blank" href="__MODULE__/detail/index/id/{$smallNews.news_id]}" title="{$smallNews.title}">
+                      <img src="{$smallNews.thumb}" alt="{$smallNews.title}">
+                    </a>
+                  </li>
+                </foreach>
               </ul>
             </div>
           </div>
           <div class="news-list">
-             <dl>
+              <foreach name="listNews" item="News">
+                 <dl>
+                   <dt>{$News.title}</dt>
+                   <dd class="news-img">
+                     <img src="{$News.thumb}" alt="{$News.title}">
+                   </dd>
+                   <dd class="news-intro">
+                      {$News.description}
+                   </dd>
+                   <dd class="news-info">
+                     {$News.author}<span>{$News.updatetime|date="Y-m-d H:i:s",###}</span> 阅读({$News.count})
+                   </dd>
+                 </dl>
+             </foreach>
+             <!-- <dl>
                <dt>一个悲伤的故事，马云彻底被王兴抛弃了</dt>
                <dd class="news-img">
                  <img src="__PUBLIC__/image/Home/img4.jpg" alt="">
@@ -68,19 +82,7 @@
                <dd class="news-info">
                  秋远俊二 <span>15:22</span> 阅读(1万)
                </dd>
-             </dl>
-             <dl>
-               <dt>一个悲伤的故事，马云彻底被王兴抛弃了</dt>
-               <dd class="news-img">
-                 <img src="__PUBLIC__/image/Home/img4.jpg" alt="">
-               </dd>
-               <dd class="news-intro">
-                 手段太刚猛，吃不消，美团这块肉，马云注定无福消遣。
-               </dd>
-               <dd class="news-info">
-                 秋远俊二 <span>15:22</span> 阅读(1万)
-               </dd>
-             </dl>
+             </dl> -->
           </div>
         </div>
         <div class="col-sm-3 col-md-3">  
@@ -89,5 +91,14 @@
      </div>
     </div>
   </section>
+  <footer>
+    <div class="row">
+      <div class="col-sm-12 col-lg-12">
+        <li>微博</li>
+        <li>微信</li>
+        <li>下载</li>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

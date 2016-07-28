@@ -107,4 +107,39 @@ class AreaContentModel extends Model{
 		}
 		return array("status"=>$status,"msg"=>$msg,"data"=>$data);
 	}
+
+	/**
+	 * 更新指定ID的区域内容的状态
+	 * @param  [type] $areacontentId [description]
+	 * @param  [type] $status        [description]
+	 * @return [type]                [description]
+	 */
+	public function updateAreaContentStatus($areacontentId, $status){
+		if(is_null($areacontentId) || !is_numeric($areacontentId)){
+			E("更改区域内容状态时传入的区域内容ID不合法");
+		}elseif(is_null($status) || !is_numeric($status)){
+			E("更改区域内容状态时传入的状态值不合法");
+		}else{
+			$condition=array(
+				"id" => array("eq", $areacontentId),
+			);
+			$data=array(
+				"status" => $status
+			);
+			return $this->where($condition)->save($data);
+		}
+	}
+
+
+	public function pullData($condition, $number=1){
+		if(is_null($condition) || !is_array($condition)){
+			E("拉取数据时传入的参数有误");
+		}else{
+			try{
+				return $this->where($condition)->order("`order` desc, updatetime desc")->limit($number)->select();
+			}catch(Exception $e){
+				return null;
+			}
+		}
+	}
 }

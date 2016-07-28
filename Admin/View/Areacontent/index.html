@@ -109,7 +109,7 @@
 		                                    	<else />
 		                                    		1
 		                                    	</if>" 
-		                                    	attr-id="{$content.id}" class="singcms-on-off" id="singcms-on-off">
+		                                    	attr-id="{$content.id}" data-url="__CONTROLLER__/updateStatus/id/{$news.news_id}" class="cursor status-switch-flag">
 		                                    	{$content.status|parseStatus}
 		                                    </span>
 		                                </td>

@@ -13,6 +13,10 @@ body{
 	color:#fff;
 	line-height: 36px;
 }
+.navbar-inverse .navbar-nav>li>a:hover,
+.navbar-inverse .navbar-nav>li>a.curr:hover{
+	background: #f93;
+}
 .navbar-inverse .navbar-nav>li>a.curr{
 	border-bottom:2px solid #e54e47;
 	padding-bottom: 13px;
@@ -101,6 +105,11 @@ body{
 .banner-right li:last-child{
 	padding-bottom: 0;
 }
+
+.banner-right li img{
+	width: 100%;
+}
+
 .news-list dl{
 	position: relative;
 	padding: 38px 0;
@@ -112,6 +121,10 @@ body{
 	left: 0;
 	top: 38px;
 	margin: 0;
+	max-width: 200px;
+}
+.news-list dd img{
+	width: 100%;
 }
 .news-list dt,.news-list dd{
 	margin-left: 220px;

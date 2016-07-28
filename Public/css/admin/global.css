@@ -36,5 +36,9 @@
   min-height: 100%;
   padding: 0;
 }
-.sing_cursor{cursor:pointer}
-.sing_green{color:#308014}
+.cursor{
+  cursor:pointer
+}
+.sing_green{
+  color:#308014
+}
