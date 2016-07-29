@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>sing资讯</title>
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/index.css">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/global.css">
+  <!-- javascript -->
+  <script type="text/javascript" src="__PUBLIC__/js/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<include file="Index/header" barMenus="$barMenus" curId="{$curId}" />
+	<section>
+		<div class="container">
+			<h1>{$message}</h1>
+			<h3 id="location" data-url="__MODULE__/index/index">系统将在<span style="color:red;">3</span>秒后自动跳转到首页</h3>
+		</div>
+	</section>
+</body>
+<script type="text/javascript">
+	var time=3;
+	var url=$("#location").attr('data-url');
+	setInterval(refer,1000);
+	function refer(){
+		if(time==0){
+			location.href=url;
+		}
+		$("#location span").html(time);
+		time--;
+	}
+</script>
+</html>

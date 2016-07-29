@@ -1,10 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title></title>
+  <meta charset="UTF-8">
+  <title>sing资讯</title>
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/index.css">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/global.css">
 </head>
 <body>
-	
+  <include file="Index/header" barMenus="$barMenus" curId="{$curId}" />
+<section>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9 col-md-9">
+          <!-- 新闻列表 -->
+          <div class="news-list">
+              <foreach name="listNews" item="News">
+                 <dl>
+                   <dt><a target="_blank" href="__MODULE__/detail/index/id/{$News.news_id}" style="color:{$News.titlecolor};">{$News.title}</a></dt>
+                   <dd class="news-img">
+                      <a target="_blank" href="__MODULE__/detail/index/id/{$News.news_id}">
+                        <img src="{$News.thumb}" alt="{$News.title}">
+                      </a>
+                   </dd>
+                   <dd class="news-intro">
+                      {$News.description}
+                   </dd>
+                   <dd class="news-info">
+                     {$News.keywords|str_replace="；","&nbsp;",###}<span>{$News.updatetime|date="Y-m-d H:i:s",###}</span> 阅读({$News.count})
+                   </dd>
+                 </dl>
+             </foreach>
+          </div>
+        </div>
+        <div class="col-sm-3 col-md-3">  
+          <include file="Index/right" adNews="$adNews"/>
+        </div>
+     </div>
+    </div>
+  </section>
 </body>
 </html>

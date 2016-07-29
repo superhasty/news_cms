@@ -3,8 +3,12 @@
 namespace Home\Controller;
 use Think\Controller;
 
-class EnglandController extends Controller{
+class EnglandController extends CommonController{
 	public function index(){
-		$this->display();
+		if(IS_POST){
+			$this->redirect("index/index");
+		}else{
+			$this->getColumn();
+		}
 	}
 }

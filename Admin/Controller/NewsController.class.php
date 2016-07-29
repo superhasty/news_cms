@@ -108,7 +108,8 @@ class NewsController extends CommonController{
 				$NewsContent = D("NewsContent");
 				$contentInfo = array(
 					"news_id" => $result["data"]["id"],
-					"content" => htmlspecialchars(I("post.newscontent")),
+					// "content" => htmlspecialchars(I("post.newscontent")),
+					"content" => I("post.newscontent"),
 					"createtime" => time(),
 					"updatetime" => time()
 				);
@@ -230,7 +231,8 @@ class NewsController extends CommonController{
 				$NewsContent = D("NewsContent");
 				$contentInfo = array(
 					"news_id" => $newsId,
-					"content" => htmlspecialchars($content),
+					// "content" => htmlspecialchars($content),
+					"content" => I("post.newscontent"),
 					"updatetime" => time()
 				);
 				$result = $NewsContent->editContent($contentInfo);
