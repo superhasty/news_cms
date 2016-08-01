@@ -296,7 +296,7 @@ class NewsController extends CommonController{
 							$errors[]=$newsId;
 						}
 					}
-				}catch(Exception $e){
+				}catch(\Exception $e){
 					return AJAXResult(3, "排序失败--".implode(",",$errors).",发生异常:".$e->getMessage(), array("url"=>$url));
 				}
 				if($errors){

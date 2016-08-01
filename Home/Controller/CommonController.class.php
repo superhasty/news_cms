@@ -7,6 +7,7 @@ class CommonController extends Controller{
 	public function __construct(){
 		header("Content-type:text/html;charset=utf-8");
 		parent::__construct();
+		$this->assign("basicWebConfig", F("basic_web_config"));
 	}
 
 	public function getRankNews(){

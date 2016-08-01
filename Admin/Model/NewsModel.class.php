@@ -128,6 +128,7 @@ class NewsModel extends Model{
 	public function updateNewsOrderById($order, $newsId){
 		if(is_null($newsId)|| !is_numeric($newsId) || ($order<0)){
 			E("更改新闻排序时传入的新闻ID或者排序值不合法");
+			// throw_exception("更改新闻排序时传入的新闻ID或者排序值不合法");
 		}else{
 			$data=array(
 				"order"=> intval($order),

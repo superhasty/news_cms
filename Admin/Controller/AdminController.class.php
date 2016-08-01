@@ -9,19 +9,19 @@ class AdminController extends CommonController{
 		
 	}
 
-	public function addUser(){
+	public function addAdmin(){
 
 	}
 
-	public function deleteUser(){
+	public function deleteAdmin(){
 
 	}
 
-	public function changePwd(){
+	public function changeAdminPwd(){
 
 	}
 
-	public function changeUserRealName(){
+	public function changeAdminRealName(){
 
 	}
 

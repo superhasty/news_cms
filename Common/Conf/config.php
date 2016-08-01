@@ -24,4 +24,5 @@ return array(
 	// 'TMPL_EXCEPTION_FILE'   =>  '',// 异常页面的模板文件
 	
 	"RANK_COUNT"        => 10,
+	"HTML_FILE_SUFFIX"  => '.html',
 );

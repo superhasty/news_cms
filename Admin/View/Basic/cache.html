@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{$basicWebConfig.title}</title>
+	<meta name="keywords" content="{$basicWebConfig.keywords}">
+	<meta name="description" content="{$basicWebConfig.description}">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap-switch.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/index.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/morris.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/global.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/upload.css">
+	<!-- javascript -->
+	<script type="text/javascript" src="__PUBLIC__/js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/layer/layer.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/dialog.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/admin/basic.js"></script>
+</head>
+<body>
+	<div id="wrapper">
+		<include file="Index/nav"/>
+		<div id="page-wrapper">
+			<div class="container-fluid">
+				<!-- Page Heading -->
+				<include file="basic/button"/>
+				<!-- /.row -->
+				<div class="row">
+					<div class="col-lg-offset-4 col-sm-offset-4 col-lg-8 col-sm-8">
+						<div class="form-group">
+							<label class="col-sm-4 control-label">更新首页缓存:</label>
+							<div class="col-sm-8">
+								<button data-url="/home/index/buildStaticHTML" type="button" class="btn btn-info" id="cache-index">确定更新</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /.row -->
+			</div>
+			<!-- /.container-fluid -->
+		</div>
+		<!-- /#page-wrapper -->
+	</div>
+</body>
+</html>

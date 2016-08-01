@@ -49,7 +49,14 @@ class DetailController extends CommonController{
         	$this->assign("barMenus",$MenuInfo);
         	$this->assign("NewsInfo",$NewsInfo);
         	$this->assign("curId",$NewsInfo["program_id"]);
-			$this->display();
+			$this->display("detail:index");
+		}	
+	}
+
+	public function view(){
+		if(!getLoginAdminName()){
+			$this->toErrorPage();
 		}
+		$this->index();
 	}
 }

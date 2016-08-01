@@ -27,8 +27,14 @@ class BasicController extends CommonController{
 				}
 			}
 		}else{
+			$this->assign("type",1);
 			$this->display();
 		}
+	}
+
+	public function cache(){
+		$this->assign("type",2);
+		$this->display();
 	}
 
 }

@@ -133,3 +133,14 @@ function getProgramName($programId){
 function getCopyFromName($copyfromId){
 	return C("NEWS_COPY_FROM")[$copyfromId];
 }
+
+function isLoginAdmin(){
+	if(session("username")){
+		return true;
+	}
+	return false;
+}
+
+function getLoginAdminName(){
+	return session("username")?session("username"):"";
+}
